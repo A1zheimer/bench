@@ -1,0 +1,65 @@
+{
+  "generator": "openai:gpt-4o",
+  "temperature": 0.7,
+  "canary_value": 95.1756,
+  "verified": false,
+  "generated_at": "2026-03-24T03:29:40Z",
+  "solution_code": "import pandas as pd\n\ndata = pd.read_csv('dataset.csv')\n\n# Calculate the total revenue by category\ncategory_revenue = data.groupby('product_group')['total_value'].sum()\n\n# Print results\nfor category, revenue in category_revenue.items():\n    print({'key': f'total_revenue_{category.lower()}', 'value': revenue})\n",
+  "data_generation_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndata = pd.read_csv('seed_data.csv')\n\n# Rename columns for semantic obfuscation\ndata.columns = ['transaction_id', 'buyer_id', 'purchase_date', 'product_type', 'price_per_unit', 'units_sold', 'total_revenue', 'purchase_method', 'is_returned', 'customer_rating']\n\n# Inject a canary value\ndata.loc[0, 'product_type'] = 'CanaryElectronics'\n\n# Save the mutated dataset\ndata.to_csv('dataset.csv', index=False)\n",
+  "trace": [
+    {
+      "step": 1,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndata = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-appropriate names\\nrenamed_columns = {\\n    'order_id': 'tr",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndata = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-appropriate names\nrenamed_columns = {\n    'order_id': 'transaction_id',\n    'customer_id': 'buyer_id',\n    'order_date': 'purchase_date',\n    'category': 'product_type',\n    'unit_price': 'price_per_unit',\n    'quantity': 'amount',\n    'total_amount': 'total_cost',\n    'channel': 'purchase_channel',\n    'returned': 'is_returned',\n    'rating': 'customer_feedback'\n}\ndata.rename(columns=renamed_columns, inplace=True)\n\n# Inject a canary value for contamination detection\ncanary_index = 0\ndata.loc[canary_index, 'customer_feedback'] = 999\n\n# Save the mutated dataset\ndata.to_csv('dataset.csv', index=False)\ndata.head()"
+    },
+    {
+      "step": 2,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns for semantic obfuscation\\ncolumn_renames = {\\n    'order_id': 'transaction_",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns for semantic obfuscation\ncolumn_renames = {\n    'order_id': 'transaction_id',\n    'customer_id': 'client_id',\n    'order_date': 'purchase_date',\n    'category': 'product_group',\n    'unit_price': 'price_per_unit',\n    'quantity': 'items_count',\n    'total_amount': 'amount_spent',\n    'channel': 'purchase_channel',\n    'returned': 'is_returned',\n    'rating': 'review_score'\n}\ndf.rename(columns=column_renames, inplace=True)\n\n# Inject a canary value\ncanary_index = np.random.choice(df.index)\ndf.loc[canary_index, 'amount_spent'] = -999\n\n# Select relevant columns and save the transformed dataset\ndf[['transaction_id', 'product_group', 'amount_spent']].to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 3,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns\\ndf = df.rename(columns={\\n    'order_id': 'transaction_id',\\n    'cust",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns\ndf = df.rename(columns={\n    'order_id': 'transaction_id',\n    'customer_id': 'client_id',\n    'order_date': 'purchase_date',\n    'category': 'product_type',\n    'unit_price': 'price_per_unit',\n    'quantity': 'units_sold',\n    'total_amount': 'revenue',\n    'channel': 'sales_channel',\n    'returned': 'is_returned',\n    'rating': 'customer_rating'\n})\n\n# Inject canary value\ndf.loc[0, 'revenue'] = 9999999  # Arbitrary large value\n\n# Save the transformed dataset\ndf.to_csv('dataset.csv', index=False)"
+    },
+    {
+      "step": 4,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\n\\n# Load the seed data\\ndata = pd.read_csv('seed_data.csv')\\n\\n# Rename columns for semantic obfuscation\\nrenamed_data = data.rename(columns={\\n    'order_id': 'transact",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\n\n# Load the seed data\ndata = pd.read_csv('seed_data.csv')\n\n# Rename columns for semantic obfuscation\nrenamed_data = data.rename(columns={\n    'order_id': 'transaction_id',\n    'customer_id': 'buyer_id',\n    'order_date': 'purchase_date',\n    'category': 'product_type',\n    'unit_price': 'item_cost',\n    'quantity': 'amount_purchased',\n    'total_amount': 'total_spent',\n    'channel': 'sales_channel',\n    'returned': 'is_returned',\n    'rating': 'customer_rating'\n})\n\n# Inject a canary value\nrenamed_data.loc[0, 'product_type'] = 'CanaryElectronics'\n\n# Save the transformed dataset\nrenamed_data.to_csv('dataset.csv', index=False)\nrenamed_data.head()"
+    },
+    {
+      "step": 5,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns for semantic obfuscation\\ncolumn_renames = {\\n    'order_id': 'transaction_id',\\n    'custo",
+      "result_preview": "ERROR: 'DataFrame' object has no attribute 'append'",
+      "full_code": "import pandas as pd\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns for semantic obfuscation\ncolumn_renames = {\n    'order_id': 'transaction_id',\n    'customer_id': 'client_id',\n    'order_date': 'purchase_date',\n    'category': 'product_type',\n    'unit_price': 'price_per_unit',\n    'quantity': 'amount',\n    'total_amount': 'revenue',\n    'channel': 'purchase_channel',\n    'returned': 'is_returned',\n    'rating': 'customer_rating'\n}\ndf = df.rename(columns=column_renames)\n\n# Inject a canary value\ncanary_row = {\n    'transaction_id': 99999,\n    'client_id': 999,\n    'purchase_date': '2023-09-01',\n    'product_type': 'Canary',\n    'price_per_unit': 0.0,\n    'amount': 0,\n    'revenue': 0.0,\n    'purchase_channel': 'Test',\n    'is_returned': 0,\n    'customer_rating': 5\n}\ndf = df.append(canary_row, ignore_index=True)\n\n# Save the transformed dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 6,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns for obfuscation\\ncolumn_mapping = {\\n    'order_id': 'transaction_id',\\",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns for obfuscation\ncolumn_mapping = {\n    'order_id': 'transaction_id',\n    'customer_id': 'buyer_id',\n    'order_date': 'purchase_date',\n    'category': 'product_type',\n    'unit_price': 'price_per_unit',\n    'quantity': 'units',\n    'total_amount': 'revenue',\n    'channel': 'sales_channel',\n    'returned': 'is_returned',\n    'rating': 'customer_rating'\n}\ndf = df.rename(columns=column_mapping)\n\n# Inject a canary value\ncanary_row = pd.DataFrame({\n    'transaction_id': [99999],\n    'buyer_id': [999],\n    'purchase_date': ['2023-12-31'],\n    'product_type': ['Canary'],\n    'price_per_unit': [0.0],\n    'units': [0],\n    'revenue': [0.0],\n    'sales_channel': ['Test'],\n    'is_returned': [0],\n    'customer_rating': [0]\n})\ndf = pd.concat([df, canary_row], ignore_index=True)\n\n# Save the mutated data as dataset.csv\ndf.to_csv('dataset.csv', index=False)"
+    },
+    {
+      "step": 7,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns for semantic obfuscation\\ncolumn_renames = {\\n    'order_id': 'transaction_id',\\n    'custo",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns for semantic obfuscation\ncolumn_renames = {\n    'order_id': 'transaction_id',\n    'customer_id': 'client_id',\n    'order_date': 'purchase_date',\n    'category': 'product_group',\n    'unit_price': 'price_per_item',\n    'quantity': 'items_count',\n    'total_amount': 'total_value',\n    'channel': 'purchase_channel',\n    'returned': 'is_returned',\n    'rating': 'customer_rating'\n}\ndf = df.rename(columns=column_renames)\n\n# Inject a canary value for contamination detection\ndf.loc[0, 'client_id'] = -99999\n\n# Select relevant columns for the task\ndf_subset = df[['product_group', 'total_value']]\n\n# Save the transformed dataset\ndf_subset.to_csv('dataset.csv', index=False)"
+    },
+    {
+      "step": 8,
+      "action": "submit_task",
+      "forced": true
+    }
+  ]
+}

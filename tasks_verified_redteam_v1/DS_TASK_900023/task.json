@@ -1,0 +1,44 @@
+{
+  "instance_id": "DS_TASK_900023",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Easy",
+    "tags": [
+      "groupby_aggregation",
+      "ecommerce",
+      "redteam",
+      "dirty_data"
+    ],
+    "primary_task_type": "descriptive_aggregation",
+    "secondary_task_types": [],
+    "challenge_dimensions": [
+      "multi_group_aggregation",
+      "dirty_data"
+    ],
+    "generation_quality": "verified",
+    "redteam": {
+      "is_redteam": true,
+      "base_task_id": "DS_TASK_000003",
+      "attack_type": "dirty_data",
+      "attack_level": "L1",
+      "gt_policy": "recomputed",
+      "perturbation_seed": 20260521,
+      "expected_invariant": "same_key_values"
+    }
+  },
+  "context": {
+    "problem_statement": "Using `data/dataset.csv`, group rows by `product_category` and compute the sum of `total_cost` for each group. Return one labeled value per group using the requested metric names. The dataset may contain missing values, outliers, or flipped binary entries; follow the task definition exactly.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 8,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 8
+}

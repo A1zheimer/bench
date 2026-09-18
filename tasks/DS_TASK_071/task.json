@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_071",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": [
+      "anova",
+      "factorial",
+      "interaction effects",
+      "post-hoc tests"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 31.1717
+  },
+  "context": {
+    "problem_statement": "Using the provided dataset, perform a factorial ANOVA to determine if there is a significant interaction effect between 'species' and 'sepal_width' on 'petal_size'. After performing the ANOVA, conduct a post-hoc test to identify which groups differ significantly. Report the p-value for the interaction term and the results of the post-hoc test.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Factorial ANOVA is used to evaluate the influence of two or more categorical independent variables on a continuous dependent variable. Interaction effects examine how factors interact with each other in their effect on the dependent variable. Post-hoc tests are applied to determine which specific group means are different after finding a significant F-statistic in ANOVA."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 10
+}

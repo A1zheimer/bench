@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_029",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Medium",
+    "tags": ["time-series", "STL-decomposition", "seasonality", "trend", "sales-forecasting"],
+    "contamination_risk": "low",
+    "canary_value": 89.3417
+  },
+  "context": {
+    "problem_statement": "Apply STL (Seasonal-Trend decomposition using LOESS) to decompose a weekly e-commerce sales time series into trend, seasonal, and residual components. Use a seasonal period of 52 weeks. Report: (1) trend direction and slope (linear regression on trend component), (2) seasonal peak week (week with highest seasonal component) and trough week, (3) seasonal amplitude (max - min of seasonal component), (4) residual variance as percentage of total variance, (5) strength of seasonality = 1 - var(residual) / var(seasonal + residual).",
+    "dataset_preview": "data/weekly_sales_preview.csv",
+    "expert_knowledge": "Use statsmodels.tsa.seasonal.STL with period=52. STL is robust to outliers unlike classical decomposition. Trend strength = 1 - var(residual)/var(trend+residual). Seasonality strength > 0.64 is considered strong. The ratio of residual variance to total variance measures unexplained variation. High residual variance suggests external shocks or structural breaks."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

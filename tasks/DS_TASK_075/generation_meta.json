@@ -1,0 +1,42 @@
+{
+  "generator": "openai:gpt-4o",
+  "temperature": 0.7,
+  "canary_value": 24.2944,
+  "verified": false,
+  "generated_at": "2026-03-24T03:22:01Z",
+  "solution_code": "import pandas as pd\n\ndata = pd.read_csv('dataset.csv')\ntotal_spending_per_category = data.groupby('type')['spending'].sum()\nkey_values_list = [{\"key\": category, \"value\": total_spending} for category, total_spending in total_spending_per_category.items()]\nfor kv in key_values_list:\n    print(kv)",
+  "data_generation_code": "import pandas as pd\nimport numpy as np\n\nseed_data = pd.read_csv('seed_data.csv')\nseed_data.rename(columns={\n    'transaction_id': 'trans_id',\n    'customer_id': 'cust_id',\n    'date': 'trans_date',\n    'hour': 'trans_hour',\n    'day_of_week': 'day_week',\n    'amount': 'trans_amount',\n    'category': 'trans_category',\n    'is_fraud': 'fraudulent'\n}, inplace=True)\nseed_data.loc[seed_data.index[0], 'trans_amount'] = -99999\nseed_data.to_csv('dataset.csv', index=False)",
+  "trace": [
+    {
+      "step": 1,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns for semantic obfuscation\\ncolumn_renames = {\\n    'transaction_id': 'tx",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns for semantic obfuscation\ncolumn_renames = {\n    'transaction_id': 'txn_id',\n    'customer_id': 'cust_id',\n    'date': 'txn_date',\n    'hour': 'txn_hour',\n    'day_of_week': 'day_num',\n    'amount': 'txn_amount',\n    'category': 'txn_type',\n    'is_fraud': 'fraud_flag'\n}\ndf.rename(columns=column_renames, inplace=True)\n\n# Inject canary value for contamination detection\ndf.loc[0, 'txn_amount'] = 99999\n\n# Save the mutated dataset as 'dataset.csv'\ndf.to_csv('dataset.csv', index=False)"
+    },
+    {
+      "step": 2,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns for semantic obfuscation\\ncolumn_mapping = {\\n    'transaction_id': 'tr",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns for semantic obfuscation\ncolumn_mapping = {\n    'transaction_id': 'trans_id',\n    'customer_id': 'cust_id',\n    'date': 'trans_date',\n    'hour': 'trans_hour',\n    'day_of_week': 'week_day',\n    'amount': 'trans_amount',\n    'category': 'trans_category',\n    'is_fraud': 'fraud_flag'\n}\ndf = df.rename(columns=column_mapping)\n\n# Inject a canary value for contamination detection\ndf.loc[0, 'trans_amount'] = -9999\n\n# Randomly sample a subset of columns\nselected_columns = ['trans_id', 'cust_id', 'week_day', 'trans_amount', 'fraud_flag']\ndf_subset = df[selected_columns]\n\n# Save the mutated dataset\ndf_subset.to_csv('dataset.csv', index=False)\n\ndf_subset.head()"
+    },
+    {
+      "step": 3,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns for semantic obfuscation\\ndf = df.rename(columns={\\n    'transaction_id': '",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns for semantic obfuscation\ndf = df.rename(columns={\n    'transaction_id': 'txn_id',\n    'customer_id': 'cust_id',\n    'date': 'txn_date',\n    'hour': 'txn_hour',\n    'day_of_week': 'day',\n    'amount': 'spending',\n    'category': 'type',\n    'is_fraud': 'fraud_flag'\n})\n\n# Inject a canary value\ndf.loc[0, 'spending'] = -999\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 4,
+      "action": "think",
+      "content_preview": "It seems there is an issue with executing the code through the tool. Let me guide you through the process step-by-step to create the benchmark task.\n\n### Step 1: Load and Mutate the Seed Data\nFirst, l"
+    },
+    {
+      "step": 5,
+      "action": "submit_task",
+      "forced": false
+    }
+  ]
+}

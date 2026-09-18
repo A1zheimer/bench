@@ -1,0 +1,22 @@
+{
+  "execution_result": "Black-Scholes prices computed for all options. Put-call parity verified within numerical precision. ATM call (O2) priced at $4.61 with Delta=0.552.",
+  "key_values": {
+    "O1_call_price": 6.89,
+    "O2_call_price": 4.61,
+    "O3_call_price": 2.93,
+    "O4_put_price": 1.43,
+    "O5_put_price": 3.90,
+    "O2_delta": 0.552,
+    "O2_gamma": 0.0394,
+    "O2_theta_daily": -0.0168,
+    "O2_vega_per_pct": 0.198,
+    "put_call_parity_verified": true
+  },
+  "required_keywords": ["Black-Scholes", "Delta", "Gamma", "Theta", "Vega", "Rho", "put-call parity", "d1", "d2"],
+  "partial_credit_rubric": {
+    "bs_formula_implemented": {"weight": 0.30, "description": "Black-Scholes formula correctly implemented with d1, d2 and N() calls"},
+    "call_put_prices": {"weight": 0.25, "description": "Call and put prices correctly computed for all options"},
+    "greeks_computed": {"weight": 0.30, "description": "All five Greeks correctly computed with appropriate units"},
+    "put_call_parity": {"weight": 0.15, "description": "Put-call parity verified for corresponding call/put pairs"}
+  }
+}

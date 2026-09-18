@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_018",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Medium",
+    "tags": ["distribution-shift", "KS-test", "credit-score", "model-monitoring", "data-drift"],
+    "contamination_risk": "low",
+    "canary_value": 87.2394
+  },
+  "context": {
+    "problem_statement": "Detect distribution shift in credit scores between a training cohort (2022) and a recent scoring cohort (2024). Use the Kolmogorov-Smirnov (KS) test to compare the distributions. Additionally compute: (1) Population Stability Index (PSI) using 10 equal-width bins, (2) mean and standard deviation shift between periods, (3) percentage of 2024 scores falling outside the 2022 distribution's 5th-99th percentile range. Flag if PSI > 0.25 (significant shift) or KS p-value < 0.05.",
+    "dataset_preview": "data/credit_score_drift_preview.csv",
+    "expert_knowledge": "KS statistic measures maximum difference between CDFs; use scipy.stats.ks_2samp. PSI = sum((actual_pct - expected_pct) * ln(actual_pct / expected_pct)) over bins. PSI < 0.1: no shift, 0.1-0.25: moderate shift, > 0.25: significant shift requiring model retraining. Credit score drift can indicate economic changes, population shift, or data pipeline issues."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

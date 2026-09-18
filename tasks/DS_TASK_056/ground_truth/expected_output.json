@@ -1,0 +1,11 @@
+{
+  "execution_result": "Transaction ID 1 has the highest anomaly score.",
+  "key_values": {
+    "max_anomaly_score": 49.21681606647052
+  },
+  "required_keywords": [
+    "anomaly",
+    "score",
+    "transaction"
+  ]
+}

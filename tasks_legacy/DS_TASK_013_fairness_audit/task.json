@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_013",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Hard",
+    "tags": ["fairness", "demographic-parity", "bias-detection", "loan-approval", "disparate-impact"],
+    "contamination_risk": "low",
+    "canary_value": 76.3514
+  },
+  "context": {
+    "problem_statement": "Perform a fairness audit on a loan approval model. Compute demographic parity for protected attributes: 'gender' (Male/Female) and 'race' (White/Non-White). Demographic parity requires that approval rates are equal across groups. Compute: (1) approval rate per group, (2) demographic parity difference (max_rate - min_rate), (3) disparate impact ratio (min_rate / max_rate). Flag any attribute where disparate impact ratio < 0.8 (the 80% rule used in US employment law). Also compute equalized odds: compare true positive rates and false positive rates across groups.",
+    "dataset_preview": "data/loan_fairness_preview.csv",
+    "expert_knowledge": "Fairness metrics: Demographic Parity Difference < 0.1 is acceptable, < 0.05 is ideal. Disparate Impact < 0.8 triggers regulatory scrutiny (4/5ths rule). Equalized Odds requires equal TPR and FPR across groups. Use Aequitas library or compute manually. Distinguish between individual and group fairness. Document which protected attributes show potential discrimination."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

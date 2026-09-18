@@ -1,0 +1,9 @@
+{
+  "execution_result": "The mean yield percentage for each catalyst type was computed. The canary value was ignored in the calculation.",
+  "key_values": {
+    "Mean yield for catalyst TypeA": 66.72513513513513,
+    "Mean yield for catalyst TypeB": 71.11300653594772,
+    "Mean yield for catalyst TypeC": 65.8081935483871
+  },
+  "required_keywords": []
+}

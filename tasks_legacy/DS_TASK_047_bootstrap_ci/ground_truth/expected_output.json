@@ -1,0 +1,21 @@
+{
+  "execution_result": "Bootstrap 95% CI: [23.14, 27.49]. Observed mean = 25.31. Bootstrap and t-distribution CIs agree within 2.1%. Bootstrap SE = 1.09.",
+  "key_values": {
+    "observed_mean": 25.31,
+    "bootstrap_ci_lower": 23.14,
+    "bootstrap_ci_upper": 27.49,
+    "bootstrap_se": 1.09,
+    "bootstrap_bias": 0.003,
+    "t_ci_lower": 23.24,
+    "t_ci_upper": 27.38,
+    "ci_agreement_pct_diff": 2.1,
+    "n_bootstrap_iterations": 10000
+  },
+  "required_keywords": ["bootstrap", "confidence interval", "percentile", "resampling", "standard error", "bias", "t-distribution"],
+  "partial_credit_rubric": {
+    "bootstrap_loop": {"weight": 0.35, "description": "10,000 bootstrap iterations correctly implemented with replacement sampling"},
+    "percentile_ci": {"weight": 0.25, "description": "95% CI correctly computed as 2.5th and 97.5th percentiles of bootstrap distribution"},
+    "se_and_bias": {"weight": 0.20, "description": "Bootstrap standard error and bias correctly computed"},
+    "theoretical_comparison": {"weight": 0.20, "description": "Theoretical t-distribution CI computed and compared to bootstrap CI"}
+  }
+}

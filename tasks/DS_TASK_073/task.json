@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_073",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Medium",
+    "tags": [
+      "non-linear curve fitting",
+      "parameter estimation"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 44.4317
+  },
+  "context": {
+    "problem_statement": "You are tasked with analyzing the relationship between reaction conditions and the yield of a chemical reaction. Using the provided dataset, perform a non-linear curve fitting to model the yield percentage as a function of temperature and concentration. Estimate the parameters of the model and evaluate the goodness of fit. Identify any outliers in the dataset and discuss their potential impact on the model.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Non-linear curve fitting is a process of modeling the relationship between variables using a non-linear equation. Common models include polynomial, exponential, and logistic functions. Parameter estimation involves determining the values of the model's parameters that best fit the data. Goodness-of-fit metrics, like R-squared, indicate how well the model explains the variability of the data."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}

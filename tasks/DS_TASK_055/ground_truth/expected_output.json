@@ -1,0 +1,12 @@
+{
+  "execution_result": "The Disparate Impact Ratio calculated for the dataset is approximately 0.857, indicating a potential disparity in acceptance rates between racial groups.",
+  "key_values": {
+    "disparate_impact_ratio": 0.857
+  },
+  "required_keywords": [
+    "disparate impact",
+    "acceptance rates",
+    "race",
+    "fairness audit"
+  ]
+}

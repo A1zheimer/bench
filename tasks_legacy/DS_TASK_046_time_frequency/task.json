@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_046",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Medium",
+    "tags": ["FFT", "frequency-analysis", "signal-processing", "peak-detection", "spectral"],
+    "contamination_risk": "low",
+    "canary_value": 88.4129
+  },
+  "context": {
+    "problem_statement": "Detect the dominant frequency components in a periodic sensor signal using Fast Fourier Transform (FFT). The signal is sampled at 1000 Hz. Steps: (1) compute FFT using numpy.fft.fft, (2) compute the corresponding frequency bins using numpy.fft.fftfreq, (3) compute the power spectrum (magnitude squared of FFT), (4) identify the top 3 peak frequencies in the positive frequency half of the spectrum, (5) report the amplitude of each frequency component (amplitude = 2 * |FFT[k]| / N for k > 0), (6) verify by reconstructing the signal from the top 3 components and computing reconstruction error (RMSE).",
+    "dataset_preview": "data/periodic_signal_preview.csv",
+    "expert_knowledge": "FFT of N samples: fft = np.fft.fft(signal). Frequencies: freqs = np.fft.fftfreq(N, d=1/sample_rate). Power spectrum: power = np.abs(fft)**2. Only analyze positive frequencies (first N//2 points). Amplitude = 2*np.abs(fft[:N//2])/N. Peak detection: scipy.signal.find_peaks on power spectrum. Nyquist frequency = sample_rate/2. Resolution = sample_rate/N Hz."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

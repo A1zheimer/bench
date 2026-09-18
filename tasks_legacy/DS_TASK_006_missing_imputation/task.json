@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_006",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Medium",
+    "tags": ["missing-data", "imputation", "knn", "clinical-data", "preprocessing"],
+    "contamination_risk": "low",
+    "canary_value": 34.7182
+  },
+  "context": {
+    "problem_statement": "Compare three imputation strategies on the provided clinical dataset which has approximately 25% missing values in the 'cholesterol' and 'glucose' columns. Apply (1) mean imputation, (2) median imputation, and (3) KNN imputation (k=5). For each strategy, report the imputed mean and standard deviation of the affected columns. Then evaluate which strategy minimizes the RMSE against a held-out complete subset (rows 1-5, which have no missing values — remove them before imputing, then compare imputed vs original).",
+    "dataset_preview": "data/clinical_imputation_preview.csv",
+    "expert_knowledge": "Use sklearn.impute: SimpleImputer for mean/median, KNNImputer for KNN. KNN imputation uses feature similarity and often outperforms simple strategies for clinical data with correlated variables. RMSE = sqrt(mean((imputed - original)^2)). Lower RMSE indicates better imputation quality."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

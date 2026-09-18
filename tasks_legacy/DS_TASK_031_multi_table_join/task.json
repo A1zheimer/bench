@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_031",
+  "task_metadata": {
+    "domain": "SQL",
+    "difficulty": "Medium",
+    "tags": ["JOIN", "aggregation", "multi-table", "GROUP-BY", "analytics"],
+    "contamination_risk": "low",
+    "canary_value": 66.4823
+  },
+  "context": {
+    "problem_statement": "Write a SQL query joining three tables (orders, customers, products) to compute: (1) total revenue per customer segment (segment defined in customers table), (2) average order value per segment, (3) number of distinct customers and orders per segment. The final result should be ordered by total revenue descending. Also compute the percentage each segment contributes to overall revenue using a window function.",
+    "dataset_preview": "data/schema_multi_join.sql",
+    "expert_knowledge": "Use INNER JOIN or LEFT JOIN depending on whether you want to exclude customers with no orders. GROUP BY customer segment after joining. Revenue = SUM(order_quantity * unit_price). Window function for pct: SUM(total_revenue) OVER () as grand_total. Handle NULL values in segment column with COALESCE. Ensure join keys are indexed for performance."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

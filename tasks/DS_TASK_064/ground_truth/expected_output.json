@@ -1,0 +1,15 @@
+{
+  "execution_result": "The median survival time was estimated using the Kaplan-Meier curve. The Cox Proportional Hazards model indicated that 'body_mass_index' had a hazard ratio of 1.15, suggesting an increased risk associated with higher BMI. The p-value for the model was 0.03, indicating statistical significance.",
+  "key_values": {
+    "median_survival_time": 365,
+    "cox_p_value": 0.03,
+    "hazard_ratio_BMI": 1.15
+  },
+  "required_keywords": [
+    "Kaplan-Meier",
+    "Cox Proportional Hazards",
+    "right-censoring",
+    "hazard ratio",
+    "median survival time"
+  ]
+}

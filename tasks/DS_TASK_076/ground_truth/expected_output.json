@@ -1,0 +1,17 @@
+{
+  "execution_result": "The 95% Portfolio Value at Risk (VaR) calculated using Monte Carlo simulation is $0.765. This indicates that there is a 95% confidence that the portfolio will not lose more than $0.765 in a given time period.",
+  "key_values": {
+    "VaR_95_percent": -0.729684
+  },
+  "required_keywords": [],
+  "alternative_key_values": [
+    {
+      "method": "monte_carlo",
+      "VaR_95_percent": -1.0
+    },
+    {
+      "method": "parametric_normal",
+      "VaR_95_percent": -1.607552
+    }
+  ]
+}

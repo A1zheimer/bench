@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_038",
+  "task_metadata": {
+    "domain": "SQL",
+    "difficulty": "Medium",
+    "tags": ["temporal", "rolling-average", "DATE_TRUNC", "window-functions", "time-series-SQL"],
+    "contamination_risk": "low",
+    "canary_value": 69.7381
+  },
+  "context": {
+    "problem_statement": "Write SQL queries for temporal analysis of daily sales data. Required queries: (1) compute 7-day rolling average of daily_revenue using window function with ROWS BETWEEN 6 PRECEDING AND CURRENT ROW, (2) compute month-over-month revenue growth using DATE_TRUNC('month', sale_date) and LAG() window function, (3) find the day of week with highest average revenue using EXTRACT(DOW FROM sale_date), (4) compute cumulative revenue for the year using SUM() OVER with ORDER BY date, (5) identify weeks with revenue more than 20% below the 4-week moving average (anomaly detection).",
+    "dataset_preview": "data/schema_temporal.sql",
+    "expert_knowledge": "DATE_TRUNC('month', ts) truncates to month start. EXTRACT(DOW, date) returns 0=Sunday to 6=Saturday. Rolling window: SUM(col) OVER (ORDER BY date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW). LAG(col, 1) OVER (ORDER BY month) gets previous month value. MoM growth = (current - prev) / prev * 100. Handle first month LAG as NULL with COALESCE."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

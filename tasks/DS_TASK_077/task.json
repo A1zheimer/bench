@@ -1,0 +1,28 @@
+{
+  "instance_id": "DS_TASK_077",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Medium",
+    "tags": [
+      "Portfolio Value at Risk",
+      "Monte Carlo simulations"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 3.762
+  },
+  "context": {
+    "problem_statement": "You are given a dataset representing a financial portfolio with various attributes. Your task is to calculate the Portfolio Value at Risk (VaR) at a 95% confidence level using Monte Carlo simulations. The dataset contains noise and missing values that you must handle before performing the analysis. Provide the VaR value and the average loss in scenarios where the loss exceeds the VaR. Ensure to document any assumptions or data cleaning steps performed.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Value at Risk (VaR) is a statistical technique used to measure the risk of loss on a portfolio. Monte Carlo simulation involves running many simulations to model the probability of different outcomes in a process that cannot easily be predicted due to the intervention of random variables. This task requires calculating VaR using Monte Carlo simulations, requiring knowledge of statistical modeling and risk assessment in finance."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 20
+}

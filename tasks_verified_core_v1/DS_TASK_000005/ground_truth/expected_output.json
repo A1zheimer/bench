@@ -1,0 +1,23 @@
+{
+  "execution_result": "Verified by correlation_pair_v1: pearson_corr(sepal_length, petal_length)",
+  "key_values": {
+    "pearson_corr_sepal_petal_length": 0.9471144828065867
+  },
+  "key_aliases": {
+    "pearson_corr_sepal_petal_length": [
+      "pearson corr sepal petal length",
+      "correlation sepal_length petal_length"
+    ]
+  },
+  "required_keywords": [
+    "pearson",
+    "correlation"
+  ],
+  "formula": "pearson_corr(sepal_length, petal_length)",
+  "verifier_id": "correlation_pair_v1",
+  "verifier_version": "1.0",
+  "dataset_sha256": "1479c5dd092d5aa44b5e2ef4e6da7869eca15e6b4a19932ca7b3685346eb21b1",
+  "computed_at": "2026-05-21T03:54:20.769336+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers"
+}

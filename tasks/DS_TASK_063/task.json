@@ -1,0 +1,32 @@
+{
+  "instance_id": "DS_TASK_063",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Medium",
+    "tags": [
+      "survival-analysis",
+      "Kaplan-Meier",
+      "Cox-Proportional-Hazards",
+      "right-censoring"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 3.8554
+  },
+  "context": {
+    "problem_statement": "You are tasked with performing a survival analysis on a dataset derived from breast cancer data. Specifically, you should handle missing values, conduct a Kaplan-Meier survival analysis, and fit a Cox Proportional Hazards model. The key metrics to report are the log-rank test p-value and the hazard ratio for tumor growth rate. The dataset has been modified with noise and a canary value for contamination detection. Ensure to address these data quality issues during your analysis.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Survival analysis is a statistical approach used to predict the time until an event of interest occurs, such as death or failure. Right-censoring occurs when the event has not occurred for some subjects during the study period. Kaplan-Meier provides a method to estimate survival functions, while Cox Proportional Hazards allows for modeling and assessing hazard ratios."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}

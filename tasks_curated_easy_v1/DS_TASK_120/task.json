@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_120",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Easy",
+    "tags": [
+      "cross-tabulation",
+      "comorbidity",
+      "diabetes"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 42.6484
+  },
+  "context": {
+    "problem_statement": "Analyze diabetes and hypertension comorbidity in the biomedical dataset. Compute the 2x2 crosstab of has_diabetes by has_hypertension, the number and prevalence of patients with both diabetes and hypertension, and the 30-day readmission rate among those comorbid patients.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use has_diabetes, has_hypertension, and readmitted_30d directly. Include all rows unless the task explicitly asks to remove outliers or canary values."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 6,
+    "budget": 0.7,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 6
+}

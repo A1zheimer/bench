@@ -1,0 +1,20 @@
+{
+  "execution_result": "Schema inferred with 9 columns. 4 data quality issues found: mixed types in 'age' column, inconsistent date formats in 'signup_date', mixed boolean representations in 'is_active', email null rate 10%.",
+  "key_values": {
+    "total_columns": 9,
+    "columns_with_issues": 4,
+    "null_rate_email": 0.10,
+    "null_rate_revenue": 0.10,
+    "null_rate_tags": 0.20,
+    "inconsistent_date_formats": 4,
+    "mixed_type_columns": 2,
+    "recommended_pk": "id (surrogate SERIAL)"
+  },
+  "required_keywords": ["CREATE TABLE", "DDL", "data quality", "NOT NULL", "PRIMARY KEY", "VARCHAR", "NUMERIC", "JSONB"],
+  "partial_credit_rubric": {
+    "type_inference": {"weight": 0.30, "description": "Appropriate PostgreSQL types inferred for all columns"},
+    "constraints": {"weight": 0.25, "description": "NOT NULL constraints and primary key correctly identified"},
+    "quality_issues": {"weight": 0.30, "description": "All data quality issues flagged with counts and descriptions"},
+    "index_recommendations": {"weight": 0.15, "description": "Appropriate indexes suggested based on column cardinality and patterns"}
+  }
+}

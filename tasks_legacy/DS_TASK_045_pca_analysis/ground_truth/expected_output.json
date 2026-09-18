@@ -1,0 +1,21 @@
+{
+  "execution_result": "First 2 PCs explain 97.8% of total variance. PC1 (92.3%) represents strength-hardness axis; PC2 (5.5%) represents ductility vs conductivity tradeoff. 2 components needed for 90% variance threshold.",
+  "key_values": {
+    "pc1_explained_variance": 0.923,
+    "pc2_explained_variance": 0.055,
+    "cumulative_variance_2pc": 0.978,
+    "components_for_90pct": 1,
+    "pc1_top_feature": "tensile_strength",
+    "pc2_top_feature": "elongation",
+    "extreme_sample_distance": 8.34,
+    "extreme_sample_1": "S06",
+    "extreme_sample_2": "S09"
+  },
+  "required_keywords": ["PCA", "explained variance", "loadings", "components", "standardize", "PC1", "PC2", "cumulative"],
+  "partial_credit_rubric": {
+    "standardization": {"weight": 0.15, "description": "Features correctly standardized using StandardScaler before PCA"},
+    "variance_explained": {"weight": 0.30, "description": "Explained variance ratios and cumulative variance correctly computed for all PCs"},
+    "components_threshold": {"weight": 0.20, "description": "Number of PCs needed for 90% variance correctly determined"},
+    "loadings_analysis": {"weight": 0.35, "description": "PC loadings correctly reported and dominant features per PC identified"}
+  }
+}

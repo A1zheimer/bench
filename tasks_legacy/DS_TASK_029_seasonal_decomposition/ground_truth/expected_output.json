@@ -1,0 +1,20 @@
+{
+  "execution_result": "STL decomposition reveals clear upward trend (+$528/week slope) and seasonal pattern with peak in Week 22 (pre-summer). Residual variance is 4.2% of total.",
+  "key_values": {
+    "trend_slope_per_week": 528.0,
+    "trend_direction": "upward",
+    "seasonal_peak_week": 22,
+    "seasonal_trough_week": 4,
+    "seasonal_amplitude": 18300.0,
+    "residual_variance_pct": 0.042,
+    "seasonality_strength": 0.71,
+    "trend_strength": 0.89
+  },
+  "required_keywords": ["STL", "decomposition", "trend", "seasonal", "residual", "amplitude", "strength"],
+  "partial_credit_rubric": {
+    "stl_applied": {"weight": 0.25, "description": "STL decomposition correctly applied with period=52"},
+    "trend_analysis": {"weight": 0.25, "description": "Trend component extracted and slope computed via linear regression"},
+    "seasonal_peaks": {"weight": 0.25, "description": "Seasonal peak and trough weeks correctly identified from seasonal component"},
+    "variance_decomposition": {"weight": 0.25, "description": "Residual variance percentage and seasonality strength correctly computed"}
+  }
+}

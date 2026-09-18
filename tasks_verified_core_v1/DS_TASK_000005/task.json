@@ -1,0 +1,34 @@
+{
+  "instance_id": "DS_TASK_000005",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": [
+      "correlation_pair",
+      "scientific"
+    ],
+    "primary_task_type": "statistical_inference",
+    "secondary_task_types": [
+      "descriptive_aggregation"
+    ],
+    "challenge_dimensions": [
+      "statistical_method_selection"
+    ],
+    "generation_quality": "verified"
+  },
+  "context": {
+    "problem_statement": "Using `data/dataset.csv`, compute the pearson correlation between `sepal_length` and `petal_length`. Return the value as `pearson_corr_sepal_petal_length`.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 8,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 8
+}

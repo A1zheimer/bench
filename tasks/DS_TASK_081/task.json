@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_081",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Easy",
+    "tags": [
+      "missing-data",
+      "imputation",
+      "clinical-records",
+      "KNN-imputer"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 57.61
+  },
+  "context": {
+    "problem_statement": "Given a clinical dataset with missing values, your task is to calculate the mean of the 'blood_pressure' column after imputing missing values using the KNN imputer method. This will help assess the impact of imputation on the dataset's central tendency.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Missing data imputation is crucial in clinical datasets as they often contain incomplete records. The MICE (Multiple Imputation by Chained Equations) and KNN (K-Nearest Neighbors) imputer methods are widely used. MICE models each feature with missing values as a function of other features, while KNN imputes based on the nearest neighbors."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 10
+}

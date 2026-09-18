@@ -1,0 +1,18 @@
+{
+  "execution_result": "Portfolio achieves annualized Sharpe ratio of 1.42 over the period. Maximum drawdown of 5.77% occurred on 2024-01-19 from the 2024-01-16 peak.",
+  "key_values": {
+    "annualized_sharpe_ratio": 1.42,
+    "max_drawdown_pct": 0.0577,
+    "max_drawdown_date": "2024-01-19",
+    "max_drawdown_peak_date": "2024-01-16",
+    "total_return_pct": 0.0456,
+    "annualized_volatility": 0.1123
+  },
+  "required_keywords": ["Sharpe ratio", "maximum drawdown", "rolling", "annualized", "risk-free rate", "trough"],
+  "partial_credit_rubric": {
+    "returns_computed": {"weight": 0.15, "description": "Daily returns correctly computed from price series"},
+    "rolling_sharpe": {"weight": 0.30, "description": "Rolling annualized Sharpe ratio correctly computed with risk-free rate adjustment"},
+    "max_drawdown": {"weight": 0.35, "description": "Maximum drawdown correctly computed using cummax approach"},
+    "trough_date_identified": {"weight": 0.20, "description": "Date of maximum drawdown trough correctly identified"}
+  }
+}

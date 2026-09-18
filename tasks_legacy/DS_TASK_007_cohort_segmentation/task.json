@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_007",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Easy",
+    "tags": ["segmentation", "risk-score", "cohort-analysis", "clinical"],
+    "contamination_risk": "low",
+    "canary_value": 19.8573
+  },
+  "context": {
+    "problem_statement": "Segment patients into Low, Medium, and High risk cohorts based on a composite risk score. The risk score is computed as: risk_score = 0.3*normalized_age + 0.4*normalized_bmi + 0.3*normalized_systolic_bp. Normalize each feature to [0,1] using min-max scaling. Then assign cohorts: Low (score < 0.33), Medium (0.33 <= score < 0.67), High (score >= 0.67). Report the count and average outcome rate for each cohort.",
+    "dataset_preview": "data/cohort_preview.csv",
+    "expert_knowledge": "Min-max normalization: x_norm = (x - x_min) / (x_max - x_min). The composite risk score combines three clinical factors. Higher risk scores should correlate with higher adverse outcome rates. Report cohort sizes and outcome rates to validate clinical utility of segmentation."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

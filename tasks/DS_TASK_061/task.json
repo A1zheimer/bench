@@ -1,0 +1,29 @@
+{
+  "instance_id": "DS_TASK_061",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Easy",
+    "tags": [
+      "hospital readmission",
+      "feature engineering",
+      "descriptive statistics"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 36.4645
+  },
+  "context": {
+    "problem_statement": "The goal is to predict hospital readmission based on engineered features from the dataset. Calculate the average hospital stay duration for patients who were readmitted (readmission = 1). Provide the computed average duration.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Hospital readmission prediction often involves analyzing patient demographics, medical history, and hospital stay details. Feature engineering can include aggregating prior visits, analyzing diagnosis codes, or calculating average stay durations. Simple descriptive statistics can provide insights into readmission trends."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 10
+}

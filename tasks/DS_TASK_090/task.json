@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_090",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": [
+      "Spatial Interpolation",
+      "Environmental Data",
+      "Aggregation",
+      "Basic Statistics"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 81.3375
+  },
+  "context": {
+    "problem_statement": "Compute the mean yield percentage grouped by `cat_type`. The dataset has been semantically obfuscated and contains injected canary values for contamination detection. Determine the average yield percentage for each type of catalyst present in the dataset.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Spatial interpolation methods such as Kriging and IDW are not required for this task as it focuses on basic aggregation (mean yield by catalyst type). Spatial interpolation is typically used to estimate values at unknown locations based on nearby known data, useful in environmental data analysis."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 10
+}

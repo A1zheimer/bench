@@ -1,0 +1,956 @@
+{
+  "biomedical/breast_cancer_synthetic.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "Wisconsin Breast Cancer Diagnostic Dataset (Street et al. 1993), distributed via sklearn.datasets.load_breast_cancer",
+    "generation_script": "regenerate_all_seeds.py::gen_breast_cancer()",
+    "random_seed": 103,
+    "license": "Original: CC BY 4.0. This: fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "Biomedical",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 800,
+    "columns": [
+      "mean_radius",
+      "mean_texture",
+      "mean_smoothness",
+      "mean_compactness",
+      "mean_concavity",
+      "mean_concave_points",
+      "mean_symmetry",
+      "radius_se",
+      "texture_se",
+      "smoothness_se",
+      "worst_radius",
+      "worst_texture",
+      "worst_perimeter",
+      "worst_area",
+      "worst_concavity",
+      "diagnosis"
+    ],
+    "n_numeric_columns": 15,
+    "n_categorical_columns": 1,
+    "missing_rate": 0.0035,
+    "target_column": null,
+    "target_balance": null,
+    "features": [
+      "numeric",
+      "binary_target",
+      "missing_values",
+      "class_imbalance"
+    ],
+    "applicable_paradigms": [
+      "Binary Classification with ROC/AUC Analysis",
+      "Feature Engineering and Selection (Mutual Information, RFE)",
+      "Calibration Curves and Threshold Optimization"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Mean radius comparison between malignant and benign",
+        "Percentage of malignant samples"
+      ],
+      "Medium": [
+        "Logistic regression with AUC-ROC and precision-recall curve",
+        "Feature selection using recursive elimination"
+      ],
+      "Hard": [
+        "Cost-sensitive classification with optimized decision threshold",
+        "Ensemble stacking with cross-validated meta-learner"
+      ]
+    }
+  },
+  "biomedical/diabetes_synthetic.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "Efron et al. (2004) Diabetes dataset, distributed via sklearn.datasets.load_diabetes",
+    "generation_script": "regenerate_all_seeds.py::gen_diabetes()",
+    "random_seed": 104,
+    "license": "Original: CC0 Public Domain. This: fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "Biomedical",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 600,
+    "columns": [
+      "age",
+      "sex",
+      "bmi",
+      "blood_pressure",
+      "s1_tc",
+      "s2_ldl",
+      "s3_hdl",
+      "s4_tch",
+      "s5_ltg",
+      "s6_glucose",
+      "progression"
+    ],
+    "n_numeric_columns": 11,
+    "n_categorical_columns": 0,
+    "missing_rate": 0.0048,
+    "target_column": null,
+    "target_balance": null,
+    "features": [
+      "numeric",
+      "regression_target",
+      "normalized_features",
+      "missing_values"
+    ],
+    "applicable_paradigms": [
+      "Linear Regression and Regularization (Ridge, Lasso, ElasticNet)",
+      "Feature Importance via Coefficient Analysis",
+      "Residual Diagnostics and Model Validation"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Correlation of BMI with disease progression",
+        "Mean progression by sex"
+      ],
+      "Medium": [
+        "Lasso regression with optimal alpha selection via cross-validation",
+        "Residual analysis and normality testing"
+      ],
+      "Hard": [
+        "ElasticNet with full hyperparameter grid search and learning curves",
+        "Polynomial feature expansion with regularization path analysis"
+      ]
+    }
+  },
+  "biomedical/drug_response.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "NCI-60 / GDSC dose-response screening data",
+    "generation_script": "regenerate_all_seeds.py::gen_drug_response()",
+    "random_seed": 304,
+    "license": "Fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "Biomedical",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 675,
+    "columns": [
+      "experiment_id",
+      "drug_name",
+      "cell_line",
+      "concentration_uM",
+      "viability_percent",
+      "log_concentration",
+      "replicate",
+      "passage_number",
+      "treatment_hours",
+      "ic50_estimated"
+    ],
+    "n_numeric_columns": 8,
+    "n_categorical_columns": 2,
+    "missing_rate": 0.0009,
+    "target_column": null,
+    "target_balance": null,
+    "features": [
+      "factorial_design",
+      "numeric",
+      "categorical",
+      "dose_response",
+      "missing_values"
+    ],
+    "applicable_paradigms": [
+      "Dose-Response Modeling (Hill Equation)",
+      "IC50 Estimation and Drug Sensitivity Profiling",
+      "Factorial ANOVA with Interaction Effects"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Mean viability at each concentration per drug",
+        "Drug with lowest average viability at 10 uM"
+      ],
+      "Medium": [
+        "4-parameter logistic curve fitting for IC50 estimation",
+        "Two-way ANOVA: drug × cell_line on viability"
+      ],
+      "Hard": [
+        "Non-linear mixed effects model for IC50 across cell lines",
+        "Drug synergy analysis via Bliss independence model"
+      ]
+    }
+  },
+  "biomedical/patient_readmission.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "Hospital readmission datasets (MIMIC-style structure)",
+    "generation_script": "regenerate_all_seeds.py::gen_patient_readmission()",
+    "random_seed": 303,
+    "license": "Fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "Biomedical",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 900,
+    "columns": [
+      "patient_id",
+      "age",
+      "gender",
+      "admission_type",
+      "diagnosis_group",
+      "num_procedures",
+      "num_medications",
+      "length_of_stay_days",
+      "num_prior_admissions",
+      "has_diabetes",
+      "has_hypertension",
+      "discharge_disposition",
+      "a1c_level",
+      "readmitted_30d"
+    ],
+    "n_numeric_columns": 10,
+    "n_categorical_columns": 4,
+    "missing_rate": 0.0037,
+    "target_column": "has_diabetes",
+    "target_balance": {
+      "positive_rate": 0.27,
+      "ratio": "657:243"
+    },
+    "features": [
+      "numeric",
+      "categorical",
+      "binary_target",
+      "missing_values",
+      "class_imbalance"
+    ],
+    "applicable_paradigms": [
+      "Clinical Risk Prediction and Calibration",
+      "Missing Data Imputation (MICE, KNN)",
+      "Survival Analysis"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Readmission rate by admission type",
+        "Average length of stay by diagnosis group"
+      ],
+      "Medium": [
+        "Logistic regression with calibration curve",
+        "Imputation method comparison"
+      ],
+      "Hard": [
+        "Multi-factor risk model with interaction terms",
+        "Propensity score matching for diabetes as risk factor"
+      ]
+    }
+  },
+  "ecommerce/ad_campaigns.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "Multi-platform digital advertising analytics",
+    "generation_script": "regenerate_all_seeds.py::gen_ad_campaigns()",
+    "random_seed": 305,
+    "license": "Fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "ECommerce",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 1259,
+    "columns": [
+      "campaign_id",
+      "date",
+      "platform",
+      "ad_format",
+      "target_audience",
+      "budget_usd",
+      "impressions",
+      "clicks",
+      "ctr",
+      "conversions",
+      "cost_per_click",
+      "cost_per_conversion",
+      "revenue",
+      "roas"
+    ],
+    "n_numeric_columns": 10,
+    "n_categorical_columns": 4,
+    "missing_rate": 0.0175,
+    "target_column": null,
+    "target_balance": null,
+    "features": [
+      "time_series",
+      "categorical",
+      "numeric",
+      "missing_values",
+      "marketing"
+    ],
+    "applicable_paradigms": [
+      "Marketing Mix Modeling and Attribution",
+      "ROAS Optimization and Budget Allocation",
+      "A/B Testing and Lift Analysis"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Total spend and revenue by platform",
+        "Average CTR by ad format"
+      ],
+      "Medium": [
+        "ROAS trend analysis by platform over time",
+        "Best platform × audience combination"
+      ],
+      "Hard": [
+        "Marketing mix model with diminishing returns",
+        "Multi-touch attribution with time decay"
+      ]
+    }
+  },
+  "ecommerce/customer_churn.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "Telco / SaaS customer churn prediction datasets",
+    "generation_script": "regenerate_all_seeds.py::gen_customer_churn()",
+    "random_seed": 306,
+    "license": "Fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "ECommerce",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 1000,
+    "columns": [
+      "customer_id",
+      "tenure_months",
+      "monthly_charges",
+      "total_charges",
+      "contract_type",
+      "payment_method",
+      "num_support_tickets",
+      "avg_monthly_usage_gb",
+      "num_products",
+      "has_premium",
+      "satisfaction_score",
+      "age_group",
+      "churned"
+    ],
+    "n_numeric_columns": 10,
+    "n_categorical_columns": 3,
+    "missing_rate": 0.0034,
+    "target_column": "has_premium",
+    "target_balance": {
+      "positive_rate": 0.303,
+      "ratio": "697:303"
+    },
+    "features": [
+      "numeric",
+      "categorical",
+      "binary_target",
+      "missing_values",
+      "class_imbalance"
+    ],
+    "applicable_paradigms": [
+      "Churn Prediction with Cost-Sensitive Learning",
+      "Customer Lifetime Value (CLV) Estimation",
+      "Survival Analysis (Kaplan-Meier, Cox PH)"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Churn rate by contract type",
+        "Average monthly charges by satisfaction score"
+      ],
+      "Medium": [
+        "Churn model with precision-recall tradeoff",
+        "Kaplan-Meier curves by contract type"
+      ],
+      "Hard": [
+        "Cox proportional hazards model",
+        "CLV estimation combining churn probability with revenue"
+      ]
+    }
+  },
+  "ecommerce/orders_v2.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "Typical e-commerce transaction logs",
+    "generation_script": "regenerate_all_seeds.py::gen_orders()",
+    "random_seed": 201,
+    "license": "Fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "ECommerce",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 1000,
+    "columns": [
+      "order_id",
+      "customer_id",
+      "order_date",
+      "category",
+      "unit_price",
+      "quantity",
+      "total_amount",
+      "channel",
+      "returned",
+      "rating"
+    ],
+    "n_numeric_columns": 7,
+    "n_categorical_columns": 3,
+    "missing_rate": 0.0028,
+    "target_column": "returned",
+    "target_balance": {
+      "positive_rate": 0.078,
+      "ratio": "922:78"
+    },
+    "features": [
+      "categorical",
+      "numeric",
+      "temporal",
+      "binary_target"
+    ],
+    "applicable_paradigms": [
+      "RFM (Recency-Frequency-Monetary) Analysis",
+      "Market Basket Analysis and Association Rules",
+      "Return Rate Prediction"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Total revenue by category",
+        "Average order value by channel"
+      ],
+      "Medium": [
+        "Return rate analysis by category with chi-square test",
+        "Customer segmentation using RFM scores"
+      ],
+      "Hard": [
+        "Cohort analysis with retention curves",
+        "Price elasticity estimation per category"
+      ]
+    }
+  },
+  "ecommerce/user_sessions_v2.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "Web analytics session data",
+    "generation_script": "regenerate_all_seeds.py::gen_user_sessions()",
+    "random_seed": 202,
+    "license": "Fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "ECommerce",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 800,
+    "columns": [
+      "session_id",
+      "user_id",
+      "timestamp",
+      "device",
+      "traffic_source",
+      "duration_seconds",
+      "pages_viewed",
+      "bounce",
+      "converted",
+      "cart_value"
+    ],
+    "n_numeric_columns": 6,
+    "n_categorical_columns": 4,
+    "missing_rate": 0.0036,
+    "target_column": "bounce",
+    "target_balance": {
+      "positive_rate": 0.2338,
+      "ratio": "613:187"
+    },
+    "features": [
+      "categorical",
+      "numeric",
+      "temporal",
+      "binary_target",
+      "funnel_metrics"
+    ],
+    "applicable_paradigms": [
+      "Conversion Funnel Analysis",
+      "A/B Testing and Statistical Inference",
+      "Session-Based Recommendation"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Bounce rate by device type",
+        "Average session duration by traffic source"
+      ],
+      "Medium": [
+        "Conversion rate comparison with chi-square or Fisher exact test",
+        "Logistic regression for conversion prediction"
+      ],
+      "Hard": [
+        "Multi-step funnel optimization with bottleneck identification",
+        "Propensity score matching for channel effectiveness"
+      ]
+    }
+  },
+  "finance/california_housing_synthetic.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "California Housing dataset (Pace & Barry, 1997), distributed via sklearn.datasets.fetch_california_housing",
+    "generation_script": "regenerate_all_seeds.py::gen_california_housing()",
+    "random_seed": 105,
+    "license": "Original: Public Domain. This: fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "Finance",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 2000,
+    "columns": [
+      "median_income",
+      "house_age",
+      "avg_rooms",
+      "avg_bedrooms",
+      "population",
+      "avg_occupancy",
+      "latitude",
+      "longitude",
+      "median_house_value"
+    ],
+    "n_numeric_columns": 9,
+    "n_categorical_columns": 0,
+    "missing_rate": 0.0053,
+    "target_column": null,
+    "target_balance": null,
+    "features": [
+      "numeric",
+      "regression_target",
+      "geographic",
+      "missing_values"
+    ],
+    "applicable_paradigms": [
+      "Regression with Geographic Features",
+      "Spatial Data Analysis and Visualization",
+      "Gradient Boosting for Tabular Regression"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Average house value by latitude band",
+        "Correlation between income and house value"
+      ],
+      "Medium": [
+        "Random forest regression with RMSE and feature importance",
+        "Geographic clustering of housing regions"
+      ],
+      "Hard": [
+        "XGBoost with Bayesian hyperparameter optimization",
+        "Spatial autocorrelation analysis (Moran's I) and geographically weighted regression"
+      ]
+    }
+  },
+  "finance/loan_defaults.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "LendingClub loan data and credit risk modeling",
+    "generation_script": "regenerate_all_seeds.py::gen_loan_defaults()",
+    "random_seed": 301,
+    "license": "Fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "Finance",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 800,
+    "columns": [
+      "loan_id",
+      "age",
+      "income",
+      "employment_years",
+      "loan_amount",
+      "interest_rate",
+      "loan_term_months",
+      "credit_score",
+      "dti_ratio",
+      "num_credit_lines",
+      "delinquencies_2yr",
+      "home_ownership",
+      "loan_purpose",
+      "defaulted"
+    ],
+    "n_numeric_columns": 12,
+    "n_categorical_columns": 2,
+    "missing_rate": 0.0029,
+    "target_column": "defaulted",
+    "target_balance": {
+      "positive_rate": 0.0312,
+      "ratio": "775:25"
+    },
+    "features": [
+      "numeric",
+      "categorical",
+      "binary_target",
+      "missing_values",
+      "class_imbalance"
+    ],
+    "applicable_paradigms": [
+      "Credit Risk Modeling and Imbalanced Classification",
+      "Logistic Regression with Feature Selection",
+      "Gradient Boosting for Tabular Classification"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Default rate by loan purpose",
+        "Average interest rate by credit score quartile"
+      ],
+      "Medium": [
+        "Logistic regression with AUC-ROC evaluation",
+        "Feature importance via random forest"
+      ],
+      "Hard": [
+        "Cost-sensitive classification with optimized threshold",
+        "SHAP-based model interpretability analysis"
+      ]
+    }
+  },
+  "finance/stock_portfolio.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "Multi-asset portfolio data with sector-level structure",
+    "generation_script": "regenerate_all_seeds.py::gen_stock_portfolio()",
+    "random_seed": 302,
+    "license": "Fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "Finance",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 2500,
+    "columns": [
+      "date",
+      "ticker",
+      "sector",
+      "open_price",
+      "close_price",
+      "daily_return",
+      "volume",
+      "market_cap_B",
+      "pe_ratio",
+      "dividend_yield",
+      "sp500_return"
+    ],
+    "n_numeric_columns": 8,
+    "n_categorical_columns": 3,
+    "missing_rate": 0.0017,
+    "target_column": null,
+    "target_balance": null,
+    "features": [
+      "time_series",
+      "multi_asset",
+      "numeric",
+      "categorical",
+      "missing_values"
+    ],
+    "applicable_paradigms": [
+      "Portfolio Risk Analysis (VaR, Sharpe Ratio, Beta)",
+      "Sector Correlation and Diversification Analysis",
+      "Volatility Modeling (GARCH)"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Average daily return by sector",
+        "Total trading volume by ticker"
+      ],
+      "Medium": [
+        "Sharpe ratio and beta calculation for each ticker",
+        "Rolling 30-day volatility across sectors"
+      ],
+      "Hard": [
+        "Markowitz efficient frontier with minimum variance portfolio",
+        "GARCH model for volatility forecasting"
+      ]
+    }
+  },
+  "finance/transactions_v2.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "Financial fraud detection datasets",
+    "generation_script": "regenerate_all_seeds.py::gen_transactions()",
+    "random_seed": 203,
+    "license": "Fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "Finance",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 800,
+    "columns": [
+      "transaction_id",
+      "customer_id",
+      "date",
+      "hour",
+      "day_of_week",
+      "amount",
+      "category",
+      "merchant_type",
+      "is_international",
+      "is_fraud"
+    ],
+    "n_numeric_columns": 7,
+    "n_categorical_columns": 3,
+    "missing_rate": 0.0006,
+    "target_column": "is_international",
+    "target_balance": {
+      "positive_rate": 0.1375,
+      "ratio": "690:110"
+    },
+    "features": [
+      "categorical",
+      "numeric",
+      "temporal",
+      "binary_target",
+      "severe_class_imbalance"
+    ],
+    "applicable_paradigms": [
+      "Fraud Detection with Imbalanced Classification",
+      "Anomaly Detection (Isolation Forest)",
+      "Time-Based Feature Engineering"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Average transaction amount by category",
+        "Fraud rate by merchant type"
+      ],
+      "Medium": [
+        "Logistic regression for fraud detection with SMOTE oversampling",
+        "ROC and precision-recall analysis"
+      ],
+      "Hard": [
+        "Isolation forest anomaly detection with contamination tuning",
+        "Time-windowed feature engineering with rolling fraud rate"
+      ]
+    }
+  },
+  "scientific/iris_synthetic.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "Fisher's Iris dataset (1936), distributed via sklearn.datasets.load_iris",
+    "generation_script": "regenerate_all_seeds.py::gen_iris()",
+    "random_seed": 101,
+    "license": "Original: CC0 Public Domain. This: fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "Scientific",
+    "difficulty_range": [
+      "Easy",
+      "Medium"
+    ],
+    "rows": 300,
+    "columns": [
+      "sepal_length_cm",
+      "sepal_width_cm",
+      "petal_length_cm",
+      "petal_width_cm",
+      "species"
+    ],
+    "n_numeric_columns": 4,
+    "n_categorical_columns": 1,
+    "missing_rate": 0.0,
+    "target_column": null,
+    "target_balance": null,
+    "features": [
+      "numeric",
+      "multiclass",
+      "clustering"
+    ],
+    "applicable_paradigms": [
+      "Multiclass Classification (KNN, SVM, Decision Tree)",
+      "Cluster Analysis (K-Means, DBSCAN)",
+      "Dimensionality Reduction (PCA, t-SNE)"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Mean petal length per species",
+        "Count of samples per class"
+      ],
+      "Medium": [
+        "KNN classifier with cross-validated accuracy",
+        "PCA visualization with explained variance"
+      ]
+    }
+  },
+  "scientific/lab_experiment_v2.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "Chemical reaction yield optimization experiments",
+    "generation_script": "regenerate_all_seeds.py::gen_lab_experiment()",
+    "random_seed": 204,
+    "license": "Fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "Scientific",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 640,
+    "columns": [
+      "experiment_id",
+      "temperature_C",
+      "concentration_mM",
+      "catalyst",
+      "ph_level",
+      "replicate",
+      "yield_percent",
+      "reaction_time_min",
+      "purity_percent",
+      "byproduct_mg"
+    ],
+    "n_numeric_columns": 9,
+    "n_categorical_columns": 1,
+    "missing_rate": 0.0021,
+    "target_column": null,
+    "target_balance": null,
+    "features": [
+      "factorial_design",
+      "numeric",
+      "categorical",
+      "missing_values"
+    ],
+    "applicable_paradigms": [
+      "Factorial ANOVA with Interaction Effects",
+      "Response Surface Methodology",
+      "Design of Experiments (DOE)"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Average yield by catalyst type",
+        "Effect of temperature on reaction time"
+      ],
+      "Medium": [
+        "Two-way ANOVA: temperature × catalyst on yield with post-hoc Tukey HSD",
+        "Multiple linear regression for yield prediction"
+      ],
+      "Hard": [
+        "Response surface optimization for maximum yield",
+        "Mixed-effects model with replicate as random factor"
+      ]
+    }
+  },
+  "scientific/weather_stations_v2.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "NOAA weather station observation data",
+    "generation_script": "regenerate_all_seeds.py::gen_weather()",
+    "random_seed": 205,
+    "license": "Fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "Scientific",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 3650,
+    "columns": [
+      "date",
+      "station",
+      "latitude",
+      "longitude",
+      "temp_celsius",
+      "precipitation_mm",
+      "humidity_percent",
+      "wind_speed_kmh",
+      "pressure_hpa",
+      "cloud_cover_pct"
+    ],
+    "n_numeric_columns": 8,
+    "n_categorical_columns": 2,
+    "missing_rate": 0.003,
+    "target_column": null,
+    "target_balance": null,
+    "features": [
+      "time_series",
+      "numeric",
+      "categorical",
+      "geographic",
+      "missing_values"
+    ],
+    "applicable_paradigms": [
+      "Time Series Decomposition and Forecasting",
+      "Spatial-Temporal Analysis",
+      "Climate Pattern Detection"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Average temperature by station",
+        "Total precipitation by month"
+      ],
+      "Medium": [
+        "Seasonal decomposition (trend + seasonal + residual) for temperature",
+        "Cross-station correlation analysis"
+      ],
+      "Hard": [
+        "ARIMA/SARIMA model for temperature forecasting with AIC selection",
+        "Changepoint detection in precipitation patterns"
+      ]
+    }
+  },
+  "scientific/wine_synthetic.csv": {
+    "source_type": "synthetic",
+    "inspired_by": "UCI Wine dataset (Forina et al. 1988), distributed via sklearn.datasets.load_wine",
+    "generation_script": "regenerate_all_seeds.py::gen_wine()",
+    "random_seed": 102,
+    "license": "Original: CC BY 4.0. This: fully synthetic, no license restriction.",
+    "generated_date": "2026-03-26",
+    "domain": "Scientific",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "rows": 500,
+    "columns": [
+      "alcohol",
+      "malic_acid",
+      "ash",
+      "alcalinity_of_ash",
+      "magnesium",
+      "total_phenols",
+      "flavanoids",
+      "nonflavanoid_phenols",
+      "proanthocyanins",
+      "color_intensity",
+      "hue",
+      "od280_od315",
+      "proline",
+      "cultivar"
+    ],
+    "n_numeric_columns": 13,
+    "n_categorical_columns": 1,
+    "missing_rate": 0.0046,
+    "target_column": null,
+    "target_balance": null,
+    "features": [
+      "numeric",
+      "multiclass",
+      "missing_values",
+      "high_dimensionality"
+    ],
+    "applicable_paradigms": [
+      "Multiclass Classification with Feature Selection",
+      "Principal Component Analysis and Biplot Interpretation",
+      "Outlier Detection (Isolation Forest, LOF)"
+    ],
+    "example_tasks": {
+      "Easy": [
+        "Average alcohol content by cultivar",
+        "Correlation matrix of all features"
+      ],
+      "Medium": [
+        "Random forest classifier with feature importance ranking",
+        "LDA for dimensionality reduction"
+      ],
+      "Hard": [
+        "Ensemble model comparison (RF, SVM, GBT) with statistical significance tests",
+        "Anomaly detection pipeline with contamination rate estimation"
+      ]
+    }
+  }
+}

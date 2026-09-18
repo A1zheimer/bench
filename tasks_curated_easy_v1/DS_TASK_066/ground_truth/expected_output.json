@@ -1,0 +1,50 @@
+{
+  "execution_result": "Total revenue was computed for every product category using total_cost.",
+  "key_values": {
+    "total_revenue_books": 5411.86,
+    "total_revenue_clothing": 12585.89,
+    "total_revenue_electronics": 1062788.49,
+    "total_revenue_food": 4738.28,
+    "total_revenue_home": 4442.07,
+    "total_revenue_sports": 3049.71
+  },
+  "key_aliases": {
+    "total_revenue_books": [
+      "total revenue books",
+      "revenue books"
+    ],
+    "total_revenue_clothing": [
+      "total revenue clothing",
+      "revenue clothing"
+    ],
+    "total_revenue_electronics": [
+      "total revenue electronics",
+      "revenue electronics"
+    ],
+    "total_revenue_food": [
+      "total revenue food",
+      "revenue food"
+    ],
+    "total_revenue_home": [
+      "total revenue home",
+      "revenue home"
+    ],
+    "total_revenue_sports": [
+      "total revenue sports",
+      "revenue sports"
+    ]
+  },
+  "required_keywords": [
+    "total revenue",
+    "product category",
+    "eCommerce"
+  ],
+  "original_task_id": "DS_TASK_066",
+  "repair_reason": "GT repaired by deterministic recomputation from data/dataset.csv",
+  "dataset_sha256": "3da856663bdc2e500635befbb5a446d9f3a279b7e83cc6feef000e1ce5b93487",
+  "verifier": "build_curated_easy_v1.py:curated_easy_v1",
+  "computed_at": "2026-05-20T08:15:43+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers",
+  "formula": "groupby(product_category).sum(total_cost)"
+}

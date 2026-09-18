@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_037",
+  "task_metadata": {
+    "domain": "SQL",
+    "difficulty": "Medium",
+    "tags": ["deduplication", "GROUP-BY", "HAVING", "CTE", "ROW_NUMBER", "data-quality"],
+    "contamination_risk": "low",
+    "canary_value": 53.4218
+  },
+  "context": {
+    "problem_statement": "Find and remove duplicate records from a customer contacts table using SQL. Duplicates are defined as records with the same (email, phone) combination. Steps: (1) use GROUP BY + HAVING COUNT(*) > 1 to identify duplicate groups, (2) for each duplicate group, keep only the record with the most recent created_at timestamp using ROW_NUMBER() in a CTE, (3) DELETE the duplicate records (older ones), (4) report the count of duplicates removed, (5) validate the final table has no duplicates remaining. Also handle near-duplicates: find records where email matches but phone differs by examining edit distance.",
+    "dataset_preview": "data/schema_deduplication.sql",
+    "expert_knowledge": "Deduplication CTE pattern: WITH ranked AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY email, phone ORDER BY created_at DESC) AS rn FROM contacts) DELETE FROM contacts WHERE id IN (SELECT id FROM ranked WHERE rn > 1). Always verify with a dry run SELECT before DELETE. Near-duplicate detection uses Levenshtein distance or fuzzy matching. Consider soft delete (is_deleted flag) instead of hard delete for auditability."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

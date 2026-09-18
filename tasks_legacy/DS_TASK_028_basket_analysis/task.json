@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_028",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Hard",
+    "tags": ["market-basket", "apriori", "association-rules", "support", "confidence", "lift"],
+    "contamination_risk": "low",
+    "canary_value": 22.6895
+  },
+  "context": {
+    "problem_statement": "Perform market basket analysis using the Apriori algorithm on transaction data. Find all association rules with minimum support = 0.25 and minimum confidence = 0.6. For each rule, compute support, confidence, and lift. Report: (1) top 5 rules by lift, (2) all rules with lift > 1.5 (positive association), (3) any rules where lift < 1 (negative association). Format each rule as '{antecedent} -> {consequent}: support=X, confidence=Y, lift=Z'.",
+    "dataset_preview": "data/transactions_preview.csv",
+    "expert_knowledge": "Support(A->B) = P(A and B) = count(A,B)/total_transactions. Confidence(A->B) = P(B|A) = count(A,B)/count(A). Lift(A->B) = Confidence(A->B)/Support(B) = P(A,B)/(P(A)*P(B)). Lift > 1: positive association, < 1: negative association. Use mlxtend.frequent_patterns.apriori and association_rules. Transform transactions to one-hot encoded matrix before running."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

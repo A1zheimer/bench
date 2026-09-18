@@ -1,0 +1,25 @@
+services:
+  metagpt:
+    build:
+      context: ./docker/metagpt
+    ports:
+      - "8100:8100"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL:-}
+    volumes:
+      - ./tasks:/data/tasks:ro
+    restart: unless-stopped
+
+  open-interpreter:
+    build:
+      context: ./docker/open_interpreter
+    ports:
+      - "8101:8101"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL:-}
+      - OI_MODEL=${OI_MODEL:-gpt-4o}
+    volumes:
+      - ./tasks:/data/tasks:ro
+    restart: unless-stopped

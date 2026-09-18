@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_004",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Hard",
+    "tags": ["survival-analysis", "kaplan-meier", "log-rank", "clinical-trial"],
+    "contamination_risk": "low",
+    "canary_value": 71.4829
+  },
+  "context": {
+    "problem_statement": "Perform a Kaplan-Meier survival analysis on the provided patient dataset. Patients are assigned to either a Treatment or Control group. The 'time' column represents days until event or censoring, and 'event' (1=death/relapse, 0=censored). Compute the KM survival curves for both groups and perform a log-rank test to determine if survival distributions differ significantly. Report the log-rank test p-value and the median survival time for each group.",
+    "dataset_preview": "data/survival_preview.csv",
+    "expert_knowledge": "Use lifelines library: KaplanMeierFitter for curves, logrank_test for group comparison. Median survival is the time at which the survival function crosses 0.5. P-value < 0.05 indicates statistically significant difference between groups. Censored observations (event=0) should be included in the analysis but are not counted as events."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

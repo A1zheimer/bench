@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_036",
+  "task_metadata": {
+    "domain": "SQL",
+    "difficulty": "Hard",
+    "tags": ["query-optimization", "EXPLAIN", "index", "performance", "sequential-scan"],
+    "contamination_risk": "low",
+    "canary_value": 36.8594
+  },
+  "context": {
+    "problem_statement": "Diagnose a slow SQL query using the provided EXPLAIN ANALYZE output. The query joins orders and customers tables and filters by date range and status. Analyze the query plan to: (1) identify which operations are causing the bottleneck (look for Seq Scan on large tables, high actual rows vs estimated rows indicating stale statistics), (2) propose specific CREATE INDEX statements to fix the performance issue, (3) estimate the speedup after adding the index (compare Seq Scan cost vs Index Scan cost), (4) identify if any columns in the WHERE clause lack indexes, (5) suggest query rewrites if applicable (e.g., avoid functions on indexed columns).",
+    "dataset_preview": "data/schema_slow_query.sql",
+    "expert_knowledge": "Sequential scan on large table = missing index. High rows estimate error = stale statistics (run ANALYZE). Composite index order matters: put equality predicates first, then range predicates. Avoid WHERE UPPER(email) = '...' which prevents index use; use citext or functional index instead. Partial indexes for frequent filters (e.g., WHERE status = 'active'). Use EXPLAIN (ANALYZE, BUFFERS) for cache hit information."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

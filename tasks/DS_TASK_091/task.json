@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_091",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": [
+      "anova",
+      "means",
+      "group-by",
+      "descriptive-statistics"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 70.9092
+  },
+  "context": {
+    "problem_statement": "Using the provided dataset, calculate the mean of each feature grouped by 'cultivar_type'. Specifically, report the mean value of 'ash_alcalinity' for the cultivar 'ClassB'. This will help determine if there are significant differences in the ash alcalinity between different cultivar types.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Factorial ANOVA can be used to determine if there are any statistically significant differences between the means of three or more independent groups. The interaction effect can reveal if the effect of one independent variable depends on the level of another independent variable. Post-hoc tests are used to determine which specific group means are different after finding a significant F-statistic."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 10
+}

@@ -1,0 +1,33 @@
+{
+  "instance_id": "DS_TASK_074",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Hard",
+    "tags": [
+      "response-surface-methodology",
+      "experiment-optimization",
+      "anova",
+      "factorial-design",
+      "yield-maximization"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 76.9059
+  },
+  "context": {
+    "problem_statement": "Perform experiment optimization using Response Surface Methodology (RSM) on the provided chemical reaction dataset. Identify optimal conditions (temperature, concentration, batch) for maximizing yield percentage. Conduct a full factorial ANOVA with interactions to understand factor influence. Optimize conditions using regression or suitable techniques. Deliver a summary of optimal conditions and statistical metrics such as p-values, F-statistics, and R-squared for the model.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Response Surface Methodology (RSM) is a statistical technique used for optimizing processes. It involves the design of experiments to evaluate the effects of several variables and their interactions. Full factorial design and ANOVA are commonly used in RSM to evaluate the significance of factors. Understanding model assumptions such as normality and homoscedasticity is crucial for valid results."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 30,
+    "budget": 3.0,
+    "timeout_seconds": 480,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 30
+}

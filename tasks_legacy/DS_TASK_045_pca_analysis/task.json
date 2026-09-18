@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_045",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Medium",
+    "tags": ["PCA", "dimensionality-reduction", "variance-explained", "scree-plot", "biplot"],
+    "contamination_risk": "low",
+    "canary_value": 74.2863
+  },
+  "context": {
+    "problem_statement": "Apply Principal Component Analysis (PCA) to a multi-feature materials science dataset. Steps: (1) standardize features using StandardScaler, (2) fit PCA and compute explained variance ratio for each component, (3) determine the number of components needed to explain 90% of variance (cumulative explained variance), (4) report the loadings (eigenvectors) for the first 2 PCs and identify which original features contribute most to each PC, (5) transform data to 2D PC space and compute the Euclidean distance between the two most extreme samples in PC space.",
+    "dataset_preview": "data/materials_pca_preview.csv",
+    "expert_knowledge": "sklearn.decomposition.PCA. Explained variance ratio = eigenvalue / sum(eigenvalues). Cumulative sum for 90% threshold. Loadings = pca.components_ (each row is a PC, columns are feature contributions). Large absolute loading = strong contribution. Scree plot shows elbow. PC1 explains most variance. Biplot shows both samples and feature vectors. Always standardize before PCA."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

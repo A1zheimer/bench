@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_078",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Medium",
+    "tags": [
+      "fraud-detection",
+      "cost-sensitive-learning",
+      "anomaly-scoring"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 58.1616
+  },
+  "context": {
+    "problem_statement": "Given a dataset of financial transactions, detect anomalies in transaction amounts using z-score analysis and build a fraud detection classifier using logistic regression. Compute the precision and recall of the classifier. Specifically, identify transactions with z-scores greater than 3 or less than -3 as anomalies and report the number of such anomalies. Additionally, train a fraud detection model and provide the precision and recall values of the model's predictions.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Anomaly detection using z-scores is a common method to identify outliers in financial data. Logistic regression is a standard approach for binary classification problems such as fraud detection. Precision and recall are crucial metrics in evaluating fraud detection systems due to the class imbalance typically present in such datasets."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "file_read"
+    ]
+  },
+  "max_steps": 20
+}

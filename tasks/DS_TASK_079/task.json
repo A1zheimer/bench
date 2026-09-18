@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_079",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Hard",
+    "tags": [
+      "VaR",
+      "Monte Carlo",
+      "anomaly detection"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 44.3965
+  },
+  "context": {
+    "problem_statement": "Given the dataset of financial transactions with simulated market fluctuations, calculate the Portfolio Value at Risk (VaR) using Monte Carlo simulations. The dataset contains noise and canary values to test the robustness of your analysis. Specifically, you need to compute the 95% VaR over a one-day horizon by simulating 10,000 scenarios of portfolio returns. Ensure that your analysis accounts for the noise and identifies the canary value correctly. The output should include the VaR value, the mean and standard deviation of simulated returns, and identification of any outliers or anomalies.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Portfolio Value at Risk (VaR) is a statistical technique used to measure the risk of loss on a portfolio. Monte Carlo simulations are used to model the probability of different outcomes in a process that cannot easily be predicted due to the intervention of random variables. VaR can be calculated by simulating a large number of scenarios for portfolio value changes based on historical data or assumed statistical distributions."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 30,
+    "budget": 3.0,
+    "timeout_seconds": 480,
+    "allowed_tools": [
+      "python_repl",
+      "web_search"
+    ]
+  },
+  "max_steps": 30
+}

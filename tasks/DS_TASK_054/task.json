@@ -1,0 +1,41 @@
+{
+  "instance_id": "DS_TASK_054",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Easy",
+    "primary_task_type": "time_series_forecasting",
+    "secondary_task_types": [
+      "descriptive_aggregation",
+      "data_quality_robustness"
+    ],
+    "challenge_dimensions": [
+      "heteroskedasticity",
+      "outlier_handling",
+      "semantic_perturbation"
+    ],
+    "tags": [
+      "time-series",
+      "forecasting",
+      "heteroskedasticity"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 90.4047
+  },
+  "context": {
+    "problem_statement": "Given the time series dataset representing daily financial data, compute the average price over the period. The dataset includes heteroskedasticity in the price values. You must handle this aspect and compute the average price accurately.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Heteroskedasticity refers to the presence of differing variances in a time series dataset. In financial data, this can occur due to market volatility. Time series forecasting models like ARIMA, Prophet, and LSTM can be used, but this task focuses on basic descriptive statistics due to its easy difficulty."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 10
+}

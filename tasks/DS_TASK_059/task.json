@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_059",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Hard",
+    "tags": [
+      "time-series-forecasting",
+      "heteroskedasticity",
+      "ARIMA"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 99.1675
+  },
+  "context": {
+    "problem_statement": "Given a time series dataset of monthly adjusted close prices from 2010 to 2023, your task is to forecast the next 12 months using an appropriate time series model. Consider heteroskedasticity in your model choice and adjust for it. Calculate the RMSE of your forecast against a synthetic test set with known values. Report the forecasted values and the RMSE.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Time series forecasting in finance often involves models like ARIMA, Prophet, or LSTM to predict future values. Heteroskedasticity, common in financial data, refers to the changing variance over time. Techniques such as ARCH/GARCH models are used to address this. It's crucial to preprocess data to handle outliers and stationarity, using methods like differencing or Box-Cox transformations."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 30,
+    "budget": 3.0,
+    "timeout_seconds": 480,
+    "allowed_tools": [
+      "python_repl",
+      "web_search"
+    ]
+  },
+  "max_steps": 30
+}

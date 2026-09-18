@@ -1,0 +1,44 @@
+{
+  "task_id": "DS_TASK_900031",
+  "template_id": "correlation_pair_v1",
+  "domain": "Scientific",
+  "difficulty": "Easy",
+  "primary_task_type": "statistical_inference",
+  "secondary_task_types": [
+    "descriptive_aggregation"
+  ],
+  "challenge_dimensions": [
+    "statistical_method_selection",
+    "schema_obfuscation"
+  ],
+  "tags": [
+    "correlation_pair",
+    "scientific",
+    "redteam",
+    "schema_obfuscation"
+  ],
+  "dataset_builder": "synthetic_tabular_v1",
+  "problem_statement": "Using `data/dataset.csv`, compute the pearson correlation between `col_017` and `col_019`. Return the value as `pearson_corr_sepal_petal_length`.",
+  "expert_knowledge": "Columns have been systematically obfuscated from base task DS_TASK_000005. Use the column names shown in the prompt and dataset, not domain assumptions.",
+  "operation": {
+    "x_column": "col_017",
+    "y_column": "col_019",
+    "method": "pearson",
+    "output_key": "pearson_corr_sepal_petal_length"
+  },
+  "max_steps": 8,
+  "budget": 1.0,
+  "timeout_seconds": 120,
+  "allowed_tools": [
+    "python_repl"
+  ],
+  "redteam": {
+    "is_redteam": true,
+    "base_task_id": "DS_TASK_000005",
+    "attack_type": "schema_obfuscation",
+    "attack_level": "L1",
+    "gt_policy": "invariant",
+    "perturbation_seed": 20260521,
+    "expected_invariant": "same_key_values"
+  }
+}

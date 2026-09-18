@@ -1,0 +1,19 @@
+{
+  "execution_result": "4 exact duplicate records identified and removed (contact_ids 1, 3, 5, 7). Final table has 11 unique records. 1 near-duplicate found (Alice Johnson, different phone number).",
+  "key_values": {
+    "total_initial_rows": 15,
+    "exact_duplicate_count": 4,
+    "records_after_dedup": 11,
+    "duplicate_group_count": 3,
+    "near_duplicate_count": 1,
+    "duplicates_removed_ids": [1, 3, 5, 7],
+    "largest_duplicate_group": 3
+  },
+  "required_keywords": ["GROUP BY", "HAVING", "ROW_NUMBER", "CTE", "deduplication", "PARTITION BY", "DELETE"],
+  "partial_credit_rubric": {
+    "duplicate_detection": {"weight": 0.30, "description": "Duplicates correctly identified using GROUP BY + HAVING COUNT > 1"},
+    "row_number_cte": {"weight": 0.30, "description": "ROW_NUMBER() CTE correctly identifies which records to keep vs delete"},
+    "delete_execution": {"weight": 0.20, "description": "DELETE query correctly removes older duplicate records"},
+    "near_duplicate_analysis": {"weight": 0.20, "description": "Near-duplicates (same email, different phone) identified and reported"}
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "instance_id": "DS_TASK_900012",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Easy",
+    "tags": [
+      "filtered_mean",
+      "ecommerce",
+      "redteam",
+      "distractor_columns"
+    ],
+    "primary_task_type": "descriptive_aggregation",
+    "secondary_task_types": [],
+    "challenge_dimensions": [
+      "conditional_filtering",
+      "distractor_columns"
+    ],
+    "generation_quality": "verified",
+    "redteam": {
+      "is_redteam": true,
+      "base_task_id": "DS_TASK_000001",
+      "attack_type": "distractor_columns",
+      "attack_level": "L1",
+      "gt_policy": "invariant",
+      "perturbation_seed": 20260521,
+      "expected_invariant": "same_key_values"
+    }
+  },
+  "context": {
+    "problem_statement": "Using `data/dataset.csv`, compute the mean of `total_cost` for rows where `product_category` eq `Books`. Return the result as `mean_total_cost_books`. The dataset may include unrelated distractor columns; ignore columns not required by the task.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 8,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 8
+}

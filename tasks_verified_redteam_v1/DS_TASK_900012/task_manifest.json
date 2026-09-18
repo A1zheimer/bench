@@ -1,0 +1,44 @@
+{
+  "task_id": "DS_TASK_900012",
+  "template_id": "filtered_mean_v1",
+  "domain": "ECommerce",
+  "difficulty": "Easy",
+  "primary_task_type": "descriptive_aggregation",
+  "secondary_task_types": [],
+  "challenge_dimensions": [
+    "conditional_filtering",
+    "distractor_columns"
+  ],
+  "tags": [
+    "filtered_mean",
+    "ecommerce",
+    "redteam",
+    "distractor_columns"
+  ],
+  "dataset_builder": "synthetic_tabular_v1",
+  "problem_statement": "Using `data/dataset.csv`, compute the mean of `total_cost` for rows where `product_category` eq `Books`. Return the result as `mean_total_cost_books`. The dataset may include unrelated distractor columns; ignore columns not required by the task.",
+  "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter.",
+  "operation": {
+    "value_column": "total_cost",
+    "metric": "mean",
+    "filter_column": "product_category",
+    "filter_op": "eq",
+    "filter_value": "Books",
+    "output_key": "mean_total_cost_books"
+  },
+  "max_steps": 8,
+  "budget": 1.0,
+  "timeout_seconds": 120,
+  "allowed_tools": [
+    "python_repl"
+  ],
+  "redteam": {
+    "is_redteam": true,
+    "base_task_id": "DS_TASK_000001",
+    "attack_type": "distractor_columns",
+    "attack_level": "L1",
+    "gt_policy": "invariant",
+    "perturbation_seed": 20260521,
+    "expected_invariant": "same_key_values"
+  }
+}

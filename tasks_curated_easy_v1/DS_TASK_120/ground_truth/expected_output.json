@@ -1,0 +1,40 @@
+{
+  "execution_result": "Computed diabetes-hypertension crosstab, comorbidity prevalence, and readmission rate.",
+  "key_values": {
+    "diabetes_hypertension_count": 96,
+    "diabetes_hypertension_prevalence": 0.10666666666666667,
+    "readmission_rate_diabetes_hypertension": 0.3333333333333333,
+    "crosstab_diabetes0_hypertension0": 439,
+    "crosstab_diabetes0_hypertension1": 218,
+    "crosstab_diabetes1_hypertension0": 147,
+    "crosstab_diabetes1_hypertension1": 96
+  },
+  "key_aliases": {
+    "diabetes_hypertension_count": [
+      "comorbidity count",
+      "both diabetes and hypertension count"
+    ],
+    "diabetes_hypertension_prevalence": [
+      "comorbidity prevalence",
+      "both diabetes and hypertension prevalence"
+    ],
+    "readmission_rate_diabetes_hypertension": [
+      "readmission rate comorbid",
+      "readmission rate both diabetes hypertension"
+    ]
+  },
+  "required_keywords": [
+    "diabetes",
+    "hypertension",
+    "comorbidity",
+    "readmission"
+  ],
+  "original_task_id": "DS_TASK_120",
+  "repair_reason": "GT repaired by deterministic recomputation from data/dataset.csv",
+  "dataset_sha256": "ebfbdabee0fc78b1e4eed3c74a8a6b14b8a0c9037dea4bffb1664959e5ea5465",
+  "verifier": "build_curated_easy_v1.py:curated_easy_v1",
+  "computed_at": "2026-05-20T08:15:44+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers",
+  "formula": "crosstab(has_diabetes, has_hypertension); mean(readmitted_30d where both == 1)"
+}

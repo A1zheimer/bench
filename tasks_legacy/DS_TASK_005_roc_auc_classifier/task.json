@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_005",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Medium",
+    "tags": ["roc-auc", "binary-classification", "disease-prediction", "evaluation"],
+    "contamination_risk": "low",
+    "canary_value": 58.2941
+  },
+  "context": {
+    "problem_statement": "Evaluate the performance of a binary disease classifier using the provided dataset of predicted probabilities and true labels. Compute the ROC curve, report the AUC score, find the optimal classification threshold using Youden's J statistic (maximizing sensitivity + specificity - 1), and report sensitivity and specificity at that threshold. Also compute precision, recall, and F1 score at the optimal threshold.",
+    "dataset_preview": "data/roc_preview.csv",
+    "expert_knowledge": "Use sklearn.metrics: roc_curve, auc, classification_report. AUC ranges from 0.5 (random) to 1.0 (perfect). Youden's J = sensitivity + specificity - 1; optimal threshold maximizes this. Sensitivity = TP/(TP+FN), Specificity = TN/(TN+FP). AUC > 0.8 is generally considered good for clinical classifiers."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "instance_id": "DS_TASK_003",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Medium",
+    "tags": ["time-series", "forecasting", "seasonality", "mape"]
+  },
+  "context": {
+    "problem_statement": "Forecast the next 4 weeks of weekly sales. First detect if there is annual seasonality in the data. Use an appropriate forecasting model. Evaluate forecast accuracy using MAPE (Mean Absolute Percentage Error) on a held-out last-4-week window. Report MAPE and the 4-week forecast values.",
+    "dataset_preview": "data/sales_preview.csv",
+    "expert_knowledge": "Check for seasonality using autocorrelation (ACF). MAPE = mean(|actual - forecast| / actual) * 100. For data with annual seasonality, seasonal naive or exponential smoothing works well. Holdout the last 4 weeks for evaluation before forecasting the next 4."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 1.5,
+    "timeout_seconds": 240,
+    "allowed_tools": ["python_repl", "file_read"]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "execution_result": "2 outliers detected by all three methods: S08 (118.7) and S18 (-12.3). Mean drops from 48.99 to 45.28 after removal. All methods agree.",
+  "key_values": {
+    "n_outliers_iqr": 2,
+    "n_outliers_zscore": 2,
+    "n_outliers_modified_zscore": 2,
+    "outlier_indices": ["S08", "S18"],
+    "outlier_values": [118.7, -12.3],
+    "mean_before": 48.99,
+    "mean_after": 45.28,
+    "std_before": 17.32,
+    "std_after": 1.38,
+    "all_methods_agree": true,
+    "q1": 43.875,
+    "q3": 46.325,
+    "iqr": 2.45
+  },
+  "required_keywords": ["IQR", "Z-score", "outlier", "Q1", "Q3", "MAD", "modified Z-score", "removal"],
+  "partial_credit_rubric": {
+    "iqr_method": {"weight": 0.30, "description": "IQR method correctly computed with Q1, Q3 and 1.5*IQR bounds"},
+    "zscore_method": {"weight": 0.25, "description": "Z-score method correctly applied with threshold |z| > 3"},
+    "modified_zscore": {"weight": 0.25, "description": "Modified Z-score correctly computed using MAD"},
+    "comparison_and_impact": {"weight": 0.20, "description": "Methods compared for agreement; statistics before and after removal correctly reported"}
+  }
+}

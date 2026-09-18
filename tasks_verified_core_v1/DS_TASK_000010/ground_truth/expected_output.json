@@ -1,0 +1,30 @@
+{
+  "execution_result": "Verified by crosstab_prevalence_v1: crosstab(product_category, channel) with product_category=Electronics, channel=Online",
+  "key_values": {
+    "electronics_online_count": 21.0,
+    "electronics_online_prevalence": 0.11666666666666667,
+    "electronics_online_fraud_rate": 0.23809523809523808
+  },
+  "key_aliases": {
+    "electronics_online_count": [
+      "electronics online count"
+    ],
+    "electronics_online_prevalence": [
+      "electronics online prevalence"
+    ],
+    "electronics_online_fraud_rate": [
+      "electronics online fraud rate"
+    ]
+  },
+  "required_keywords": [
+    "crosstab",
+    "prevalence"
+  ],
+  "formula": "crosstab(product_category, channel) with product_category=Electronics, channel=Online",
+  "verifier_id": "crosstab_prevalence_v1",
+  "verifier_version": "1.0",
+  "dataset_sha256": "b5d72248085a51d9c23bbf7cbeacd40938f3ff92e24db96783ba5a1450b3ad00",
+  "computed_at": "2026-05-21T03:54:20.852926+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers"
+}

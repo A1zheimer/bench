@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_017",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Medium",
+    "tags": ["regulatory", "compliance", "risk-metrics", "aggregation", "reporting"],
+    "contamination_risk": "low",
+    "canary_value": 29.4671
+  },
+  "context": {
+    "problem_statement": "Generate a regulatory compliance risk report by aggregating risk metrics across a portfolio of financial instruments. For each asset class (Equity, Fixed Income, Derivatives, Cash), compute: (1) total exposure and percentage of portfolio, (2) weighted average credit rating score (AAA=1, AA=2, A=3, BBB=4, BB=5, B=6), (3) concentration risk flag if any single asset > 10% of total portfolio, (4) liquidity tier distribution (Tier 1: can sell in <1 day, Tier 2: 1-7 days, Tier 3: >7 days). Compute overall portfolio HHI (Herfindahl-Hirschman Index) for concentration measurement.",
+    "dataset_preview": "data/regulatory_portfolio_preview.csv",
+    "expert_knowledge": "HHI = sum(market_share_i^2) where market_share is each asset's fraction of total portfolio. HHI > 0.25 indicates high concentration risk. Weighted average rating = sum(weight_i * rating_score_i). Regulatory capital requirements increase with lower credit quality and higher concentration. Liquidity coverage ratio (LCR) requires sufficient Tier 1 liquid assets."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

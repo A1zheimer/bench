@@ -1,0 +1,40 @@
+{
+  "task_id": "DS_TASK_000011",
+  "template_id": "model_eval_metric_v1",
+  "domain": "Biomedical",
+  "difficulty": "Medium",
+  "primary_task_type": "predictive_modeling",
+  "secondary_task_types": [
+    "descriptive_aggregation"
+  ],
+  "challenge_dimensions": [
+    "model_selection",
+    "train_test_split_reproducibility"
+  ],
+  "tags": [
+    "model_eval_metric",
+    "biomedical"
+  ],
+  "dataset_builder": "synthetic_tabular_v1",
+  "problem_statement": "Using `data/dataset.csv`, train the appropriate sklearn model to predict `readmitted` from `age`, `length_of_stay`, `diabetes`, `hypertension`, `risk_score`. Use train_test_split with test_size=0.3 and random_state=42. Report accuracy for classification, or RMSE and R-squared for regression.",
+  "expert_knowledge": "Use sklearn with the specified train/test split and random_state. Drop rows with missing values before training.",
+  "operation": {
+    "target_column": "readmitted",
+    "feature_columns": [
+      "age",
+      "length_of_stay",
+      "diabetes",
+      "hypertension",
+      "risk_score"
+    ],
+    "test_size": 0.3,
+    "random_state": 42
+  },
+  "max_steps": 10,
+  "budget": 1.0,
+  "timeout_seconds": 120,
+  "allowed_tools": [
+    "python_repl"
+  ],
+  "redteam": {}
+}

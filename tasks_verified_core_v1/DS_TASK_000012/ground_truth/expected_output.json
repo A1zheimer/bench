@@ -1,0 +1,26 @@
+{
+  "execution_result": "Verified by model_eval_metric_v1: linear_regression_rmse_r2(target=revenue)",
+  "key_values": {
+    "rmse": 33.645875875788285,
+    "r_squared": 0.9334264974743752
+  },
+  "key_aliases": {
+    "rmse": [
+      "rmse"
+    ],
+    "r_squared": [
+      "r squared"
+    ]
+  },
+  "required_keywords": [
+    "model",
+    "evaluation"
+  ],
+  "formula": "linear_regression_rmse_r2(target=revenue)",
+  "verifier_id": "model_eval_metric_v1",
+  "verifier_version": "1.0",
+  "dataset_sha256": "0d91f694fe6549a5700fd9132bc6cba0dc48be295199b3db510b84182a1b3d6f",
+  "computed_at": "2026-05-21T03:54:20.896097+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers"
+}

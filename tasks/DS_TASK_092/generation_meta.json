@@ -1,0 +1,65 @@
+{
+  "generator": "openai:gpt-4o",
+  "temperature": 0.7,
+  "canary_value": 5.9082,
+  "verified": false,
+  "generated_at": "2026-03-24T03:32:57Z",
+  "solution_code": "import pandas as pd\nimport numpy as np\nfrom scipy.spatial import cKDTree\n\ndata = pd.read_csv('dataset.csv')\ndata = data.dropna()\n# IDW interpolation using alkalinity/mg_content to predict proline_content\nX = data[['alkalinity', 'mg_content']].values\ny = data['proline_content'].values\n\ntree = cKDTree(X)\ndists, idxs = tree.query(X, k=4)\nweights = 1.0 / (dists[:, 1:] + 1e-10)\npredicted = (weights * y[idxs[:, 1:]]).sum(axis=1) / weights.sum(axis=1)\nprint({'key': 'idw_predicted_value_1', 'value': round(float(predicted[0]), 2)})\nprint({'key': 'idw_predicted_value_2', 'value': round(float(predicted[1]), 2)})",
+  "data_generation_code": "import pandas as pd\nimport numpy as np\n\n# Load seed data\nseed_data = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-appropriate names\ncolumn_mapping = {\n    'alcalinity_of_ash': 'soil_ph',\n    'magnesium': 'soil_mg',\n    'total_phenols': 'soil_phenols',\n    'nonflavanoid_phenols': 'nonflav_phenols',\n    'proanthocyanins': 'anthocyanins',\n    'color_intensity': 'color_index',\n    'hue': 'hue_value',\n    'od280/od315_of_diluted_wines': 'absorbance_ratio',\n    'proline': 'proline_concentration'\n}\ndata = seed_data.rename(columns=column_mapping)\n\n# Inject a canary value\ndata.loc[0, 'soil_ph'] = -999.0\n\n# Add random noise to 'proline_concentration'\nnp.random.seed(42)\nnoise = np.random.normal(0, 0.1, size=data.shape[0])\ndata['proline_concentration'] += noise\n\n# Save the mutated dataset\ndata.to_csv('dataset.csv', index=False)",
+  "trace": [
+    {
+      "step": 1,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-appropriate but different names\\ncolumn_renames = {\\n    'alc",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-appropriate but different names\ncolumn_renames = {\n    'alcalinity_of_ash': 'soil_acidity',\n    'magnesium': 'soil_magnesium',\n    'total_phenols': 'soil_phenols',\n    'nonflavanoid_phenols': 'soil_nonflavanoid_phenols',\n    'proanthocyanins': 'soil_proanthocyanins',\n    'color_intensity': 'soil_color_intensity',\n    'hue': 'soil_hue',\n    'od280/od315_of_diluted_wines': 'soil_od_ratio',\n    'proline': 'soil_proline',\n    'cultivar': 'plant_type'\n}\ndf.rename(columns=column_renames, inplace=True)\n\n# Inject a canary value for contamination detection\ndf.loc[0, 'soil_acidity'] = -9999  # An impossible value for soil acidity\n\n# Introduce noise by adding random values to some columns\nnp.random.seed(42)\nnoise = np.random.normal(0, 0.1, size=df.shape)\ndf.iloc[:, :-1] += noise[:, :-1]\n\n# Introduce missing values randomly\ndf.loc[np.random.choice(df.index, size=10, replace=False), 'soil_magnesium'] = np.nan\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)"
+    },
+    {
+      "step": 2,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed dataset\\nseed_data_path = 'seed_data.csv'\\ndf = pd.read_csv(seed_data_path)\\n\\n# Rename columns for semantic obfuscation\\ncolumn_re",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed dataset\nseed_data_path = 'seed_data.csv'\ndf = pd.read_csv(seed_data_path)\n\n# Rename columns for semantic obfuscation\ncolumn_rename_map = {\n    'alcalinity_of_ash': 'soil_ph',\n    'magnesium': 'mg_concentration',\n    'total_phenols': 'organic_matter',\n    'nonflavanoid_phenols': 'inorganic_content',\n    'proanthocyanins': 'water_retention',\n    'color_intensity': 'color_depth',\n    'hue': 'hue_value',\n    'od280/od315_of_diluted_wines': 'optical_density',\n    'proline': 'nitrogen_content',\n    'cultivar': 'soil_type'\n}\ndf = df.rename(columns=column_rename_map)\n\n# Injecting a canary value for contamination detection\ncanary_index = np.random.choice(df.index, size=1, replace=False)\ndf.loc[canary_index, 'soil_ph'] = 9999\n\n# Introducing noise: Inject a small random noise into 'mg_concentration' column\nnoise = np.random.normal(0, 0.5, size=df.shape[0])\ndf['mg_concentration'] += noise\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 3,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-appropriate names\\ncolumn_mapping = {\\n    'alcalinity_of_ash",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-appropriate names\ncolumn_mapping = {\n    'alcalinity_of_ash': 'soil_ph',\n    'magnesium': 'soil_mg',\n    'total_phenols': 'soil_phenols',\n    'nonflavanoid_phenols': 'soil_nonflav_phenols',\n    'proanthocyanins': 'soil_proanthocyanins',\n    'color_intensity': 'soil_color_intensity',\n    'hue': 'soil_hue',\n    'od280/od315_of_diluted_wines': 'soil_od_ratio',\n    'proline': 'soil_proline',\n    'cultivar': 'soil_type'\n}\ndf.rename(columns=column_mapping, inplace=True)\n\n# Inject a canary value for contamination detection\ndf.loc[0, 'soil_ph'] = -9999  # Canary value\n\n# Introduce some additional noise (randomly adjust some values)\nnp.random.seed(42)\nnoise = np.random.normal(0, 0.1, size=df[['soil_ph', 'soil_mg', 'soil_phenols']].shape)\ndf[['soil_ph', 'soil_mg', 'soil_phenols']] += noise\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 4,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed dataset\\nseed_data_path = 'seed_data.csv'\\ndf = pd.read_csv(seed_data_path)\\n\\n# Rename columns to domain-appropriate but different",
+      "result_preview": "ERROR: Unable to coerce to DataFrame, shape must be (142, 9): given (142, 10)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed dataset\nseed_data_path = 'seed_data.csv'\ndf = pd.read_csv(seed_data_path)\n\n# Rename columns to domain-appropriate but different names\ncolumn_renaming = {\n    'alcalinity_of_ash': 'soil_ph',\n    'magnesium': 'soil_mg',\n    'total_phenols': 'soil_phenols',\n    'nonflavanoid_phenols': 'soil_nonflav_phenols',\n    'proanthocyanins': 'soil_proanthocyanins',\n    'color_intensity': 'plant_color_intensity',\n    'hue': 'plant_hue',\n    'od280/od315_of_diluted_wines': 'plant_dilution_ratio',\n    'proline': 'plant_proline',\n    'cultivar': 'plant_variety'\n}\ndf = df.rename(columns=column_renaming)\n\n# Inject a canary value\ncanary_index = np.random.choice(df.index)\ndf.at[canary_index, 'soil_ph'] = -999\n\n# Introduce noise\nnp.random.seed(0)\nnoise = np.random.normal(0, 0.1, df.shape)\ndf.iloc[:, :-1] += noise\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)\ndf.head()"
+    },
+    {
+      "step": 5,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-specific but different names\\ncolumn_mapping = {\\n    'alcali",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-specific but different names\ncolumn_mapping = {\n    'alcalinity_of_ash': 'soil_ph',\n    'magnesium': 'mg_content',\n    'total_phenols': 'phenol_level',\n    'nonflavanoid_phenols': 'non_flav_phenols',\n    'proanthocyanins': 'proanthocyanin',\n    'color_intensity': 'color_intens',\n    'hue': 'hue_value',\n    'od280/od315_of_diluted_wines': 'od_ratio',\n    'proline': 'proline_content',\n    'cultivar': 'crop_type'\n}\ndf.rename(columns=column_mapping, inplace=True)\n\n# Inject canary values for contamination detection\nnp.random.seed(42)\ncanary_values = np.random.choice([999, -999], size=df.shape[0])\ndf['canary'] = canary_values\n\n# Save the mutated data\ndf.to_csv('dataset.csv', index=False)\ndf.head()"
+    },
+    {
+      "step": 6,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to more domain-appropriate names\\ndf.columns = ['alkalinity', 'mg_conte",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to more domain-appropriate names\ndf.columns = ['alkalinity', 'mg_content', 'phenols_total', 'phenols_nonflav', 'proanthocyanin_level', 'intensity_color', 'wine_hue', 'dilution_od_ratio', 'proline_content', 'wine_cultivar']\n\n# Inject noise: Add random noise to 'mg_content' and 'intensity_color'\nnp.random.seed(42)\ndf['mg_content'] += np.random.normal(0, 5, size=len(df))  # Injecting noise with a normal distribution\n\n# Inject a canary value for contamination detection\ncanary_index = np.random.choice(df.index)\ndf.at[canary_index, 'mg_content'] = 9999  # Extreme value as canary\n\n# Randomly introduce missing values in 'intensity_color'\nmissing_indices = np.random.choice(df.index, size=10, replace=False)\ndf.loc[missing_indices, 'intensity_color'] = np.nan\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)"
+    },
+    {
+      "step": 7,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-appropriate names\\ncolumn_mapping = {\\n    'alcalinity_of_ash",
+      "result_preview": "ERROR: Unable to coerce to DataFrame, shape must be (142, 9): given (142, 10)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-appropriate names\ncolumn_mapping = {\n    'alcalinity_of_ash': 'ash_alcalinity',\n    'magnesium': 'soil_magnesium',\n    'total_phenols': 'phenol_content',\n    'nonflavanoid_phenols': 'nonflavanoid_content',\n    'proanthocyanins': 'proanthocyanin_level',\n    'color_intensity': 'color_depth',\n    'hue': 'hue_value',\n    'od280/od315_of_diluted_wines': 'optical_density',\n    'proline': 'proline_level',\n    'cultivar': 'plant_cultivar'\n}\ndf.rename(columns=column_mapping, inplace=True)\n\n# Inject a canary value\nnp.random.seed(0)\ndf.loc[0, 'ash_alcalinity'] = -9999  # Canary value for contamination detection\n\n# Introduce some noise and missing values\nnoise = np.random.normal(0, 0.1, size=df.shape)\ndf.iloc[:, :-1] += noise  # Add noise to all numeric columns except the last one\ndf.loc[5, 'soil_magnesium'] = np.nan  # Inject missing value\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)"
+    },
+    {
+      "step": 8,
+      "action": "submit_task",
+      "forced": true
+    }
+  ]
+}

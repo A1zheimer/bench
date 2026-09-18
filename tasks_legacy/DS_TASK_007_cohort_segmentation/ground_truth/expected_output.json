@@ -1,0 +1,18 @@
+{
+  "execution_result": "Patients successfully segmented into three risk cohorts. High-risk cohort shows 100% adverse outcome rate, confirming clinical utility of the composite risk score.",
+  "key_values": {
+    "low_risk_count": 7,
+    "medium_risk_count": 6,
+    "high_risk_count": 7,
+    "low_risk_outcome_rate": 0.0,
+    "medium_risk_outcome_rate": 0.333,
+    "high_risk_outcome_rate": 1.0
+  },
+  "required_keywords": ["Low", "Medium", "High", "risk score", "cohort", "outcome rate"],
+  "partial_credit_rubric": {
+    "normalization_correct": {"weight": 0.25, "description": "Min-max normalization correctly applied to all three features"},
+    "risk_score_computed": {"weight": 0.25, "description": "Composite risk score correctly computed with specified weights"},
+    "cohorts_assigned": {"weight": 0.25, "description": "Patients correctly assigned to Low/Medium/High cohorts using thresholds"},
+    "outcome_rates_reported": {"weight": 0.25, "description": "Count and outcome rate reported for each cohort"}
+  }
+}

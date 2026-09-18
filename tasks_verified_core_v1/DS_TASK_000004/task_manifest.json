@@ -1,0 +1,38 @@
+{
+  "task_id": "DS_TASK_000004",
+  "template_id": "groupby_aggregation_v1",
+  "domain": "Finance",
+  "difficulty": "Medium",
+  "primary_task_type": "descriptive_aggregation",
+  "secondary_task_types": [],
+  "challenge_dimensions": [
+    "multi_group_aggregation",
+    "cross_domain_schema"
+  ],
+  "tags": [
+    "groupby_aggregation",
+    "finance"
+  ],
+  "dataset_builder": "synthetic_tabular_v1",
+  "problem_statement": "Using `data/dataset.csv`, group rows by `region` and compute the mean of `transaction_amount` for each group. Return one labeled value per group using the requested metric names.",
+  "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter.",
+  "operation": {
+    "groupby": "region",
+    "value_column": "transaction_amount",
+    "agg": "mean",
+    "output_prefix": "mean_transaction_amount",
+    "output_keys": {
+      "East": "mean_transaction_amount_east",
+      "North": "mean_transaction_amount_north",
+      "South": "mean_transaction_amount_south",
+      "West": "mean_transaction_amount_west"
+    }
+  },
+  "max_steps": 8,
+  "budget": 1.0,
+  "timeout_seconds": 120,
+  "allowed_tools": [
+    "python_repl"
+  ],
+  "redteam": {}
+}

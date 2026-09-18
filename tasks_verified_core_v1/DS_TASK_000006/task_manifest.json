@@ -1,0 +1,34 @@
+{
+  "task_id": "DS_TASK_000006",
+  "template_id": "correlation_pair_v1",
+  "domain": "Finance",
+  "difficulty": "Medium",
+  "primary_task_type": "statistical_inference",
+  "secondary_task_types": [
+    "descriptive_aggregation"
+  ],
+  "challenge_dimensions": [
+    "statistical_method_selection",
+    "cross_domain_schema"
+  ],
+  "tags": [
+    "correlation_pair",
+    "finance"
+  ],
+  "dataset_builder": "synthetic_tabular_v1",
+  "problem_statement": "Using `data/dataset.csv`, compute the pearson correlation between `marketing_spend` and `revenue`. Return the value as `pearson_corr_marketing_revenue`.",
+  "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter.",
+  "operation": {
+    "x_column": "marketing_spend",
+    "y_column": "revenue",
+    "method": "pearson",
+    "output_key": "pearson_corr_marketing_revenue"
+  },
+  "max_steps": 8,
+  "budget": 1.0,
+  "timeout_seconds": 120,
+  "allowed_tools": [
+    "python_repl"
+  ],
+  "redteam": {}
+}

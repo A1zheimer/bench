@@ -1,0 +1,10 @@
+{
+  "execution_result": "Estimated parameters: a = 33.15, b = 0.0118, c = 8.59 with R-squared = 0.729. The model fits the data reasonably well, explaining about 72.9% of the variance.",
+  "key_values": {
+    "parameter_a": 33.152756387459,
+    "parameter_b": 0.011827718159880646,
+    "parameter_c": 8.588170403606414,
+    "r_squared": 0.7290776087492373
+  },
+  "required_keywords": []
+}

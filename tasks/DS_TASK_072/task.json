@@ -1,0 +1,32 @@
+{
+  "instance_id": "DS_TASK_072",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Medium",
+    "tags": [
+      "non-linear-curve-fitting",
+      "parameter-estimation",
+      "missing-values",
+      "noise-injection"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 86.222
+  },
+  "context": {
+    "problem_statement": "Analyze the seasonal temperature variations from the provided weather station data. Use non-linear curve fitting to model the temperature trend over time and estimate key parameters of the model. Specifically, fit a sinusoidal model to capture the seasonal effect on temperature and estimate the amplitude and phase shift of the temperature cycle. Provide the estimated parameters and evaluate the goodness of fit using appropriate metrics.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Non-linear curve fitting is a statistical technique used to model complex relationships between variables. Parameter estimation involves finding values of parameters that best fit the data according to the chosen model. Common methods include least squares fitting for non-linear models such as exponential, logarithmic, or polynomial."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}

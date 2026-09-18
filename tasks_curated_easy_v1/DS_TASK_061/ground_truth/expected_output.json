@@ -1,0 +1,28 @@
+{
+  "execution_result": "The average hospital stay duration for readmitted patients is 7.397163120567 days.",
+  "key_values": {
+    "average_stay_duration_readmitted": 7.397163120567376
+  },
+  "key_aliases": {
+    "average_stay_duration_readmitted": [
+      "average hospital stay duration readmitted",
+      "average hospital stay days for readmitted patients",
+      "average_hospital_stay_duration_readmitted",
+      "average_hospital_stay_days_for_readmitted",
+      "readmitted average stay"
+    ]
+  },
+  "required_keywords": [
+    "average",
+    "readmission",
+    "hospital stay"
+  ],
+  "original_task_id": "DS_TASK_061",
+  "repair_reason": "GT repaired by deterministic recomputation from data/dataset.csv",
+  "dataset_sha256": "db2a6793ae88ab21403b0d24d9e0e6d8f38e07a8071175f3a581e7621658909e",
+  "verifier": "build_curated_easy_v1.py:curated_easy_v1",
+  "computed_at": "2026-05-20T08:15:43+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers",
+  "formula": "mean(hospital_stay_days where readmission == 1)"
+}

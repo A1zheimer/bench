@@ -1,0 +1,20 @@
+{
+  "execution_result": "Mean NDCG@10 of 0.842 across 3 users. User 3 achieves near-perfect NDCG of 0.967 with top-ranked relevant items. User 2 lowest at 0.721.",
+  "key_values": {
+    "U1_dcg10": 7.831,
+    "U1_idcg10": 9.612,
+    "U1_ndcg10": 0.815,
+    "U2_ndcg10": 0.721,
+    "U3_ndcg10": 0.967,
+    "mean_ndcg10": 0.834,
+    "U1_precision5": 0.40,
+    "U3_precision5": 0.80
+  },
+  "required_keywords": ["NDCG", "DCG", "IDCG", "Precision@5", "Recall@10", "relevance", "ranking"],
+  "partial_credit_rubric": {
+    "dcg_computed": {"weight": 0.30, "description": "DCG@10 correctly computed using log2 discount for all users"},
+    "idcg_computed": {"weight": 0.25, "description": "IDCG@10 correctly computed using ideal ranking"},
+    "ndcg_computed": {"weight": 0.25, "description": "NDCG@10 correctly computed as DCG/IDCG per user and mean reported"},
+    "precision_recall": {"weight": 0.20, "description": "Precision@5 and Recall@10 correctly computed"}
+  }
+}

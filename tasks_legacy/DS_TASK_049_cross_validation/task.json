@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_049",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Medium",
+    "tags": ["cross-validation", "k-fold", "imbalanced", "stratified", "classifier-evaluation"],
+    "contamination_risk": "low",
+    "canary_value": 59.4837
+  },
+  "context": {
+    "problem_statement": "Evaluate a Random Forest classifier using 5-fold stratified cross-validation on an imbalanced dataset. Steps: (1) apply StratifiedKFold to preserve class proportions in each fold, (2) for each fold, compute: accuracy, balanced accuracy, macro F1-score, and ROC AUC, (3) report mean and standard deviation of each metric across 5 folds, (4) compare StratifiedKFold results to regular KFold results to show why stratification matters for imbalanced data, (5) produce a learning curve (training vs validation accuracy as function of training set size from 20% to 100%).",
+    "dataset_preview": "data/imbalanced_classification_preview.csv",
+    "expert_knowledge": "StratifiedKFold maintains class ratio in each fold; critical for imbalanced data. Balanced accuracy = average of per-class recall. Use sklearn.model_selection.StratifiedKFold, cross_val_score. Random Forest: RandomForestClassifier(n_estimators=100, random_state=42). For imbalanced data, balanced_accuracy is more informative than accuracy. Learning curve: sklearn.model_selection.learning_curve."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

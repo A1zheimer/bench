@@ -1,0 +1,13 @@
+{
+  "execution_result": "The top 5 association rules derived from the Apriori algorithm are identified, showcasing strong product affinities within the dataset. These rules provide insights into customer purchasing behavior and potential cross-selling opportunities.",
+  "key_values": {
+    "revenue_Books": 5411.86,
+    "revenue_Clothing": 12585.89,
+    "revenue_Electronics": 63240.59,
+    "revenue_Food": 4738.28,
+    "revenue_Home": 4442.07,
+    "revenue_Sports": 3049.71,
+    "avg_rating_Electronics": 4.1916
+  },
+  "required_keywords": []
+}

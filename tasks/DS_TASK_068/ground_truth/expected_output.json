@@ -1,0 +1,12 @@
+{
+  "execution_result": "The seasonal decomposition of monthly revenue revealed a clear seasonal pattern with a peak in December. The average monthly revenue, adjusted for seasonal effects, is approximately 50,000. The maximum seasonal effect observed is a 30% increase in December.",
+  "key_values": {
+    "average_monthly_revenue": 50000,
+    "max_seasonal_effect": 30
+  },
+  "required_keywords": [
+    "seasonal decomposition",
+    "average monthly revenue",
+    "maximum seasonal effect"
+  ]
+}

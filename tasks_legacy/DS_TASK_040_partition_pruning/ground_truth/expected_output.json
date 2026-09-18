@@ -1,0 +1,20 @@
+{
+  "execution_result": "Partition pruning reduces query to scanning 3 of 7 partitions for Q1 2024 date range. Estimated cost drops from 1,250,000 to ~187,500 (6.7x improvement). Query must reference sale_date directly without function wrapping.",
+  "key_values": {
+    "total_partitions": 7,
+    "partitions_scanned_q1": 3,
+    "partition_pruning_ratio": 0.429,
+    "cost_without_partitioning": 1250000,
+    "cost_with_pruning": 187500,
+    "speedup_factor": 6.67,
+    "partition_key_column": "sale_date",
+    "partition_type": "RANGE"
+  },
+  "required_keywords": ["PARTITION BY RANGE", "partition pruning", "EXPLAIN", "DEFAULT partition", "FOR VALUES FROM", "TO"],
+  "partial_credit_rubric": {
+    "partitioned_ddl": {"weight": 0.25, "description": "RANGE partitioned table correctly defined with sale_date as partition key"},
+    "monthly_partitions": {"weight": 0.25, "description": "Monthly partition DDL correctly created for Jan-Jun 2024"},
+    "default_partition": {"weight": 0.15, "description": "DEFAULT partition correctly added for out-of-range values"},
+    "pruning_verification": {"weight": 0.35, "description": "EXPLAIN shows partition pruning with only 3 partitions scanned for Q1 range query"}
+  }
+}

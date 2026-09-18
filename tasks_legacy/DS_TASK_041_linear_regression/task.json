@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_041",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Medium",
+    "tags": ["linear-regression", "OLS", "R-squared", "residuals", "multivariate"],
+    "contamination_risk": "low",
+    "canary_value": 82.3471
+  },
+  "context": {
+    "problem_statement": "Fit a multiple linear regression model to predict compressive strength of concrete based on its composition. Features: cement, water, fly_ash, superplasticizer, coarse_aggregate, age_days. Target: compressive_strength_MPa. Steps: (1) fit OLS regression using statsmodels, (2) report R-squared and adjusted R-squared, (3) report coefficients with standard errors, t-statistics, and p-values, (4) perform residual diagnostics: plot residuals vs fitted values, compute Durbin-Watson statistic for autocorrelation, test normality of residuals with Shapiro-Wilk test, (5) identify and report statistically significant predictors (p < 0.05).",
+    "dataset_preview": "data/concrete_strength_preview.csv",
+    "expert_knowledge": "Use statsmodels.api.OLS(y, sm.add_constant(X)).fit(). R-squared = 1 - SS_res/SS_tot. Adjusted R-squared penalizes for extra predictors. Durbin-Watson statistic near 2 = no autocorrelation; < 1 or > 3 is problematic. Shapiro-Wilk p > 0.05 indicates normal residuals. Variance Inflation Factor (VIF) detects multicollinearity. Condition number > 30 indicates potential multicollinearity."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

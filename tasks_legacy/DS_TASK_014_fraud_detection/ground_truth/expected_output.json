@@ -1,0 +1,22 @@
+{
+  "execution_result": "SMOTE-balanced model achieves higher recall (0.86 vs 0.57) at modest precision cost. AUPRC improves from 0.72 to 0.83 with SMOTE. Baseline accuracy of 95% is misleading given class imbalance.",
+  "key_values": {
+    "fraud_rate": 0.35,
+    "baseline_accuracy": 0.65,
+    "logistic_precision": 0.857,
+    "logistic_recall": 0.857,
+    "logistic_f1": 0.857,
+    "smote_precision": 0.778,
+    "smote_recall": 1.0,
+    "smote_f1": 0.875,
+    "logistic_auprc": 0.921,
+    "smote_auprc": 0.962
+  },
+  "required_keywords": ["precision", "recall", "F1", "SMOTE", "imbalanced", "AUPRC", "confusion matrix"],
+  "partial_credit_rubric": {
+    "imbalance_acknowledged": {"weight": 0.15, "description": "Class imbalance identified and accuracy correctly flagged as misleading"},
+    "baseline_model": {"weight": 0.25, "description": "Logistic regression trained and evaluated with precision/recall/F1"},
+    "smote_applied": {"weight": 0.30, "description": "SMOTE oversampling correctly applied and model retrained"},
+    "comparison_analysis": {"weight": 0.30, "description": "Models correctly compared using AUPRC and F1, with fraud-context interpretation"}
+  }
+}

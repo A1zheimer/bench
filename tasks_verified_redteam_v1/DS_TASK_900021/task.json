@@ -1,0 +1,44 @@
+{
+  "instance_id": "DS_TASK_900021",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Easy",
+    "tags": [
+      "groupby_aggregation",
+      "ecommerce",
+      "redteam",
+      "schema_obfuscation"
+    ],
+    "primary_task_type": "descriptive_aggregation",
+    "secondary_task_types": [],
+    "challenge_dimensions": [
+      "multi_group_aggregation",
+      "schema_obfuscation"
+    ],
+    "generation_quality": "verified",
+    "redteam": {
+      "is_redteam": true,
+      "base_task_id": "DS_TASK_000003",
+      "attack_type": "schema_obfuscation",
+      "attack_level": "L1",
+      "gt_policy": "invariant",
+      "perturbation_seed": 20260521,
+      "expected_invariant": "same_key_values"
+    }
+  },
+  "context": {
+    "problem_statement": "Using `data/dataset.csv`, group rows by `col_001` and compute the sum of `col_004` for each group. Return one labeled value per group using the requested metric names.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Columns have been systematically obfuscated from base task DS_TASK_000003. Use the column names shown in the prompt and dataset, not domain assumptions."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 8,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 8
+}

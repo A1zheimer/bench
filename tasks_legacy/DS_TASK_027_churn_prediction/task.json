@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_027",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Medium",
+    "tags": ["churn-prediction", "logistic-regression", "feature-importance", "coefficients", "classification"],
+    "contamination_risk": "low",
+    "canary_value": 48.9341
+  },
+  "context": {
+    "problem_statement": "Build a logistic regression churn prediction model and analyze feature importance via coefficients. The dataset contains customer features and a binary churn label (1=churned). Steps: (1) encode categorical variables (gender: M/F), (2) standardize numerical features, (3) fit logistic regression with L2 regularization (C=1.0), (4) report standardized coefficients (feature importances) sorted by absolute value, (5) compute model accuracy, AUC-ROC, and report the top 3 most predictive features, (6) interpret the direction of each coefficient (positive = increases churn probability).",
+    "dataset_preview": "data/churn_features_preview.csv",
+    "expert_knowledge": "Logistic regression coefficients after standardization are directly comparable feature importances. Positive coefficient = feature increases churn odds. Odds ratio = exp(coefficient). Use sklearn LogisticRegression with solver='lbfgs'. Standardization essential for coefficient comparison. Coefficient p-values can be approximated using statsmodels LogisticRegression."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

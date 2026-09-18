@@ -1,0 +1,13 @@
+{
+  "execution_result": "The conversion funnel shows significant drop-off at the payment stage. Cohort retention analysis indicates a retention decline of 20% in the second week post-purchase.",
+  "key_values": {
+    "drop_off_payment_stage": 0.35,
+    "cohort_week1_retention": 0.75,
+    "cohort_week2_retention": 0.55
+  },
+  "required_keywords": [
+    "conversion funnel",
+    "cohort retention",
+    "drop-off rate"
+  ]
+}

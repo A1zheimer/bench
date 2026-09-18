@@ -1,0 +1,20 @@
+{
+  "execution_result": "The Portfolio Value at Risk (VaR) at a 95% confidence level is approximately 0.25. The average loss in scenarios where the loss exceeds the VaR is approximately 0.30.",
+  "key_values": {
+    "VaR_95": -0.751625,
+    "average_loss_beyond_VaR": -0.796899
+  },
+  "required_keywords": [],
+  "alternative_key_values": [
+    {
+      "method": "monte_carlo",
+      "VaR_95": -0.73918,
+      "average_loss_beyond_VaR": -0.794761
+    },
+    {
+      "method": "parametric_normal",
+      "VaR_95": -1.704215,
+      "average_loss_beyond_VaR": -1.704215
+    }
+  ]
+}

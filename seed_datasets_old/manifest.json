@@ -1,0 +1,1242 @@
+{
+  "biomedical/breast_cancer_slice.csv": {
+    "rows": 284,
+    "columns": [
+      "mean radius",
+      "mean concavity",
+      "mean concave points",
+      "mean symmetry",
+      "texture error",
+      "smoothness error",
+      "fractal dimension error",
+      "worst radius",
+      "worst texture",
+      "worst perimeter",
+      "worst area",
+      "worst compactness",
+      "worst concavity",
+      "worst concave points",
+      "worst fractal dimension",
+      "diagnosis"
+    ],
+    "source": "real_sklearn",
+    "missing_rate": 0.0117,
+    "numeric_columns": [
+      "mean radius",
+      "mean concavity",
+      "mean concave points",
+      "mean symmetry",
+      "texture error",
+      "smoothness error",
+      "fractal dimension error",
+      "worst radius",
+      "worst texture",
+      "worst perimeter",
+      "worst area",
+      "worst compactness",
+      "worst concavity",
+      "worst concave points",
+      "worst fractal dimension"
+    ],
+    "domain": "Biomedical",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "features": [
+      "numeric",
+      "binary_target",
+      "missing_values",
+      "high_dimensional"
+    ],
+    "sklearn_source": "load_breast_cancer",
+    "applicable_paradigms": [
+      "Clinical Trial A/B Testing and Causal Inference (Propensity Score Matching)",
+      "Missing Data Imputation in Clinical Records (MICE, KNN Imputer)",
+      "Outlier Detection"
+    ],
+    "easy_tasks": [
+      "Count malignant vs benign diagnoses",
+      "Compute mean of each numeric feature by diagnosis"
+    ],
+    "medium_tasks": [
+      "Logistic regression to predict diagnosis, report AUC",
+      "Impute missing values and compare model accuracy before/after"
+    ],
+    "hard_tasks": [
+      "Feature selection (top-5 by mutual information) + cross-validated SVM",
+      "PCA dimensionality reduction + clustering + diagnosis purity analysis"
+    ],
+    "statistical_properties": {
+      "rows": 284,
+      "n_columns": 16,
+      "n_numeric_cols": 15,
+      "n_categorical_cols": 1,
+      "has_datetime": false,
+      "missing_rate": 0.0117,
+      "missing_per_column": {
+        "mean radius": 0.0599,
+        "mean concavity": 0.0739,
+        "mean concave points": 0.0528
+      },
+      "numeric_summary": {
+        "mean radius": {
+          "mean": 14.45,
+          "std": 3.7207,
+          "min": 6.981,
+          "max": 28.11
+        },
+        "mean concavity": {
+          "mean": 0.0953,
+          "std": 0.0855,
+          "min": 0.0,
+          "max": 0.4268
+        },
+        "mean concave points": {
+          "mean": 0.0503,
+          "std": 0.0397,
+          "min": 0.0,
+          "max": 0.2012
+        },
+        "mean symmetry": {
+          "mean": 0.1799,
+          "std": 0.0285,
+          "min": 0.106,
+          "max": 0.304
+        },
+        "texture error": {
+          "mean": 1.1899,
+          "std": 0.5336,
+          "min": 0.3602,
+          "max": 3.896
+        },
+        "smoothness error": {
+          "mean": 0.0069,
+          "std": 0.0031,
+          "min": 0.0027,
+          "max": 0.0311
+        },
+        "fractal dimension error": {
+          "mean": 0.0037,
+          "std": 0.0028,
+          "min": 0.0011,
+          "max": 0.0298
+        },
+        "worst radius": {
+          "mean": 16.7303,
+          "std": 5.0133,
+          "min": 7.93,
+          "max": 36.04
+        },
+        "worst texture": {
+          "mean": 25.6812,
+          "std": 5.9497,
+          "min": 12.02,
+          "max": 45.41
+        },
+        "worst perimeter": {
+          "mean": 110.284,
+          "std": 34.7532,
+          "min": 50.41,
+          "max": 251.2
+        }
+      },
+      "max_skewness": 4.7592,
+      "top_correlations": [
+        "worst radius~worst perimeter: 0.994",
+        "worst radius~worst area: 0.983",
+        "worst perimeter~worst area: 0.977",
+        "mean radius~worst radius: 0.974",
+        "mean radius~worst perimeter: 0.966"
+      ],
+      "categorical_cardinality": {
+        "diagnosis": 2
+      },
+      "class_imbalance_ratio": 1.47,
+      "imbalance_column": "diagnosis",
+      "auto_tags": [
+        "Outlier Detection"
+      ]
+    }
+  },
+  "biomedical/diabetes_slice.csv": {
+    "rows": 265,
+    "columns": [
+      "age",
+      "sex",
+      "bmi",
+      "bp",
+      "s1",
+      "s2",
+      "s6",
+      "progression"
+    ],
+    "source": "real_sklearn",
+    "missing_rate": 0.0208,
+    "numeric_columns": [
+      "age",
+      "sex",
+      "bmi",
+      "bp",
+      "s1",
+      "s2",
+      "s6",
+      "progression"
+    ],
+    "domain": "Biomedical",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "features": [
+      "numeric",
+      "regression_target",
+      "missing_values"
+    ],
+    "sklearn_source": "load_diabetes",
+    "applicable_paradigms": [
+      "Dose-Response Modeling and Non-linear Curve Fitting",
+      "Missing Data Imputation in Clinical Records (MICE, KNN Imputer)"
+    ],
+    "easy_tasks": [
+      "Correlation between each feature and progression",
+      "Summary statistics of all numeric columns"
+    ],
+    "medium_tasks": [
+      "Linear regression with R-squared and RMSE",
+      "Compare imputation strategies on prediction accuracy"
+    ],
+    "hard_tasks": [
+      "Ridge/Lasso regression with cross-validation + feature importance",
+      "Non-linear modeling (polynomial/GAM) vs linear, report AIC comparison"
+    ],
+    "statistical_properties": {
+      "rows": 265,
+      "n_columns": 8,
+      "n_numeric_cols": 8,
+      "n_categorical_cols": 0,
+      "has_datetime": false,
+      "missing_rate": 0.0208,
+      "missing_per_column": {
+        "bmi": 0.0566,
+        "bp": 0.1094
+      },
+      "numeric_summary": {
+        "age": {
+          "mean": 0.0014,
+          "std": 0.0467,
+          "min": -0.1072,
+          "max": 0.0962
+        },
+        "sex": {
+          "mean": 0.0007,
+          "std": 0.0477,
+          "min": -0.0446,
+          "max": 0.0507
+        },
+        "bmi": {
+          "mean": -0.0005,
+          "std": 0.0467,
+          "min": -0.0892,
+          "max": 0.1706
+        },
+        "bp": {
+          "mean": -0.001,
+          "std": 0.0457,
+          "min": -0.1124,
+          "max": 0.132
+        },
+        "s1": {
+          "mean": 0.0013,
+          "std": 0.0501,
+          "min": -0.1089,
+          "max": 0.1539
+        },
+        "s2": {
+          "mean": 0.0014,
+          "std": 0.0499,
+          "min": -0.1156,
+          "max": 0.1988
+        },
+        "s6": {
+          "mean": -0.0033,
+          "std": 0.0478,
+          "min": -0.1378,
+          "max": 0.1356
+        },
+        "progression": {
+          "mean": 150.4981,
+          "std": 76.9954,
+          "min": 39.0,
+          "max": 341.0
+        }
+      },
+      "max_skewness": 0.6109,
+      "top_correlations": [
+        "s1~s2: 0.914",
+        "bmi~progression: 0.561",
+        "bp~progression: 0.426",
+        "bmi~s6: 0.404",
+        "s1~s6: 0.347"
+      ],
+      "auto_tags": []
+    }
+  },
+  "scientific/wine_slice.csv": {
+    "rows": 142,
+    "columns": [
+      "alcalinity_of_ash",
+      "magnesium",
+      "total_phenols",
+      "nonflavanoid_phenols",
+      "proanthocyanins",
+      "color_intensity",
+      "hue",
+      "od280/od315_of_diluted_wines",
+      "proline",
+      "cultivar"
+    ],
+    "source": "real_sklearn",
+    "missing_rate": 0.0085,
+    "numeric_columns": [
+      "alcalinity_of_ash",
+      "magnesium",
+      "total_phenols",
+      "nonflavanoid_phenols",
+      "proanthocyanins",
+      "color_intensity",
+      "hue",
+      "od280/od315_of_diluted_wines",
+      "proline"
+    ],
+    "domain": "Scientific",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "features": [
+      "numeric",
+      "multiclass_target",
+      "missing_values"
+    ],
+    "sklearn_source": "load_wine",
+    "applicable_paradigms": [
+      "Factorial ANOVA with Interaction Effects and Post-hoc Tests",
+      "Genomic Data Dimensionality Reduction (PCA, t-SNE, UMAP)"
+    ],
+    "easy_tasks": [
+      "Mean of each feature grouped by cultivar",
+      "Which cultivar has the highest mean alcohol content?"
+    ],
+    "medium_tasks": [
+      "One-way ANOVA for each feature across cultivars",
+      "PCA to 2D and visualize cluster separation"
+    ],
+    "hard_tasks": [
+      "Multi-class classification with cross-validated F1 (macro)",
+      "MANOVA + post-hoc discriminant analysis"
+    ],
+    "statistical_properties": {
+      "rows": 142,
+      "n_columns": 10,
+      "n_numeric_cols": 9,
+      "n_categorical_cols": 1,
+      "has_datetime": false,
+      "missing_rate": 0.0085,
+      "missing_per_column": {
+        "alcalinity_of_ash": 0.0352,
+        "magnesium": 0.0493
+      },
+      "numeric_summary": {
+        "alcalinity_of_ash": {
+          "mean": 19.2496,
+          "std": 3.2836,
+          "min": 10.6,
+          "max": 30.0
+        },
+        "magnesium": {
+          "mean": 100.2741,
+          "std": 14.8507,
+          "min": 78.0,
+          "max": 162.0
+        },
+        "total_phenols": {
+          "mean": 2.3351,
+          "std": 0.6237,
+          "min": 0.98,
+          "max": 3.88
+        },
+        "nonflavanoid_phenols": {
+          "mean": 0.3606,
+          "std": 0.1262,
+          "min": 0.13,
+          "max": 0.63
+        },
+        "proanthocyanins": {
+          "mean": 1.6016,
+          "std": 0.5856,
+          "min": 0.41,
+          "max": 3.58
+        },
+        "color_intensity": {
+          "mean": 4.987,
+          "std": 2.3075,
+          "min": 1.28,
+          "max": 13.0
+        },
+        "hue": {
+          "mean": 0.9657,
+          "std": 0.2293,
+          "min": 0.48,
+          "max": 1.71
+        },
+        "od280/od315_of_diluted_wines": {
+          "mean": 2.6266,
+          "std": 0.7009,
+          "min": 1.27,
+          "max": 4.0
+        },
+        "proline": {
+          "mean": 757.5845,
+          "std": 312.4908,
+          "min": 278.0,
+          "max": 1680.0
+        }
+      },
+      "max_skewness": 1.2161,
+      "top_correlations": [
+        "total_phenols~od280/od315_of_diluted_wines: 0.709",
+        "total_phenols~proanthocyanins: 0.613",
+        "nonflavanoid_phenols~od280/od315_of_diluted_wines: -0.58",
+        "hue~od280/od315_of_diluted_wines: 0.553",
+        "color_intensity~hue: -0.527"
+      ],
+      "categorical_cardinality": {
+        "cultivar": 3
+      },
+      "class_imbalance_ratio": 1.6,
+      "imbalance_column": "cultivar",
+      "auto_tags": []
+    }
+  },
+  "finance/california_housing_slice.csv": {
+    "rows": 516,
+    "columns": [
+      "MedInc",
+      "HouseAge",
+      "AveRooms",
+      "AveBedrms",
+      "Population",
+      "Latitude",
+      "median_house_value"
+    ],
+    "source": "real_sklearn",
+    "missing_rate": 0.0205,
+    "numeric_columns": [
+      "MedInc",
+      "HouseAge",
+      "AveRooms",
+      "AveBedrms",
+      "Population",
+      "Latitude",
+      "median_house_value"
+    ],
+    "domain": "Finance",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "features": [
+      "numeric",
+      "regression_target",
+      "missing_values",
+      "spatial"
+    ],
+    "applicable_paradigms": [
+      "Credit Risk Modeling and Imbalanced Classification (SMOTE)",
+      "Time Series Forecasting (e.g., ARIMA, Prophet, LSTM) with Heteroskedasticity",
+      "Outlier Detection"
+    ],
+    "easy_tasks": [
+      "Average house value by income bracket (quartiles)",
+      "Correlation matrix of all features"
+    ],
+    "medium_tasks": [
+      "Linear regression for house value, report R-squared and top-3 features",
+      "Detect and handle outliers in house value, re-fit model"
+    ],
+    "hard_tasks": [
+      "Spatial regression accounting for latitude/longitude clusters",
+      "Random Forest vs Ridge regression comparison with cross-validated RMSE"
+    ],
+    "statistical_properties": {
+      "rows": 516,
+      "n_columns": 7,
+      "n_numeric_cols": 7,
+      "n_categorical_cols": 0,
+      "has_datetime": false,
+      "missing_rate": 0.0205,
+      "missing_per_column": {
+        "AveRooms": 0.0756,
+        "AveBedrms": 0.0678
+      },
+      "numeric_summary": {
+        "MedInc": {
+          "mean": 3.7217,
+          "std": 1.7338,
+          "min": 0.4999,
+          "max": 15.0
+        },
+        "HouseAge": {
+          "mean": 29.4767,
+          "std": 12.3853,
+          "min": 2.0,
+          "max": 52.0
+        },
+        "AveRooms": {
+          "mean": 5.3012,
+          "std": 1.8381,
+          "min": 1.64,
+          "max": 28.6154
+        },
+        "AveBedrms": {
+          "mean": 1.0841,
+          "std": 0.277,
+          "min": 0.5455,
+          "max": 5.4872
+        },
+        "Population": {
+          "mean": 1437.1667,
+          "std": 976.9889,
+          "min": 21.0,
+          "max": 10877.0
+        },
+        "Latitude": {
+          "mean": 35.4463,
+          "std": 2.0783,
+          "min": 32.64,
+          "max": 41.86
+        },
+        "median_house_value": {
+          "mean": 1.984,
+          "std": 1.1119,
+          "min": 0.379,
+          "max": 5.0
+        }
+      },
+      "max_skewness": 10.7835,
+      "top_correlations": [
+        "AveRooms~AveBedrms: 0.751",
+        "MedInc~median_house_value: 0.641",
+        "MedInc~AveRooms: 0.42",
+        "HouseAge~Population: -0.304",
+        "HouseAge~AveRooms: -0.194"
+      ],
+      "auto_tags": [
+        "Outlier Detection"
+      ]
+    }
+  },
+  "scientific/iris_full.csv": {
+    "rows": 150,
+    "columns": [
+      "sepal length (cm)",
+      "sepal width (cm)",
+      "petal length (cm)",
+      "petal width (cm)",
+      "species"
+    ],
+    "source": "real_sklearn",
+    "missing_rate": 0.0,
+    "numeric_columns": [
+      "sepal length (cm)",
+      "sepal width (cm)",
+      "petal length (cm)",
+      "petal width (cm)"
+    ],
+    "domain": "Scientific",
+    "difficulty_range": [
+      "Easy"
+    ],
+    "features": [
+      "numeric",
+      "multiclass_target",
+      "small_dataset"
+    ],
+    "sklearn_source": "load_iris",
+    "applicable_paradigms": [
+      "Factorial ANOVA with Interaction Effects and Post-hoc Tests"
+    ],
+    "easy_tasks": [
+      "Mean petal length per species",
+      "Which species has the widest sepal?"
+    ],
+    "statistical_properties": {
+      "rows": 150,
+      "n_columns": 5,
+      "n_numeric_cols": 4,
+      "n_categorical_cols": 1,
+      "has_datetime": false,
+      "missing_rate": 0.0,
+      "missing_per_column": {},
+      "numeric_summary": {
+        "sepal length (cm)": {
+          "mean": 5.8433,
+          "std": 0.8281,
+          "min": 4.3,
+          "max": 7.9
+        },
+        "sepal width (cm)": {
+          "mean": 3.0573,
+          "std": 0.4359,
+          "min": 2.0,
+          "max": 4.4
+        },
+        "petal length (cm)": {
+          "mean": 3.758,
+          "std": 1.7653,
+          "min": 1.0,
+          "max": 6.9
+        },
+        "petal width (cm)": {
+          "mean": 1.1993,
+          "std": 0.7622,
+          "min": 0.1,
+          "max": 2.5
+        }
+      },
+      "max_skewness": 0.319,
+      "top_correlations": [
+        "petal length (cm)~petal width (cm): 0.963",
+        "sepal length (cm)~petal length (cm): 0.872",
+        "sepal length (cm)~petal width (cm): 0.818",
+        "sepal width (cm)~petal length (cm): -0.428",
+        "sepal width (cm)~petal width (cm): -0.366"
+      ],
+      "categorical_cardinality": {
+        "species": 3
+      },
+      "class_imbalance_ratio": 1.0,
+      "imbalance_column": "species",
+      "auto_tags": []
+    }
+  },
+  "finance/transactions.csv": {
+    "rows": 600,
+    "columns": [
+      "transaction_id",
+      "customer_id",
+      "date",
+      "hour",
+      "day_of_week",
+      "amount",
+      "category",
+      "is_fraud"
+    ],
+    "source": "synthetic",
+    "missing_rate": 0.0,
+    "numeric_columns": [
+      "transaction_id",
+      "customer_id",
+      "hour",
+      "day_of_week",
+      "amount",
+      "is_fraud"
+    ],
+    "domain": "Finance",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "features": [
+      "categorical",
+      "numeric",
+      "binary_target",
+      "temporal",
+      "class_imbalance"
+    ],
+    "applicable_paradigms": [
+      "Fraud Detection with Cost-Sensitive Learning and Anomaly Scoring",
+      "Credit Risk Modeling and Imbalanced Classification (SMOTE)",
+      "Imbalanced Classification (SMOTE)",
+      "Time Series",
+      "Outlier Detection"
+    ],
+    "easy_tasks": [
+      "Total spending per category",
+      "Count transactions per day_of_week"
+    ],
+    "medium_tasks": [
+      "Anomaly detection with z-score on amount",
+      "Fraud classifier with precision/recall"
+    ],
+    "hard_tasks": [
+      "Isolation forest with ROC-AUC",
+      "Time-aware train/test + cost-sensitive learning"
+    ],
+    "statistical_properties": {
+      "rows": 600,
+      "n_columns": 8,
+      "n_numeric_cols": 6,
+      "n_categorical_cols": 2,
+      "has_datetime": true,
+      "missing_rate": 0.0,
+      "missing_per_column": {},
+      "numeric_summary": {
+        "transaction_id": {
+          "mean": 300.5,
+          "std": 173.3494,
+          "min": 1.0,
+          "max": 600.0
+        },
+        "customer_id": {
+          "mean": 1047.6483,
+          "std": 29.0968,
+          "min": 1000.0,
+          "max": 1099.0
+        },
+        "hour": {
+          "mean": 13.3883,
+          "std": 5.1567,
+          "min": 0.0,
+          "max": 23.0
+        },
+        "day_of_week": {
+          "mean": 3.0683,
+          "std": 1.9774,
+          "min": 0.0,
+          "max": 6.0
+        },
+        "amount": {
+          "mean": 145.8817,
+          "std": 501.5748,
+          "min": 4.59,
+          "max": 6901.22
+        },
+        "is_fraud": {
+          "mean": 0.0367,
+          "std": 0.1881,
+          "min": 0.0,
+          "max": 1.0
+        }
+      },
+      "max_skewness": 9.3754,
+      "top_correlations": [
+        "hour~is_fraud: -0.161",
+        "customer_id~amount: 0.096",
+        "hour~day_of_week: -0.084",
+        "transaction_id~customer_id: 0.081",
+        "transaction_id~amount: 0.067"
+      ],
+      "categorical_cardinality": {
+        "date": 171,
+        "category": 6
+      },
+      "class_imbalance_ratio": 26.27,
+      "imbalance_column": "is_fraud",
+      "auto_tags": [
+        "Imbalanced Classification (SMOTE)",
+        "Time Series",
+        "Outlier Detection"
+      ]
+    }
+  },
+  "ecommerce/orders.csv": {
+    "rows": 800,
+    "columns": [
+      "order_id",
+      "customer_id",
+      "order_date",
+      "category",
+      "unit_price",
+      "quantity",
+      "total_amount",
+      "channel",
+      "returned",
+      "rating"
+    ],
+    "source": "synthetic",
+    "missing_rate": 0.0,
+    "numeric_columns": [
+      "order_id",
+      "customer_id",
+      "unit_price",
+      "quantity",
+      "total_amount",
+      "returned",
+      "rating"
+    ],
+    "domain": "ECommerce",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "features": [
+      "categorical",
+      "numeric",
+      "temporal",
+      "seasonal"
+    ],
+    "applicable_paradigms": [
+      "Customer Lifetime Value (CLV) Prediction (BTYD models, RFM analysis)",
+      "Seasonal Decomposition of Revenue Time Series",
+      "Imbalanced Classification (SMOTE)",
+      "Time Series",
+      "Outlier Detection"
+    ],
+    "easy_tasks": [
+      "Total revenue by category",
+      "Monthly order count trend"
+    ],
+    "medium_tasks": [
+      "RFM segmentation of customers",
+      "Seasonal decomposition of monthly revenue"
+    ],
+    "hard_tasks": [
+      "CLV prediction with BTYD model",
+      "Market basket analysis with association rules"
+    ],
+    "statistical_properties": {
+      "rows": 800,
+      "n_columns": 10,
+      "n_numeric_cols": 7,
+      "n_categorical_cols": 3,
+      "has_datetime": true,
+      "missing_rate": 0.0,
+      "missing_per_column": {},
+      "numeric_summary": {
+        "order_id": {
+          "mean": 10400.5,
+          "std": 231.0844,
+          "min": 10001.0,
+          "max": 10800.0
+        },
+        "customer_id": {
+          "mean": 197.34,
+          "std": 57.4992,
+          "min": 100.0,
+          "max": 299.0
+        },
+        "unit_price": {
+          "mean": 68.447,
+          "std": 124.2932,
+          "min": 3.94,
+          "max": 1439.21
+        },
+        "quantity": {
+          "mean": 1.655,
+          "std": 0.7495,
+          "min": 1.0,
+          "max": 3.0
+        },
+        "total_amount": {
+          "mean": 116.8355,
+          "std": 269.5541,
+          "min": 3.94,
+          "max": 3438.99
+        },
+        "returned": {
+          "mean": 0.0625,
+          "std": 0.2422,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "rating": {
+          "mean": 4.1325,
+          "std": 0.8851,
+          "min": 1.0,
+          "max": 5.0
+        }
+      },
+      "max_skewness": 7.4412,
+      "top_correlations": [
+        "unit_price~total_amount: 0.905",
+        "returned~rating: -0.564",
+        "quantity~total_amount: 0.239",
+        "quantity~returned: 0.078",
+        "order_id~rating: 0.047"
+      ],
+      "categorical_cardinality": {
+        "order_date": 295,
+        "category": 6,
+        "channel": 3
+      },
+      "class_imbalance_ratio": 15.0,
+      "imbalance_column": "returned",
+      "auto_tags": [
+        "Imbalanced Classification (SMOTE)",
+        "Time Series",
+        "Outlier Detection"
+      ]
+    }
+  },
+  "ecommerce/user_sessions.csv": {
+    "rows": 600,
+    "columns": [
+      "session_id",
+      "user_id",
+      "timestamp",
+      "device",
+      "traffic_source",
+      "duration_seconds",
+      "pages_viewed",
+      "bounce",
+      "converted",
+      "cart_value"
+    ],
+    "source": "synthetic",
+    "missing_rate": 0.0,
+    "numeric_columns": [
+      "user_id",
+      "duration_seconds",
+      "pages_viewed",
+      "bounce",
+      "converted",
+      "cart_value"
+    ],
+    "domain": "ECommerce",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "features": [
+      "categorical",
+      "numeric",
+      "binary_target",
+      "temporal"
+    ],
+    "applicable_paradigms": [
+      "Conversion Funnel Drop-off Analysis and Cohort Retention",
+      "A/B Test Analysis with Statistical Power and Effect Size",
+      "Imbalanced Classification (SMOTE)",
+      "Time Series",
+      "Outlier Detection"
+    ],
+    "easy_tasks": [
+      "Conversion rate by device type",
+      "Bounce rate calculation"
+    ],
+    "medium_tasks": [
+      "Conversion prediction model with AUC",
+      "Cohort retention analysis"
+    ],
+    "hard_tasks": [
+      "Funnel analysis with multi-touch attribution",
+      "User journey clustering"
+    ],
+    "statistical_properties": {
+      "rows": 600,
+      "n_columns": 10,
+      "n_numeric_cols": 6,
+      "n_categorical_cols": 4,
+      "has_datetime": true,
+      "missing_rate": 0.0,
+      "missing_per_column": {},
+      "numeric_summary": {
+        "user_id": {
+          "mean": 1093.93,
+          "std": 57.743,
+          "min": 1000.0,
+          "max": 1198.0
+        },
+        "duration_seconds": {
+          "mean": 311.655,
+          "std": 316.5172,
+          "min": 5.0,
+          "max": 2860.0
+        },
+        "pages_viewed": {
+          "mean": 4.93,
+          "std": 2.245,
+          "min": 1.0,
+          "max": 13.0
+        },
+        "bounce": {
+          "mean": 0.0483,
+          "std": 0.2146,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "converted": {
+          "mean": 0.155,
+          "std": 0.3622,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "cart_value": {
+          "mean": 12.256,
+          "std": 41.493,
+          "min": 0.0,
+          "max": 394.93
+        }
+      },
+      "max_skewness": 5.4805,
+      "top_correlations": [
+        "converted~cart_value: 0.69",
+        "pages_viewed~bounce: -0.395",
+        "duration_seconds~converted: 0.348",
+        "duration_seconds~cart_value: 0.255",
+        "pages_viewed~converted: 0.114"
+      ],
+      "categorical_cardinality": {
+        "session_id": 600,
+        "timestamp": 519,
+        "device": 3,
+        "traffic_source": 5
+      },
+      "class_imbalance_ratio": 19.69,
+      "imbalance_column": "bounce",
+      "auto_tags": [
+        "Imbalanced Classification (SMOTE)",
+        "Time Series",
+        "Outlier Detection"
+      ]
+    }
+  },
+  "scientific/lab_experiment.csv": {
+    "rows": 610,
+    "columns": [
+      "experiment_id",
+      "temperature_C",
+      "concentration_mM",
+      "catalyst",
+      "replicate",
+      "yield_percent",
+      "reaction_time_min",
+      "purity_percent"
+    ],
+    "source": "synthetic",
+    "missing_rate": 0.0064,
+    "numeric_columns": [
+      "experiment_id",
+      "temperature_C",
+      "concentration_mM",
+      "replicate",
+      "yield_percent",
+      "reaction_time_min",
+      "purity_percent"
+    ],
+    "domain": "Scientific",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "features": [
+      "factorial_design",
+      "numeric",
+      "categorical",
+      "missing_values"
+    ],
+    "applicable_paradigms": [
+      "Factorial ANOVA with Interaction Effects and Post-hoc Tests",
+      "Response Surface Methodology and Experiment Optimization",
+      "Time Series"
+    ],
+    "easy_tasks": [
+      "Mean yield by catalyst type",
+      "Effect of temperature on yield"
+    ],
+    "medium_tasks": [
+      "Two-way ANOVA (temperature x catalyst)",
+      "Regression model for yield"
+    ],
+    "hard_tasks": [
+      "Full factorial ANOVA with interactions",
+      "Response surface optimization"
+    ],
+    "statistical_properties": {
+      "rows": 610,
+      "n_columns": 8,
+      "n_numeric_cols": 7,
+      "n_categorical_cols": 1,
+      "has_datetime": true,
+      "missing_rate": 0.0379,
+      "missing_per_column": {
+        "catalyst": 0.2525,
+        "purity_percent": 0.0508
+      },
+      "numeric_summary": {
+        "experiment_id": {
+          "mean": 305.5,
+          "std": 176.2361,
+          "min": 1.0,
+          "max": 610.0
+        },
+        "temperature_C": {
+          "mean": 34.9672,
+          "std": 11.248,
+          "min": 20.0,
+          "max": 50.0
+        },
+        "concentration_mM": {
+          "mean": 1.622,
+          "std": 1.94,
+          "min": 0.1,
+          "max": 5.0
+        },
+        "replicate": {
+          "mean": 5.3246,
+          "std": 2.8382,
+          "min": 1.0,
+          "max": 11.0
+        },
+        "yield_percent": {
+          "mean": 64.5189,
+          "std": 20.7021,
+          "min": 19.0,
+          "max": 119.07
+        },
+        "reaction_time_min": {
+          "mean": 44.9185,
+          "std": 10.3751,
+          "min": 14.6,
+          "max": 81.9
+        },
+        "purity_percent": {
+          "mean": 92.1043,
+          "std": 4.8187,
+          "min": 77.7,
+          "max": 99.9
+        }
+      },
+      "max_skewness": 1.1103,
+      "top_correlations": [
+        "experiment_id~temperature_C: 0.968",
+        "concentration_mM~yield_percent: 0.808",
+        "experiment_id~yield_percent: 0.538",
+        "temperature_C~yield_percent: 0.333",
+        "experiment_id~concentration_mM: 0.214"
+      ],
+      "categorical_cardinality": {
+        "catalyst": 3
+      },
+      "class_imbalance_ratio": 1.05,
+      "imbalance_column": "catalyst",
+      "auto_tags": [
+        "Time Series"
+      ]
+    }
+  },
+  "scientific/weather_stations.csv": {
+    "rows": 1825,
+    "columns": [
+      "date",
+      "station",
+      "latitude",
+      "temp_celsius",
+      "precipitation_mm",
+      "humidity_percent",
+      "wind_speed_kmh"
+    ],
+    "source": "synthetic",
+    "missing_rate": 0.0052,
+    "numeric_columns": [
+      "latitude",
+      "temp_celsius",
+      "precipitation_mm",
+      "humidity_percent",
+      "wind_speed_kmh"
+    ],
+    "domain": "Scientific",
+    "difficulty_range": [
+      "Easy",
+      "Medium",
+      "Hard"
+    ],
+    "features": [
+      "time_series",
+      "multi_station",
+      "seasonal",
+      "missing_values",
+      "spatial"
+    ],
+    "applicable_paradigms": [
+      "Time Series Changepoint Detection and Trend Analysis",
+      "Multi-station Climate Anomaly Detection",
+      "Time Series",
+      "Outlier Detection"
+    ],
+    "easy_tasks": [
+      "Average temperature per station",
+      "Rainiest month across stations"
+    ],
+    "medium_tasks": [
+      "Seasonal decomposition of temperature",
+      "Anomaly detection in temperature"
+    ],
+    "hard_tasks": [
+      "Spatial interpolation using latitude",
+      "Granger causality between variables"
+    ],
+    "statistical_properties": {
+      "rows": 1825,
+      "n_columns": 7,
+      "n_numeric_cols": 5,
+      "n_categorical_cols": 2,
+      "has_datetime": true,
+      "missing_rate": 0.0052,
+      "missing_per_column": {
+        "temp_celsius": 0.0192,
+        "humidity_percent": 0.017
+      },
+      "numeric_summary": {
+        "latitude": {
+          "mean": 38.0,
+          "std": 4.8593,
+          "min": 30.0,
+          "max": 45.0
+        },
+        "temp_celsius": {
+          "mean": 11.5504,
+          "std": 10.5671,
+          "min": -14.6,
+          "max": 35.8
+        },
+        "precipitation_mm": {
+          "mean": 0.9596,
+          "std": 2.3248,
+          "min": 0.0,
+          "max": 22.4
+        },
+        "humidity_percent": {
+          "mean": 66.1172,
+          "std": 13.6843,
+          "min": 28.9,
+          "max": 100.0
+        },
+        "wind_speed_kmh": {
+          "mean": 11.9818,
+          "std": 11.728,
+          "min": 0.0,
+          "max": 80.0
+        }
+      },
+      "max_skewness": 3.6566,
+      "top_correlations": [
+        "precipitation_mm~humidity_percent: 0.419",
+        "latitude~temp_celsius: -0.38",
+        "latitude~precipitation_mm: 0.066",
+        "temp_celsius~precipitation_mm: -0.054",
+        "temp_celsius~wind_speed_kmh: 0.033"
+      ],
+      "categorical_cardinality": {
+        "date": 365,
+        "station": 5
+      },
+      "class_imbalance_ratio": 1.0,
+      "imbalance_column": "station",
+      "auto_tags": [
+        "Time Series",
+        "Outlier Detection"
+      ]
+    }
+  }
+}

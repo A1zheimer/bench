@@ -1,0 +1,29 @@
+{
+  "instance_id": "DS_TASK_075",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Easy",
+    "tags": [
+      "Credit Risk Modeling",
+      "Imbalanced Classification (SMOTE)"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 24.2944
+  },
+  "context": {
+    "problem_statement": "Calculate the total spending per transaction category from the provided dataset. Ensure you detect the canary value for verification purposes.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "In finance, analyzing spending patterns across categories can help in understanding consumer behavior."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl",
+      "file_read"
+    ]
+  },
+  "max_steps": 10
+}

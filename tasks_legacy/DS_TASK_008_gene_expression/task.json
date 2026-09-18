@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_008",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Hard",
+    "tags": ["genomics", "gene-expression", "fold-change", "t-test", "differential-expression"],
+    "contamination_risk": "low",
+    "canary_value": 93.6214
+  },
+  "context": {
+    "problem_statement": "Perform differential gene expression analysis between a Disease group and a Healthy control group. For each gene (columns G1-G10), compute: (1) log2 fold change (log2(mean_disease / mean_healthy)), (2) two-sample t-test p-value, (3) Benjamini-Hochberg adjusted p-value (FDR). Identify significantly differentially expressed genes using thresholds: |log2FC| > 1.0 AND FDR < 0.05. Report the number of upregulated and downregulated genes.",
+    "dataset_preview": "data/gene_expression_preview.csv",
+    "expert_knowledge": "Log2 fold change > 1 means upregulated in disease (2x expression increase), < -1 means downregulated. Use scipy.stats.ttest_ind for t-tests. Apply Benjamini-Hochberg correction via statsmodels.stats.multitest.multipletests with method='fdr_bh'. Volcano plots visualize significance vs magnitude of change."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

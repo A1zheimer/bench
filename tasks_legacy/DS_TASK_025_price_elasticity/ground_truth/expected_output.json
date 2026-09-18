@@ -1,0 +1,20 @@
+{
+  "execution_result": "Own-price elasticity of -2.14 indicates elastic demand: a 1% price increase leads to 2.14% quantity decrease. Cross-price elasticity of 0.87 confirms Widget_A and competitor product are substitutes.",
+  "key_values": {
+    "own_price_elasticity": -2.14,
+    "cross_price_elasticity": 0.87,
+    "r_squared": 0.923,
+    "alpha": 8.42,
+    "elasticity_ci_lower": -2.68,
+    "elasticity_ci_upper": -1.60,
+    "demand_type": "elastic",
+    "revenue_maximizing_price": 41.25
+  },
+  "required_keywords": ["price elasticity", "log-log", "OLS", "elastic", "inelastic", "cross-price", "revenue-maximizing"],
+  "partial_credit_rubric": {
+    "log_transform": {"weight": 0.20, "description": "Log transformation correctly applied to price and quantity variables"},
+    "ols_regression": {"weight": 0.30, "description": "OLS model correctly specified and fit with both price variables"},
+    "elasticity_interpretation": {"weight": 0.30, "description": "Own-price and cross-price elasticities correctly extracted and interpreted"},
+    "optimal_price": {"weight": 0.20, "description": "Revenue-maximizing price correctly derived from elasticity estimate"}
+  }
+}

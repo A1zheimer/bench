@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_039",
+  "task_metadata": {
+    "domain": "SQL",
+    "difficulty": "Hard",
+    "tags": ["JSONB", "JSON-extraction", "PostgreSQL", "nested-data", "semi-structured"],
+    "contamination_risk": "low",
+    "canary_value": 24.9153
+  },
+  "context": {
+    "problem_statement": "Extract and analyze nested JSON data from a JSONB column in PostgreSQL. The events table has a 'payload' JSONB column containing nested event data. Write queries to: (1) extract top-level fields using ->> operator, (2) extract nested fields using -> and ->> operators (e.g., payload->'user'->>'email'), (3) query on JSONB array elements using jsonb_array_elements(), (4) aggregate: count events by payload->>'event_type', (5) find all records where a specific nested condition is true (e.g., payload->'metadata'->>'country' = 'US'), (6) create a GIN index on the payload column and explain why it improves JSONB queries.",
+    "dataset_preview": "data/schema_json_extraction.sql",
+    "expert_knowledge": "JSONB operators: -> returns JSONB, ->> returns text. #> path operator for deep nesting. @> containment operator for subset matching. jsonb_each() unnests top-level keys. jsonb_array_elements() unnests arrays. GIN index on JSONB enables fast @> and ? operators. Use jsonb_path_query() for JSONPath expressions (PostgreSQL 12+). Always cast extracted text to appropriate type."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

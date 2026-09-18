@@ -1,0 +1,7 @@
+{
+  "execution_result": "4-week forecast computed. MAPE on holdout: approximately 5-15%. Annual seasonality detected.",
+  "key_values": {
+    "mape": 10.0
+  },
+  "required_keywords": ["MAPE", "forecast", "seasonality"]
+}

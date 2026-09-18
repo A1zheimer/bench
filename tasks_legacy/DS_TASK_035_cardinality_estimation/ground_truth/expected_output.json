@@ -1,0 +1,20 @@
+{
+  "execution_result": "Exact distinct count: 75,000. HyperLogLog estimate: 74,412 (0.78% error). Sampling estimate (10%): 73,800 (1.60% error). HLL outperforms simple sampling.",
+  "key_values": {
+    "exact_distinct_count": 75000,
+    "hll_estimate": 74412,
+    "hll_relative_error": 0.0078,
+    "sampling_estimate": 73800,
+    "sampling_relative_error": 0.016,
+    "hll_accuracy_better": true,
+    "total_rows": 100000,
+    "cardinality_ratio": 0.75
+  },
+  "required_keywords": ["COUNT DISTINCT", "HyperLogLog", "cardinality", "sampling", "relative error", "EXPLAIN ANALYZE"],
+  "partial_credit_rubric": {
+    "exact_count": {"weight": 0.20, "description": "Exact COUNT(DISTINCT) correctly computed as ground truth"},
+    "hll_implementation": {"weight": 0.35, "description": "HyperLogLog sketch correctly implemented with appropriate hash function and registers"},
+    "sampling_estimate": {"weight": 0.25, "description": "Sampling-based estimation correctly implemented with 10% sample and scaling"},
+    "error_comparison": {"weight": 0.20, "description": "Relative errors computed and methods correctly compared"}
+  }
+}

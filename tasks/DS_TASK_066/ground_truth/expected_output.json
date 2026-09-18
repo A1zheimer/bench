@@ -1,0 +1,13 @@
+{
+  "execution_result": "The total revenue for each product category has been calculated, showing which categories are the top contributors to overall revenue.",
+  "key_values": {
+    "total_revenue_electronics": 21000,
+    "total_revenue_clothing": 15000,
+    "total_revenue_home": 12000
+  },
+  "required_keywords": [
+    "total revenue",
+    "product category",
+    "eCommerce"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_009",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Easy",
+    "tags": ["correlation", "pearson", "spearman", "biomarkers", "clinical"],
+    "contamination_risk": "low",
+    "canary_value": 62.0815
+  },
+  "context": {
+    "problem_statement": "Analyze pairwise correlations between five clinical biomarkers: CRP (C-reactive protein), IL6 (interleukin-6), TNF_alpha, albumin, and HbA1c. Compute both Pearson and Spearman correlation coefficients for all pairs. Report which pair has the highest absolute Pearson correlation, which pair has the highest absolute Spearman correlation, and identify any pairs where Pearson and Spearman disagree substantially (|pearson - spearman| > 0.2), indicating non-linear relationships.",
+    "dataset_preview": "data/biomarkers_preview.csv",
+    "expert_knowledge": "Use scipy.stats.pearsonr and scipy.stats.spearmanr. Pearson measures linear correlation, Spearman measures monotonic correlation. For inflammatory biomarkers like CRP and IL6, high correlations (>0.7) are expected. Albumin tends to be inversely correlated with inflammatory markers (negative correlation). Disagreement between Pearson and Spearman suggests non-linearity or outliers."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

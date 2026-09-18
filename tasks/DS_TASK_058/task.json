@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_058",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Medium",
+    "tags": [
+      "time-series",
+      "forecasting",
+      "heteroskedasticity"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 10.5573
+  },
+  "context": {
+    "problem_statement": "Given a time series dataset of monthly financial indicators with heteroskedasticity, forecast the next 3 months using an appropriate time series model. Identify and handle the heteroskedasticity in the data before forecasting. Compute the forecasted values for the next 3 months and provide the RMSE of the model on the training data.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Time Series Forecasting in finance often involves ARIMA models for capturing trends and seasonality. Heteroskedasticity is common in financial data, requiring models that can handle time-varying volatility, such as GARCH for volatility forecasting or using robust standard errors in ARIMA models."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}

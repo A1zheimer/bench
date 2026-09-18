@@ -1,0 +1,50 @@
+{
+  "task_id": "DS_TASK_900023",
+  "template_id": "groupby_aggregation_v1",
+  "domain": "ECommerce",
+  "difficulty": "Easy",
+  "primary_task_type": "descriptive_aggregation",
+  "secondary_task_types": [],
+  "challenge_dimensions": [
+    "multi_group_aggregation",
+    "dirty_data"
+  ],
+  "tags": [
+    "groupby_aggregation",
+    "ecommerce",
+    "redteam",
+    "dirty_data"
+  ],
+  "dataset_builder": "synthetic_tabular_v1",
+  "problem_statement": "Using `data/dataset.csv`, group rows by `product_category` and compute the sum of `total_cost` for each group. Return one labeled value per group using the requested metric names. The dataset may contain missing values, outliers, or flipped binary entries; follow the task definition exactly.",
+  "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter.",
+  "operation": {
+    "groupby": "product_category",
+    "value_column": "total_cost",
+    "agg": "sum",
+    "output_prefix": "total_revenue",
+    "output_keys": {
+      "Books": "total_revenue_books",
+      "Clothing": "total_revenue_clothing",
+      "Electronics": "total_revenue_electronics",
+      "Food": "total_revenue_food",
+      "Home": "total_revenue_home",
+      "Sports": "total_revenue_sports"
+    }
+  },
+  "max_steps": 8,
+  "budget": 1.0,
+  "timeout_seconds": 120,
+  "allowed_tools": [
+    "python_repl"
+  ],
+  "redteam": {
+    "is_redteam": true,
+    "base_task_id": "DS_TASK_000003",
+    "attack_type": "dirty_data",
+    "attack_level": "L1",
+    "gt_policy": "recomputed",
+    "perturbation_seed": 20260521,
+    "expected_invariant": "same_key_values"
+  }
+}

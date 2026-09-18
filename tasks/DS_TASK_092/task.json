@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_092",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Medium",
+    "tags": [
+      "Spatial Interpolation",
+      "IDW",
+      "Environmental Data",
+      "Data Cleaning"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 5.9082
+  },
+  "context": {
+    "problem_statement": "Using spatial interpolation techniques, specifically Inverse Distance Weighting (IDW), predict the 'proline' levels at unsampled locations using the modified dataset. The dataset contains environmental data with renamed columns to obscure the original context. Identify and handle any data quality issues such as noise or missing values. Compute the IDW prediction for 'proline' and report the interpolated values at specified grid points.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Spatial interpolation methods like Kriging and IDW are crucial in environmental data analysis for predicting values at unsampled locations. These techniques assume spatial correlation and can handle noisy data effectively."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}

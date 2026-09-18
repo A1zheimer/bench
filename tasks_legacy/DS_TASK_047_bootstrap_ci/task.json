@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_047",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": ["bootstrap", "confidence-interval", "resampling", "statistics", "non-parametric"],
+    "contamination_risk": "low",
+    "canary_value": 16.8394
+  },
+  "context": {
+    "problem_statement": "Compute a 95% bootstrap confidence interval for the sample mean of the provided dataset using the percentile method. Steps: (1) compute the observed sample mean, (2) perform 10,000 bootstrap iterations: in each iteration, sample N values with replacement and compute the bootstrap mean, (3) compute the 95% CI as the 2.5th and 97.5th percentiles of the bootstrap distribution, (4) also compute the BCa (Bias-Corrected and accelerated) bootstrap CI for comparison, (5) compare to the theoretical t-distribution CI and report whether they agree (within 5% relative difference). Report bootstrap standard error and bias estimate.",
+    "dataset_preview": "data/bootstrap_sample_preview.csv",
+    "expert_knowledge": "Bootstrap CI percentile method: np.percentile(boot_means, [2.5, 97.5]). BCa corrects for bias and skewness in the bootstrap distribution. Bootstrap SE = std(boot_means). Bias = mean(boot_means) - observed_mean. Theoretical t-CI: mean ± t_crit * (std/sqrt(n)) where t_crit = scipy.stats.t.ppf(0.975, df=n-1). Bootstrap and t-CI should agree closely for approximately normal data."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

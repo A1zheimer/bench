@@ -1,0 +1,22 @@
+{
+  "execution_result": "ETL validation finds: 2 missing rows (1014, 1015), 1 value mismatch (txn 1002 amount wrong), 1 referential integrity violation (customer_id 99 orphan).",
+  "key_values": {
+    "source_row_count": 15,
+    "target_row_count": 13,
+    "row_count_difference": 2,
+    "missing_txn_ids": [1014, 1015],
+    "value_mismatches": 1,
+    "mismatch_txn_id": 1002,
+    "referential_integrity_violations": 1,
+    "orphan_customer_id": 99,
+    "null_rates_all_columns": 0.0
+  },
+  "required_keywords": ["row count", "missing rows", "anti-join", "referential integrity", "null rate", "value mismatch", "ETL"],
+  "partial_credit_rubric": {
+    "row_count_check": {"weight": 0.20, "description": "Row count comparison correctly computed for source and target"},
+    "null_rate_check": {"weight": 0.20, "description": "Null rates computed for all columns in both tables"},
+    "anti_join": {"weight": 0.25, "description": "Missing rows correctly identified using anti-join technique"},
+    "value_drift": {"weight": 0.20, "description": "Changed values detected by joining on PK and comparing columns"},
+    "ref_integrity": {"weight": 0.15, "description": "Referential integrity violations correctly identified"}
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "execution_result": "7-day rolling average smooths out the Jan 15 anomaly. Friday shows highest avg revenue ($76,840). Jan 15 flagged as anomaly: 67% below 4-week moving average.",
+  "key_values": {
+    "jan15_daily_revenue": 22100,
+    "jan15_rolling7day_avg": 60171.43,
+    "jan15_anomaly_flag": true,
+    "highest_revenue_day_of_week": "Friday",
+    "highest_revenue_dow_value": 5,
+    "highest_avg_revenue": 76840.0,
+    "total_monthly_revenue": 2074700.0,
+    "cumulative_revenue_jan30": 2074700.0
+  },
+  "required_keywords": ["DATE_TRUNC", "ROWS BETWEEN", "rolling average", "EXTRACT", "LAG", "cumulative", "anomaly"],
+  "partial_credit_rubric": {
+    "rolling_average": {"weight": 0.30, "description": "7-day rolling average correctly computed with ROWS BETWEEN window frame"},
+    "mom_growth": {"weight": 0.20, "description": "Month-over-month growth correctly computed using DATE_TRUNC and LAG"},
+    "dow_analysis": {"weight": 0.20, "description": "Day-of-week average revenue correctly computed using EXTRACT"},
+    "cumulative_revenue": {"weight": 0.15, "description": "Cumulative YTD revenue correctly computed using SUM() OVER with ORDER BY"},
+    "anomaly_detection": {"weight": 0.15, "description": "Weeks with >20% deviation from moving average correctly identified"}
+  }
+}

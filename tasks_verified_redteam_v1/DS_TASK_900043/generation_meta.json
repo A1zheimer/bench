@@ -1,0 +1,7 @@
+{
+  "generator": "data_agent_taskgen:manifest_packager",
+  "verified": true,
+  "verifier_id": "iqr_outlier_count_v1",
+  "dataset_sha256": "03daf8766e8161f00e4012026bf57d313486502896a198b506e40313dedf4037",
+  "source_set": "verified"
+}

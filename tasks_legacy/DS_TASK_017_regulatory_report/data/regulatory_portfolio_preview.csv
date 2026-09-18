@@ -1,0 +1,13 @@
+asset_id,asset_name,asset_class,market_value,credit_rating,liquidity_tier
+A1,US_EQUITY_1,Equity,250000,A,1
+A2,US_EQUITY_2,Equity,180000,BBB,1
+A3,CORP_BOND_1,Fixed Income,320000,AA,2
+A4,CORP_BOND_2,Fixed Income,150000,BBB,2
+A5,GOVT_BOND,Fixed Income,400000,AAA,1
+A6,INTEREST_SWAP,Derivatives,120000,A,3
+A7,CDS,Derivatives,80000,BB,3
+A8,CASH_USD,Cash,200000,AAA,1
+A9,MONEY_MARKET,Cash,100000,AA,1
+A10,EURO_EQUITY,Equity,140000,A,2
+A11,EM_BOND,Fixed Income,90000,BB,3
+A12,OPTION_CALL,Derivatives,70000,BBB,3

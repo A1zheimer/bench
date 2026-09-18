@@ -1,0 +1,8 @@
+{
+  "execution_result": "The mean predicted phenolic content using IDW is nan. The variance of the interpolated phenolic content values across the grid is nan. The predicted phenolic content at the average soil alcalinity and soil magnesium is nan.",
+  "key_values": {
+    "mean_pred_resistance": 1105.684,
+    "variance_pred": 3194.0
+  },
+  "required_keywords": []
+}

@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_083",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Medium",
+    "tags": [
+      "survival-analysis",
+      "kaplan-meier",
+      "cox-proportional-hazards",
+      "right-censoring"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 99.7502
+  },
+  "context": {
+    "problem_statement": "Perform a survival analysis using the Kaplan-Meier estimator and Cox Proportional Hazards model on the provided dataset. Determine the impact of different factors on disease progression. Specifically, compute the survival probability at different time intervals and the hazard ratios for the predictors. Handle the right-censored data appropriately.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Kaplan-Meier estimator is used for estimating survival probability over time intervals. Cox Proportional Hazards model evaluates the effect of various factors on survival time. Right-censoring occurs when the event of interest has not occurred for some observations during the study period."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}

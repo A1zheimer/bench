@@ -1,0 +1,256 @@
+{
+  "row_count": 180,
+  "column_count": 20,
+  "columns": {
+    "product_category": {
+      "dtype": "object",
+      "semantic_type": "categorical",
+      "missing_count": 0,
+      "unique_count": 6,
+      "examples": [
+        "Books",
+        "Sports",
+        "Sports"
+      ]
+    },
+    "region": {
+      "dtype": "object",
+      "semantic_type": "categorical",
+      "missing_count": 0,
+      "unique_count": 4,
+      "examples": [
+        "North",
+        "South",
+        "West"
+      ]
+    },
+    "channel": {
+      "dtype": "object",
+      "semantic_type": "categorical",
+      "missing_count": 0,
+      "unique_count": 3,
+      "examples": [
+        "Retail",
+        "Retail",
+        "Retail"
+      ]
+    },
+    "total_cost": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 178,
+      "examples": [
+        "28.28",
+        "71.77",
+        "64.41"
+      ]
+    },
+    "transaction_amount": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 180,
+      "examples": [
+        "37.01",
+        "91.11",
+        "70.9"
+      ]
+    },
+    "discount_rate": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 174,
+      "examples": [
+        "0.1159",
+        "0.0702",
+        "0.1099"
+      ]
+    },
+    "marketing_spend": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 180,
+      "examples": [
+        "188.76",
+        "201.32",
+        "178.93"
+      ]
+    },
+    "revenue": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 180,
+      "examples": [
+        "609.5",
+        "574.32",
+        "529.36"
+      ]
+    },
+    "processing_time": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 176,
+      "examples": [
+        "13.415",
+        "10.617",
+        "5.02"
+      ]
+    },
+    "risk_score": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 176,
+      "examples": [
+        "0.2166",
+        "0.3107",
+        "0.1321"
+      ]
+    },
+    "fraud_flag": {
+      "dtype": "int64",
+      "semantic_type": "binary",
+      "missing_count": 0,
+      "unique_count": 2,
+      "examples": [
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    "age": {
+      "dtype": "int64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 60,
+      "examples": [
+        "63",
+        "27",
+        "56"
+      ]
+    },
+    "length_of_stay": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 11,
+      "examples": [
+        "4.0",
+        "7.0",
+        "5.0"
+      ]
+    },
+    "diabetes": {
+      "dtype": "int64",
+      "semantic_type": "binary",
+      "missing_count": 0,
+      "unique_count": 2,
+      "examples": [
+        "1",
+        "0",
+        "1"
+      ]
+    },
+    "hypertension": {
+      "dtype": "int64",
+      "semantic_type": "binary",
+      "missing_count": 0,
+      "unique_count": 2,
+      "examples": [
+        "0",
+        "0",
+        "1"
+      ]
+    },
+    "readmitted": {
+      "dtype": "int64",
+      "semantic_type": "binary",
+      "missing_count": 0,
+      "unique_count": 2,
+      "examples": [
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    "sepal_length": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 175,
+      "examples": [
+        "5.385",
+        "6.718",
+        "5.068"
+      ]
+    },
+    "sepal_width": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 167,
+      "examples": [
+        "2.892",
+        "3.001",
+        "3.043"
+      ]
+    },
+    "petal_length": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 177,
+      "examples": [
+        "4.106",
+        "5.954",
+        "3.781"
+      ]
+    },
+    "petal_width": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 174,
+      "examples": [
+        "1.537",
+        "2.538",
+        "1.623"
+      ]
+    }
+  },
+  "numeric_columns": [
+    "total_cost",
+    "transaction_amount",
+    "discount_rate",
+    "marketing_spend",
+    "revenue",
+    "processing_time",
+    "risk_score",
+    "age",
+    "length_of_stay",
+    "sepal_length",
+    "sepal_width",
+    "petal_length",
+    "petal_width"
+  ],
+  "categorical_columns": [
+    "product_category",
+    "region",
+    "channel"
+  ],
+  "binary_columns": [
+    "fraud_flag",
+    "diabetes",
+    "hypertension",
+    "readmitted"
+  ],
+  "builder_id": "synthetic_tabular_v1",
+  "seed": 20260521,
+  "task_seed": 2090602052,
+  "task_id": "DS_TASK_000009"
+}

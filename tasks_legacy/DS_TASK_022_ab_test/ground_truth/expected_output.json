@@ -1,0 +1,23 @@
+{
+  "execution_result": "A/B test shows statistically significant improvement. Treatment group (B) conversion rate 70% vs control (A) 40%. Z-test p-value = 0.089 - marginally significant with this sample size.",
+  "key_values": {
+    "conversion_rate_A": 0.40,
+    "conversion_rate_B": 0.70,
+    "n_A": 10,
+    "n_B": 10,
+    "absolute_lift": 0.30,
+    "relative_lift": 0.75,
+    "z_statistic": 1.71,
+    "p_value_two_tailed": 0.087,
+    "ci_lower": -0.044,
+    "ci_upper": 0.644,
+    "significant_at_05": false
+  },
+  "required_keywords": ["z-test", "conversion rate", "lift", "p-value", "confidence interval", "A/B test"],
+  "partial_credit_rubric": {
+    "conversion_rates": {"weight": 0.20, "description": "Conversion rates correctly computed for both groups"},
+    "z_test_run": {"weight": 0.30, "description": "Two-proportion z-test correctly implemented with pooled proportion"},
+    "ci_computed": {"weight": 0.25, "description": "95% confidence interval for difference in proportions correctly computed"},
+    "lift_and_power": {"weight": 0.25, "description": "Absolute/relative lift reported and power analysis discussed"}
+  }
+}

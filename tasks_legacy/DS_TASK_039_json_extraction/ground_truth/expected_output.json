@@ -1,0 +1,21 @@
+{
+  "execution_result": "5 events parsed. 3 purchases totaling $2,239.97 (2 from US). Premium tier users generated 3 events. Most common tag: 'high_value' (2 events).",
+  "key_values": {
+    "total_events": 5,
+    "purchase_count": 3,
+    "view_count": 1,
+    "cart_add_count": 1,
+    "us_purchase_count": 2,
+    "us_purchase_total": 1689.98,
+    "premium_tier_events": 3,
+    "most_common_tag": "high_value",
+    "distinct_users": 4
+  },
+  "required_keywords": ["JSONB", "->", "->>", "jsonb_array_elements", "GIN index", "@>", "containment", "payload"],
+  "partial_credit_rubric": {
+    "field_extraction": {"weight": 0.25, "description": "Nested JSONB fields correctly extracted using -> and ->> operators"},
+    "aggregation": {"weight": 0.25, "description": "Events correctly counted and aggregated by event_type"},
+    "array_unnesting": {"weight": 0.25, "description": "JSONB array tags correctly unnested using jsonb_array_elements"},
+    "gin_index_explanation": {"weight": 0.25, "description": "GIN index correctly created and its benefit for @> and ? operators explained"}
+  }
+}

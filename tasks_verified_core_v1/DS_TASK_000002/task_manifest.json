@@ -1,0 +1,34 @@
+{
+  "task_id": "DS_TASK_000002",
+  "template_id": "filtered_mean_v1",
+  "domain": "Finance",
+  "difficulty": "Medium",
+  "primary_task_type": "descriptive_aggregation",
+  "secondary_task_types": [],
+  "challenge_dimensions": [
+    "conditional_filtering",
+    "cross_domain_schema"
+  ],
+  "tags": [
+    "filtered_mean",
+    "finance"
+  ],
+  "dataset_builder": "synthetic_tabular_v1",
+  "problem_statement": "Using `data/dataset.csv`, compute the mean of `transaction_amount` for rows where `fraud_flag` eq `1`. Return the result as `mean_transaction_amount_flagged`.",
+  "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter.",
+  "operation": {
+    "value_column": "transaction_amount",
+    "metric": "mean",
+    "filter_column": "fraud_flag",
+    "filter_op": "eq",
+    "filter_value": 1,
+    "output_key": "mean_transaction_amount_flagged"
+  },
+  "max_steps": 8,
+  "budget": 1.0,
+  "timeout_seconds": 120,
+  "allowed_tools": [
+    "python_repl"
+  ],
+  "redteam": {}
+}

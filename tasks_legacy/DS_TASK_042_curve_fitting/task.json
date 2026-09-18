@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_042",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Hard",
+    "tags": ["curve-fitting", "Gaussian", "spectroscopy", "scipy-optimize", "nonlinear"],
+    "contamination_risk": "low",
+    "canary_value": 67.9284
+  },
+  "context": {
+    "problem_statement": "Fit a Gaussian model to spectroscopy data to characterize a spectral peak. The Gaussian function is: f(x) = amplitude * exp(-((x - mu) / (2*sigma))^2) + baseline. Use scipy.optimize.curve_fit to estimate: amplitude (peak height), mu (peak center wavelength in nm), sigma (peak width), and baseline (background signal). Report the fitted parameters with 95% confidence intervals (from the covariance matrix). Also compute the Full Width at Half Maximum (FWHM = 2.355 * sigma) and the peak area (amplitude * sigma * sqrt(2*pi)).",
+    "dataset_preview": "data/spectroscopy_preview.csv",
+    "expert_knowledge": "Gaussian: f(x) = A * exp(-0.5*((x-mu)/sigma)^2) + B. Initial parameter guesses: A = max(signal) - min(signal), mu = x at max(signal), sigma = estimated from peak width, B = min(signal). FWHM = 2*sqrt(2*ln(2))*sigma ≈ 2.355*sigma. Peak area = integral of Gaussian = A*sigma*sqrt(2*pi). Confidence interval: estimate ± 1.96*sqrt(pcov diagonal). Check convergence: residual sum of squares should be small."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "execution_result": "Computed specified Pearson correlations and maximum absolute correlation.",
+  "key_values": {
+    "corr_sepal_length_petal_length": 0.3417212392073352,
+    "corr_sepal_width_petal_width": -0.4035584766677104,
+    "max_abs_correlation": 0.9267822929850092
+  },
+  "key_aliases": {
+    "corr_sepal_length_petal_length": [
+      "correlation sepal length petal length",
+      "sepal-petal length correlation"
+    ],
+    "corr_sepal_width_petal_width": [
+      "correlation sepal width petal width",
+      "sepal-petal width correlation"
+    ],
+    "max_abs_correlation": [
+      "maximum absolute correlation",
+      "max absolute off diagonal correlation"
+    ]
+  },
+  "required_keywords": [
+    "correlation",
+    "Pearson",
+    "sepal",
+    "petal"
+  ],
+  "original_task_id": "DS_TASK_150",
+  "repair_reason": "GT repaired by deterministic recomputation from data/dataset.csv",
+  "dataset_sha256": "148508aa3b30be8390372e10392a8ed799766dc2de9f4bea7666417caef6bcdb",
+  "verifier": "build_curated_easy_v1.py:curated_easy_v1",
+  "computed_at": "2026-05-20T08:15:44+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers",
+  "formula": "pearson corr(sepal_length_cm, petal_length_cm), corr(sepal_width_cm, petal_width_cm), max abs off-diagonal corr"
+}

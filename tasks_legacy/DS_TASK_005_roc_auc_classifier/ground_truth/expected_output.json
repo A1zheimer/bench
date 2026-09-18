@@ -1,0 +1,17 @@
+{
+  "execution_result": "ROC AUC of 0.935 indicates excellent classifier discrimination. Optimal threshold at 0.55 yields balanced sensitivity and specificity.",
+  "key_values": {
+    "auc_score": 0.935,
+    "optimal_threshold": 0.55,
+    "sensitivity_at_threshold": 0.9,
+    "specificity_at_threshold": 0.8,
+    "f1_score": 0.878
+  },
+  "required_keywords": ["ROC", "AUC", "threshold", "sensitivity", "specificity", "Youden"],
+  "partial_credit_rubric": {
+    "roc_curve_computed": {"weight": 0.25, "description": "ROC curve correctly computed from predicted probabilities"},
+    "auc_reported": {"weight": 0.25, "description": "AUC score correctly calculated and reported"},
+    "optimal_threshold_found": {"weight": 0.25, "description": "Optimal threshold found via Youden's J statistic"},
+    "metrics_at_threshold": {"weight": 0.25, "description": "Sensitivity, specificity, F1 reported at optimal threshold"}
+  }
+}

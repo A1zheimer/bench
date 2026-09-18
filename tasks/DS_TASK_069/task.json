@@ -1,0 +1,32 @@
+{
+  "instance_id": "DS_TASK_069",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Hard",
+    "tags": [
+      "conversion-funnel",
+      "cohort-retention",
+      "outliers",
+      "temporal-analysis"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 54.5474
+  },
+  "context": {
+    "problem_statement": "Analyze the conversion funnel drop-off and cohort retention for an eCommerce dataset. Compute the drop-off rate between each stage of the conversion funnel, and determine the retention rate for each cohort defined by the week of first purchase. Identify significant drop-off points and retention patterns.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Conversion funnel analysis helps identify where customers drop off in the buying process. Cohort retention analysis involves tracking customer retention over time, grouped by cohorts, such as their signup week. This task requires joining data, calculating retention rates, and analyzing drop-off points."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 30,
+    "budget": 3.0,
+    "timeout_seconds": 480,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 30
+}

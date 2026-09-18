@@ -1,0 +1,22 @@
+{
+  "execution_result": "Verified by filtered_mean_v1: mean(col_004 where col_001 eq Books)",
+  "key_values": {
+    "mean_total_cost_books": 25.62702702702703
+  },
+  "key_aliases": {
+    "mean_total_cost_books": [
+      "mean total cost books"
+    ]
+  },
+  "required_keywords": [
+    "mean",
+    "col_004"
+  ],
+  "formula": "mean(col_004 where col_001 eq Books)",
+  "verifier_id": "filtered_mean_v1",
+  "verifier_version": "1.0",
+  "dataset_sha256": "cb69950774973ac94741b7fece334d3ea18c835f1c77a5891afcf3ca3828a50b",
+  "computed_at": "2026-05-21T03:54:52.127988+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers"
+}

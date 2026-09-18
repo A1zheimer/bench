@@ -1,0 +1,8 @@
+{
+  "execution_result": "The Root Mean Square Error (RMSE) for the interpolation estimates of purity values was calculated as 5.67. The estimated values for the missing purity data points were successfully derived using Kriging interpolation.",
+  "key_values": {
+    "mean_predicted_concentration": 82.998,
+    "idw_rmse": 493.5969
+  },
+  "required_keywords": []
+}

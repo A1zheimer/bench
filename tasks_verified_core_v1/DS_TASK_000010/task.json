@@ -1,0 +1,35 @@
+{
+  "instance_id": "DS_TASK_000010",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Medium",
+    "tags": [
+      "crosstab_prevalence",
+      "ecommerce"
+    ],
+    "primary_task_type": "specialized_domain_analysis",
+    "secondary_task_types": [
+      "descriptive_aggregation"
+    ],
+    "challenge_dimensions": [
+      "subpopulation_analysis",
+      "cross_domain_schema"
+    ],
+    "generation_quality": "verified"
+  },
+  "context": {
+    "problem_statement": "Using `data/dataset.csv`, compute the count and prevalence of rows where `product_category` equals `Electronics` and `channel` equals `Online`. If an outcome column is specified, also compute the mean of `fraud_flag` within that subset.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 8,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 8
+}

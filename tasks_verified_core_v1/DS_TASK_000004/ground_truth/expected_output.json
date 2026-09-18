@@ -1,0 +1,43 @@
+{
+  "execution_result": "Verified by groupby_aggregation_v1: groupby(region).mean(transaction_amount)",
+  "key_values": {
+    "mean_transaction_amount_east": 120.14065217391305,
+    "mean_transaction_amount_north": 111.04525000000001,
+    "mean_transaction_amount_south": 120.08065217391304,
+    "mean_transaction_amount_west": 148.84854166666668
+  },
+  "key_aliases": {
+    "mean_transaction_amount_east": [
+      "mean transaction amount east",
+      "East",
+      "mean East"
+    ],
+    "mean_transaction_amount_north": [
+      "mean transaction amount north",
+      "North",
+      "mean North"
+    ],
+    "mean_transaction_amount_south": [
+      "mean transaction amount south",
+      "South",
+      "mean South"
+    ],
+    "mean_transaction_amount_west": [
+      "mean transaction amount west",
+      "West",
+      "mean West"
+    ]
+  },
+  "required_keywords": [
+    "region",
+    "transaction_amount",
+    "mean"
+  ],
+  "formula": "groupby(region).mean(transaction_amount)",
+  "verifier_id": "groupby_aggregation_v1",
+  "verifier_version": "1.0",
+  "dataset_sha256": "32dd29357a2e7d625a852c09edc14f361ddeeb6b5e9adbbe6f2b556e7558c0a5",
+  "computed_at": "2026-05-21T03:54:20.752974+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers"
+}

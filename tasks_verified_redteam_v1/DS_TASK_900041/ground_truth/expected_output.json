@@ -1,0 +1,33 @@
+{
+  "execution_result": "Verified by iqr_outlier_count_v1: 1.5*IQR outlier count",
+  "key_values": {
+    "outlier_count_processing_time": 9.0,
+    "outlier_count_transaction_amount": 32.0,
+    "total_outlier_count": 41.0
+  },
+  "key_aliases": {
+    "outlier_count_processing_time": [
+      "outlier count processing time",
+      "col_009 outliers"
+    ],
+    "outlier_count_transaction_amount": [
+      "outlier count transaction amount",
+      "col_005 outliers"
+    ],
+    "total_outlier_count": [
+      "total outlier count",
+      "total outliers"
+    ]
+  },
+  "required_keywords": [
+    "IQR",
+    "outlier"
+  ],
+  "formula": "1.5*IQR outlier count",
+  "verifier_id": "iqr_outlier_count_v1",
+  "verifier_version": "1.0",
+  "dataset_sha256": "d9ec740774b20bc8540a98bfa7be4e12b2402a6b8439a09e6e9bd69aeeeb634c",
+  "computed_at": "2026-05-21T03:54:52.332164+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers"
+}

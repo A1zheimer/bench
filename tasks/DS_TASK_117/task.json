@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_117",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Easy",
+    "tags": [
+      "group-by",
+      "length-of-stay",
+      "diagnosis"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 42.0574
+  },
+  "context": {
+    "problem_statement": "Analyze the biomedical dataset and compute the required metrics. Focus on group-by, length-of-stay, diagnosis.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use appropriate statistical methods for analysis. Handle missing values if present."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 6,
+    "budget": 0.7,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 6
+}

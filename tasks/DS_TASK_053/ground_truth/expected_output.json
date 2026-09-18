@@ -1,0 +1,11 @@
+{
+  "execution_result": "The total amount spent on Groceries is calculated from the dataset.",
+  "key_values": {
+    "total_groceries_spent": 6382.427849722971
+  },
+  "required_keywords": [
+    "Total",
+    "Groceries",
+    "Amount"
+  ]
+}

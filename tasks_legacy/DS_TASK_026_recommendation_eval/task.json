@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_026",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Hard",
+    "tags": ["recommendation-system", "NDCG", "ranking-metrics", "evaluation", "information-retrieval"],
+    "contamination_risk": "low",
+    "canary_value": 33.7629
+  },
+  "context": {
+    "problem_statement": "Evaluate a product recommendation system using NDCG@10 (Normalized Discounted Cumulative Gain at rank 10). For each user, you have a ranked list of recommended items and their relevance scores (0=not relevant, 1=somewhat relevant, 2=highly relevant). Compute: (1) DCG@10 for each user = sum(rel_i / log2(i+1)) for i=1..10, (2) Ideal DCG (IDCG@10) using the best possible ranking, (3) NDCG@10 = DCG/IDCG, (4) mean NDCG@10 across all users. Also compute Precision@5 and Recall@10 for each user.",
+    "dataset_preview": "data/recommendations_preview.csv",
+    "expert_knowledge": "DCG = sum(rel_i / log2(rank+1)) where rank starts at 1. IDCG = DCG with items sorted by descending relevance. NDCG = DCG/IDCG (ranges 0-1, 1=perfect ranking). Precision@K = relevant items in top-K / K. Recall@K = relevant items in top-K / total relevant items. NDCG is graded relevance metric; better than Precision@K for multi-level relevance judgments."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

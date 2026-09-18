@@ -1,0 +1,32 @@
+{
+  "instance_id": "DS_TASK_089",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Hard",
+    "tags": [
+      "Market Basket Analysis",
+      "Apriori",
+      "FP-Growth",
+      "Association Rules"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 73.407
+  },
+  "context": {
+    "problem_statement": "You are tasked with performing a Market Basket Analysis on an eCommerce dataset to identify strong association rules among purchased items. The dataset contains transaction records with transformed column names. Use the Apriori or FP-Growth algorithm to find frequent itemsets with a minimum support threshold of 0.01. Then, generate association rules with a minimum confidence threshold of 0.5. Provide a summary of the top 5 rules based on lift, and compute the average lift across all generated rules.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "In eCommerce, Market Basket Analysis is used to identify associations between purchased items. Apriori and FP-Growth algorithms are commonly applied to discover frequent itemsets and generate association rules. Association rules help in understanding customer purchasing behavior and can be used for recommendations."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 30,
+    "budget": 3.0,
+    "timeout_seconds": 480,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 30
+}

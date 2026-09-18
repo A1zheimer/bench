@@ -1,0 +1,63 @@
+{
+  "generator": "openai:gpt-4o",
+  "temperature": 0.7,
+  "canary_value": 79.9197,
+  "verified": false,
+  "generated_at": "2026-03-24T03:34:08Z",
+  "solution_code": "import pandas as pd\nimport numpy as np\nfrom scipy.spatial import cKDTree\n\ndata = pd.read_csv('dataset.csv').dropna()\nX = data[['soil_alcalinity', 'soil_magnesium']].values\ny = data['proline_level'].values\n\ntarget_point = X.mean(axis=0).reshape(1, -1)\ntree = cKDTree(X)\ndists, idxs = tree.query(target_point, k=5)\nweights = 1.0 / (dists[0] + 1e-10)\npredicted = float((weights * y[idxs[0]]).sum() / weights.sum())\nvariance = float(np.var(y[idxs[0]]))\n\nprint({'key': 'mean_pred_resistance', 'value': round(predicted, 4)})\nprint({'key': 'variance_pred', 'value': round(variance, 4)})",
+  "data_generation_code": "import pandas as pd\nimport numpy as np\n\n# Load seed data\nseed_data = pd.read_csv('seed_data.csv')\n\n# Rename columns to reflect environmental context\nseed_data.columns = ['soil_alcalinity', 'soil_magnesium', 'phenolic_content',\n                     'nonflavanoid_content', 'proanthocyanin_content', 'color_saturation',\n                     'hue_value', 'dilution_factor', 'proline_level', 'soil_type']\n\n# Inject a canary value\nseed_data.loc[0, 'soil_alcalinity'] = 99999  # Canary value for testing\n\n# Add noise to simulate measurement errors\nnp.random.seed(42)\nnoise = np.random.normal(0, 0.1, size=seed_data.shape)\nseed_data += noise\n\n# Introduce a new column to simulate spatial data\nseed_data['region'] = np.random.choice(['North', 'South', 'East', 'West'], size=len(seed_data))\n\n# Save the mutated dataset\nseed_data.to_csv('dataset.csv', index=False)",
+  "trace": [
+    {
+      "step": 1,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-specific names\\ndf.columns = ['soil_alcalinity', 'soil_magnesium'",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-specific names\ndf.columns = ['soil_alcalinity', 'soil_magnesium', 'phenolic_content', 'nonflavonoid_phenols', 'proanthocyanin_levels', 'light_intensity', 'light_hue', 'dilution_od_ratio', 'soil_proline', 'soil_type']\n\n# Inject canary value\nnp.random.seed(42)\ncanary_index = np.random.choice(df.index)\ndf.loc[canary_index, 'soil_magnesium'] = -999\n\n# Introduce correlated noise\nnoise = np.random.normal(0, 0.1, df.shape[0])\ndf['phenolic_content'] += noise\n\ndf['proanthocyanin_levels'] += noise * 0.5\n\n# Create a temporal structure by adding a fake date column\ndates = pd.date_range(start='2020-01-01', periods=df.shape[0], freq='ME')\ndf['sampling_date'] = dates\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 2,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-appropriate names\\ndf.columns = ['soil_alcalinity', 'soil_mag",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-appropriate names\ndf.columns = ['soil_alcalinity', 'soil_magnesium', 'phenolic_content', 'nonflavanoid_content', 'proanthocyanin_content', 'color_saturation', 'hue_value', 'dilution_factor', 'proline_level', 'soil_type']\n\n# Inject a canary value for contamination detection\ndf.loc[0, 'soil_alcalinity'] = -9999\n\n# Add correlated noise to the 'soil_magnesium' column\nnp.random.seed(42)\nnoise = np.random.normal(0, 5, len(df))\ndf['soil_magnesium'] += noise\n\n# Introduce realistic outliers in 'proline_level'\noutlier_indices = np.random.choice(df.index, size=5, replace=False)\ndf.loc[outlier_indices, 'proline_level'] *= 10\n\n# Create a hierarchical structure by adding a 'region' column\nregions = ['North', 'South', 'East', 'West']\ndf['region'] = np.random.choice(regions, size=len(df))\n\n# Save the final dataset\ndf.to_csv('dataset.csv', index=False)"
+    },
+    {
+      "step": 3,
+      "action": "python_repl",
+      "args_preview": "{'code': 'import pandas as pd\\nimport numpy as np\\nfrom pykrige.ok import OrdinaryKriging\\n\\n# Load the mutated dataset\\ndata = pd.read_csv(\\'dataset.csv\\')\\n\\n# Prepare data for Kriging\\nx = data[\\'c",
+      "result_preview": "ERROR: No module named 'pykrige'",
+      "full_code": "import pandas as pd\nimport numpy as np\nfrom pykrige.ok import OrdinaryKriging\n\n# Load the mutated dataset\ndata = pd.read_csv('dataset.csv')\n\n# Prepare data for Kriging\nx = data['conductivity'].values\ny = data['absorbance'].values\nz = data['resistance'].values\n\n# Define grid for interpolation\ngridx = np.linspace(x.min(), x.max(), 100)\ngridy = np.linspace(y.min(), y.max(), 100)\n\n# Apply Ordinary Kriging\nOK = OrdinaryKriging(x, y, z, variogram_model='linear', verbose=False, enable_plotting=False)\nz_pred, ss = OK.execute('grid', gridx, gridy)\n\n# Calculate mean predicted resistance\nmean_pred_resistance = np.mean(z_pred)\n\n# Calculate variance of predictions\nvariance_pred = np.var(z_pred)\n\n# Predict resistance at a specific point (e.g., center of the grid)\nspecific_x, specific_y = (x.mean(), y.mean())\nz_specific, ss_specific = OK.execute('points', np.array([[specific_x, specific_y]]))\n\n# Print key values\nprint(f\"mean_pred_resistance: {mean_pred_resistance}\")\nprint(f\"variance_pred: {variance_pred}\")\nprint(f\"specific_point_prediction: {z_specific[0]}\")"
+    },
+    {
+      "step": 4,
+      "action": "python_repl",
+      "args_preview": "{'code': 'import pandas as pd\\nimport numpy as np\\n\\n# Load the mutated dataset\\ndata = pd.read_csv(\\'dataset.csv\\')\\n\\n# Prepare data for IDW\\nx = data[\\'conductivity\\'].values\\ny = data[\\'absorbance",
+      "result_preview": "ERROR: 'conductivity'",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the mutated dataset\ndata = pd.read_csv('dataset.csv')\n\n# Prepare data for IDW\nx = data['conductivity'].values\ny = data['absorbance'].values\nz = data['resistance'].values\n\n# Define a function for IDW interpolation\ndef idw_interpolation(x, y, z, xi, yi, power=2):\n    \"\"\"Inverse Distance Weighting interpolation.\"\"\"\n    dist = np.sqrt((x - xi)**2 + (y - yi)**2)\n    # Avoid division by zero\n    dist[dist == 0] = 0.0001\n    weights = 1 / (dist ** power)\n    z_interp = np.sum(weights * z) / np.sum(weights)\n    return z_interp\n\n# Create a grid for interpolation\ngrid_x = np.linspace(x.min(), x.max(), 100)\ngrid_y = np.linspace(y.min(), y.max(), 100)\ngrid_z = np.zeros((len(grid_x), len(grid_y)))\n\n# Perform IDW interpolation over the grid\nfor i, gx in enumerate(grid_x):\n    for j, gy in enumerate(grid_y):\n        grid_z[i, j] = idw_interpolation(x, y, z, gx, gy)\n\n# Calculate mean predicted resistance\nmean_pred_resistance = np.mean(grid_z)\n\n# Calculate variance of predictions\nvariance_pred = np.var(grid_z)\n\n# Predict resistance at a specific point (e.g., center of the grid)\nspecific_x, specific_y = (x.mean(), y.mean())\nspecific_point_prediction = idw_interpolation(x, y, z, specific_x, specific_y)\n\n# Print key values\nprint(f\"mean_pred_resistance: {mean_pred_resistance}\")\nprint(f\"variance_pred: {variance_pred}\")\nprint(f\"specific_point_prediction: {specific_point_prediction}\")"
+    },
+    {
+      "step": 5,
+      "action": "think",
+      "content_preview": "It seems there was an error due to the column name 'conductivity', which was intended as a renamed column from the original dataset. Let's check the available column names in 'dataset.csv' and adjust "
+    },
+    {
+      "step": 6,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\n\\n# Load the dataset to inspect column names\\ndata = pd.read_csv('dataset.csv')\\n\\n# Display column names\\nprint(data.columns)\"}",
+      "result_preview": "Index(['soil_alcalinity', 'soil_magnesium', 'phenolic_content',\n       'nonflavanoid_content', 'proanthocyanin_content', 'color_saturation',\n       'hue_value', 'dilution_factor', 'proline_level', 'so",
+      "full_code": "import pandas as pd\n\n# Load the dataset to inspect column names\ndata = pd.read_csv('dataset.csv')\n\n# Display column names\nprint(data.columns)"
+    },
+    {
+      "step": 7,
+      "action": "python_repl",
+      "args_preview": "{'code': 'import pandas as pd\\nimport numpy as np\\n\\n# Load the mutated dataset\\ndata = pd.read_csv(\\'dataset.csv\\')\\n\\n# Prepare data for IDW using the correct column names\\nx = data[\\'soil_alcalinit",
+      "result_preview": "mean_pred_resistance: nan\nvariance_pred: nan\nspecific_point_prediction: nan\n",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the mutated dataset\ndata = pd.read_csv('dataset.csv')\n\n# Prepare data for IDW using the correct column names\nx = data['soil_alcalinity'].values\ny = data['soil_magnesium'].values\nz = data['phenolic_content'].values\n\n# Define a function for IDW interpolation\ndef idw_interpolation(x, y, z, xi, yi, power=2):\n    \"\"\"Inverse Distance Weighting interpolation.\"\"\"\n    dist = np.sqrt((x - xi)**2 + (y - yi)**2)\n    # Avoid division by zero\n    dist[dist == 0] = 0.0001\n    weights = 1 / (dist ** power)\n    z_interp = np.sum(weights * z) / np.sum(weights)\n    return z_interp\n\n# Create a grid for interpolation\ngrid_x = np.linspace(x.min(), x.max(), 100)\ngrid_y = np.linspace(y.min(), y.max(), 100)\ngrid_z = np.zeros((len(grid_x), len(grid_y)))\n\n# Perform IDW interpolation over the grid\nfor i, gx in enumerate(grid_x):\n    for j, gy in enumerate(grid_y):\n        grid_z[i, j] = idw_interpolation(x, y, z, gx, gy)\n\n# Calculate mean predicted resistance\nmean_pred_resistance = np.mean(grid_z)\n\n# Calculate variance of predictions\nvariance_pred = np.var(grid_z)\n\n# Predict resistance at a specific point (e.g., center of the grid)\nspecific_x, specific_y = (x.mean(), y.mean())\nspecific_point_prediction = idw_interpolation(x, y, z, specific_x, specific_y)\n\n# Print key values\nprint(f\"mean_pred_resistance: {mean_pred_resistance}\")\nprint(f\"variance_pred: {variance_pred}\")\nprint(f\"specific_point_prediction: {specific_point_prediction}\")"
+    },
+    {
+      "step": 8,
+      "action": "submit_task",
+      "forced": true
+    }
+  ]
+}

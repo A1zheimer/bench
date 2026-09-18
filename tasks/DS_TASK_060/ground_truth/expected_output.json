@@ -1,0 +1,13 @@
+{
+  "execution_result": "The average Stay Duration for Readmitted Patients was calculated to be X, while for Non-Readmitted Patients it was Y, indicating a correlation between length of stay and readmission status.",
+  "key_values": {
+    "average_stay_duration_readmitted": 13.03448275862069,
+    "average_stay_duration_not_readmitted": 15.5
+  },
+  "required_keywords": [
+    "average",
+    "StayDuration",
+    "readmitted",
+    "correlation"
+  ]
+}

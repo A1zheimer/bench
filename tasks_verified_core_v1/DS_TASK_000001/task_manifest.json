@@ -1,0 +1,33 @@
+{
+  "task_id": "DS_TASK_000001",
+  "template_id": "filtered_mean_v1",
+  "domain": "ECommerce",
+  "difficulty": "Easy",
+  "primary_task_type": "descriptive_aggregation",
+  "secondary_task_types": [],
+  "challenge_dimensions": [
+    "conditional_filtering"
+  ],
+  "tags": [
+    "filtered_mean",
+    "ecommerce"
+  ],
+  "dataset_builder": "synthetic_tabular_v1",
+  "problem_statement": "Using `data/dataset.csv`, compute the mean of `total_cost` for rows where `product_category` eq `Books`. Return the result as `mean_total_cost_books`.",
+  "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter.",
+  "operation": {
+    "value_column": "total_cost",
+    "metric": "mean",
+    "filter_column": "product_category",
+    "filter_op": "eq",
+    "filter_value": "Books",
+    "output_key": "mean_total_cost_books"
+  },
+  "max_steps": 8,
+  "budget": 1.0,
+  "timeout_seconds": 120,
+  "allowed_tools": [
+    "python_repl"
+  ],
+  "redteam": {}
+}

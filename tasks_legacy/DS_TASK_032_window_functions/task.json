@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_032",
+  "task_metadata": {
+    "domain": "SQL",
+    "difficulty": "Medium",
+    "tags": ["window-functions", "RANK", "DENSE_RANK", "NTILE", "salary-analysis"],
+    "contamination_risk": "low",
+    "canary_value": 41.3967
+  },
+  "context": {
+    "problem_statement": "Write SQL queries using window functions to analyze employee salaries. Required queries: (1) Rank employees by salary within each department using RANK() and DENSE_RANK() - show how they differ for tied salaries. (2) Compute each employee's salary percentile within their department using PERCENT_RANK(). (3) Compute running total of salary within department ordered by hire_date. (4) Use NTILE(4) to assign salary quartiles within each department. (5) Find the salary gap between each employee and the top earner in their department using FIRST_VALUE().",
+    "dataset_preview": "data/schema_employees.sql",
+    "expert_knowledge": "RANK() leaves gaps for ties (1,2,2,4), DENSE_RANK() does not (1,2,2,3). PERCENT_RANK() = (rank-1)/(rows-1). Running total: SUM(salary) OVER (PARTITION BY dept ORDER BY hire_date). NTILE(4) divides into 4 equal buckets. FIRST_VALUE(salary) OVER (PARTITION BY dept ORDER BY salary DESC) gives max salary per dept. Window functions execute after WHERE/GROUP BY but before ORDER BY."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

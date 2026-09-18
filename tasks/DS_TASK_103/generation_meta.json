@@ -1,0 +1,37 @@
+{
+  "generator": "dataagent:custom",
+  "temperature": 0.7,
+  "canary_value": 42.0818,
+  "verified": false,
+  "generated_at": "2026-04-08T14:42:00.844602Z",
+  "trace": [
+    {
+      "step": 0,
+      "action": "python_repl",
+      "args_preview": "{'code': 'import pandas as pd...'}",
+      "result_preview": "Dataset shape: (2000, 9)\nData types:\nhousehold_income    float64\nproperty_age          int64\naverage_rooms       float64\nbedroom_count   ...",
+      "full_code": "import pandas as pd\n\n# Load seed dataset\ndf = pd.read_csv('/Users/bytedance/Desktop/bench/seed_datasets/finance/california_housing_synthetic.csv')\nprint('Dataset shape:', df.shape)\nprint('Data types:')\nprint(df.dtypes)\nprint('First 5 rows:')\nprint(df.head())"
+    },
+    {
+      "step": 1,
+      "action": "python_repl",
+      "args_preview": "{'code': 'import pandas as pd...'}",
+      "result_preview": "Saved dataset with 2000 rows, 9 columns",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load seed dataset\ndf = pd.read_csv('/Users/bytedance/Desktop/bench/seed_datasets/finance/california_housing_synthetic.csv')\n\n# Rename columns\ncol_mapping = {\"median_income\": \"household_income\", \"house_age\": \"property_age\", \"avg_rooms\": \"average_rooms\", \"avg_bedrooms\": \"bedroom_count\", \"population\": \"resident_count\", \"avg_occupancy\": \"occupancy_rate\", \"latitude\": \"lat_coordinate\", \"longitude\": \"lon_coordinate\", \"median_house_value\": \"house_value\"}\ndf = df.rename(columns=col_mapping)\n\n# Inject canary\nif len(df) > 0:\n    numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns\n    if len(numeric_cols) > 0:\n        df.loc[0, numeric_cols[0]] = 42.0818\n\n# Difficulty mutations\n\n# Save dataset\ndf.to_csv('dataset.csv', index=False)\nprint('Saved dataset with', len(df), 'rows,', len(df.columns), 'columns')"
+    },
+    {
+      "step": 2,
+      "action": "python_repl",
+      "args_preview": "{'code': 'import pandas as pd...'}",
+      "result_preview": "Descriptive statistics...",
+      "full_code": "import pandas as pd\n\n# Load dataset\ndf = pd.read_csv('dataset.csv')\n\n# Descriptive statistics\nprint('Descriptive statistics:')\nprint(df.describe())\n\n# Mean values\nmean_values = df.mean(numeric_only=True)\nprint('\nMean values:')\nprint(mean_values)"
+    },
+    {
+      "step": -1,
+      "action": "submit_task",
+      "args_preview": "{'instance_id': 'DS_TASK_103', ...}",
+      "result_preview": "Task submitted successfully",
+      "full_code": null
+    }
+  ]
+}

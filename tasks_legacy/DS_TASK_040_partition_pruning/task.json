@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_040",
+  "task_metadata": {
+    "domain": "SQL",
+    "difficulty": "Hard",
+    "tags": ["partitioning", "partition-pruning", "query-rewrite", "performance", "DDL"],
+    "contamination_risk": "low",
+    "canary_value": 45.1927
+  },
+  "context": {
+    "problem_statement": "Rewrite a slow query to leverage date-based table partitioning in PostgreSQL. The original unpartitioned table 'sales_all' has 50M rows. (1) Create a RANGE partitioned version 'sales_partitioned' partitioned by month on sale_date. (2) Show the DDL for creating monthly partitions for Jan-Jun 2024. (3) Rewrite the query to ensure partition pruning occurs (verify with EXPLAIN that only relevant partitions are scanned). (4) Show the EXPLAIN difference between scanning 'sales_all' vs 'sales_partitioned' for a 3-month date range query. (5) Implement a DEFAULT partition for out-of-range dates.",
+    "dataset_preview": "data/schema_partition_pruning.sql",
+    "expert_knowledge": "PostgreSQL partition pruning: only executes for queries with WHERE clause on partition key. Use PARTITION BY RANGE (sale_date). Create partitions: CREATE TABLE sales_2024_01 PARTITION OF sales_partitioned FOR VALUES FROM ('2024-01-01') TO ('2024-02-01'). Constraint exclusion must be on (default). Pruning only works when partition key appears directly in WHERE (avoid function wrapping). Attach DEFAULT partition: CREATE TABLE sales_default PARTITION OF sales_partitioned DEFAULT."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

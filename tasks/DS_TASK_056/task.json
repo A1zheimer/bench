@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_056",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Easy",
+    "tags": [
+      "Fraud Detection",
+      "Anomaly Scoring",
+      "Cost-Sensitive Learning"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 67.7614
+  },
+  "context": {
+    "problem_statement": "Given a dataset of financial transactions, identify the transaction with the highest anomaly score based on the transaction amount. Use a simple statistical technique such as the Z-score to compute the anomaly scores. Return the transaction ID and the anomaly score of the transaction with the highest score.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Anomaly detection can be performed using statistical methods like Z-score to identify outliers in continuous data such as transaction amounts. In financial fraud detection, extreme transaction values often indicate potential fraud."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 10
+}

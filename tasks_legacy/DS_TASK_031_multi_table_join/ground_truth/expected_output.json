@@ -1,0 +1,20 @@
+{
+  "execution_result": "Three-table join successfully aggregates revenue by customer segment. Premium segment leads with 65.2% of total revenue.",
+  "key_values": {
+    "premium_total_revenue": 6867.32,
+    "standard_total_revenue": 2989.96,
+    "budget_total_revenue": 599.98,
+    "total_revenue": 10457.26,
+    "premium_pct": 65.67,
+    "premium_distinct_customers": 2,
+    "standard_distinct_customers": 2,
+    "budget_distinct_customers": 1
+  },
+  "required_keywords": ["JOIN", "GROUP BY", "SUM", "AVG", "segment", "revenue", "window function"],
+  "partial_credit_rubric": {
+    "join_correctness": {"weight": 0.30, "description": "Three tables correctly joined using appropriate JOIN type and keys"},
+    "revenue_calculation": {"weight": 0.30, "description": "Revenue correctly computed accounting for quantity and discount"},
+    "aggregation": {"weight": 0.25, "description": "GROUP BY, SUM, AVG, COUNT correctly applied per segment"},
+    "window_function": {"weight": 0.15, "description": "Revenue percentage computed using window function SUM() OVER ()"}
+  }
+}

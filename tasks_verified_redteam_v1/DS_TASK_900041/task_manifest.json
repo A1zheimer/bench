@@ -1,0 +1,49 @@
+{
+  "task_id": "DS_TASK_900041",
+  "template_id": "iqr_outlier_count_v1",
+  "domain": "Generic",
+  "difficulty": "Medium",
+  "primary_task_type": "data_quality_robustness",
+  "secondary_task_types": [
+    "risk_anomaly_decision"
+  ],
+  "challenge_dimensions": [
+    "outlier_detection",
+    "schema_obfuscation"
+  ],
+  "tags": [
+    "iqr_outlier_count",
+    "generic",
+    "redteam",
+    "schema_obfuscation"
+  ],
+  "dataset_builder": "synthetic_tabular_v1",
+  "problem_statement": "Using `data/dataset.csv`, count 1.5*IQR outliers for these numeric columns: `col_009`, `col_005`. Also return `total_outlier_count` as the sum across columns.",
+  "expert_knowledge": "Columns have been systematically obfuscated from base task DS_TASK_000007. Use the column names shown in the prompt and dataset, not domain assumptions.",
+  "operation": {
+    "columns": [
+      "col_009",
+      "col_005"
+    ],
+    "output_keys": {
+      "col_009": "outlier_count_processing_time",
+      "col_005": "outlier_count_transaction_amount"
+    },
+    "total_output_key": "total_outlier_count"
+  },
+  "max_steps": 8,
+  "budget": 1.0,
+  "timeout_seconds": 120,
+  "allowed_tools": [
+    "python_repl"
+  ],
+  "redteam": {
+    "is_redteam": true,
+    "base_task_id": "DS_TASK_000007",
+    "attack_type": "schema_obfuscation",
+    "attack_level": "L1",
+    "gt_policy": "invariant",
+    "perturbation_seed": 20260521,
+    "expected_invariant": "same_key_values"
+  }
+}

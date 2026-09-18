@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_113",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Hard",
+    "tags": [
+      "risk-parity",
+      "portfolio-allocation",
+      "Sharpe"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 42.3258
+  },
+  "context": {
+    "problem_statement": "Analyze the finance dataset and compute the required metrics. Focus on risk-parity, portfolio-allocation, Sharpe.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use appropriate statistical methods for analysis. Handle missing values if present."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 3.5,
+    "timeout_seconds": 450,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}

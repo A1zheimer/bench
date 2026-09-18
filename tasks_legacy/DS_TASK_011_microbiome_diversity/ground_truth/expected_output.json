@@ -1,0 +1,19 @@
+{
+  "execution_result": "Healthy group shows significantly higher Shannon entropy than IBD group (Mann-Whitney U p < 0.001), confirming dysbiosis pattern.",
+  "key_values": {
+    "mean_shannon_healthy": 2.294,
+    "mean_shannon_ibd": 0.823,
+    "mean_simpson_healthy": 0.902,
+    "mean_simpson_ibd": 0.468,
+    "mannwhitney_p_value": 0.0079,
+    "mean_richness_healthy": 10.0,
+    "mean_richness_ibd": 8.4
+  },
+  "required_keywords": ["Shannon entropy", "Simpson", "diversity", "IBD", "Healthy", "Mann-Whitney"],
+  "partial_credit_rubric": {
+    "shannon_computed": {"weight": 0.3, "description": "Shannon entropy correctly computed for all samples using relative abundances"},
+    "simpson_computed": {"weight": 0.2, "description": "Simpson's diversity index correctly computed"},
+    "richness_computed": {"weight": 0.1, "description": "Species richness correctly counted per sample"},
+    "group_comparison": {"weight": 0.4, "description": "Mann-Whitney U test correctly performed and significance reported"}
+  }
+}

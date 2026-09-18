@@ -1,0 +1,32 @@
+{
+  "instance_id": "DS_TASK_093",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Medium",
+    "tags": [
+      "spatial-interpolation",
+      "kriging",
+      "IDW",
+      "environmental-data",
+      "missing-values"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 75.9262
+  },
+  "context": {
+    "problem_statement": "Perform spatial interpolation on the environmental dataset to estimate missing purity values using Kriging or IDW. Calculate the Root Mean Square Error (RMSE) of your interpolation estimates compared to actual values for validation. Provide the RMSE and the estimated purity values for the locations with missing data.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Spatial interpolation methods such as Kriging and IDW are useful for estimating unknown values at certain locations based on known data points. Kriging provides a statistically optimal estimate based on spatial correlation, while IDW is a simpler approach that weights nearby points more heavily."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}

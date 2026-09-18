@@ -1,0 +1,22 @@
+{
+  "execution_result": "5-fold stratified CV: mean accuracy 0.95 ± 0.05, balanced accuracy 0.94 ± 0.06, macro F1 0.93 ± 0.07, AUC 0.98 ± 0.02. Stratified CV maintains 70/30 class split in each fold vs random KFold which varies.",
+  "key_values": {
+    "class_ratio_minority": 0.35,
+    "cv_mean_accuracy": 0.95,
+    "cv_std_accuracy": 0.05,
+    "cv_mean_balanced_accuracy": 0.94,
+    "cv_std_balanced_accuracy": 0.06,
+    "cv_mean_f1_macro": 0.93,
+    "cv_std_f1_macro": 0.07,
+    "cv_mean_auc": 0.98,
+    "stratified_vs_kfold_accuracy_diff": 0.06,
+    "n_folds": 5
+  },
+  "required_keywords": ["StratifiedKFold", "cross-validation", "balanced accuracy", "macro F1", "AUC", "imbalanced", "learning curve"],
+  "partial_credit_rubric": {
+    "stratified_kfold": {"weight": 0.25, "description": "StratifiedKFold correctly applied maintaining class proportions per fold"},
+    "multiple_metrics": {"weight": 0.30, "description": "Accuracy, balanced accuracy, F1, AUC all computed per fold"},
+    "mean_std_reported": {"weight": 0.20, "description": "Mean and std of all metrics correctly reported across 5 folds"},
+    "stratification_comparison": {"weight": 0.25, "description": "Comparison between StratifiedKFold and regular KFold correctly performed and explained"}
+  }
+}

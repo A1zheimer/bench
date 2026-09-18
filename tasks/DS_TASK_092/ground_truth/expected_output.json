@@ -1,0 +1,20 @@
+{
+  "execution_result": "The predicted proline levels at specific unsampled locations using IDW were computed. The results indicate spatial variability in proline concentration, which is critical for environmental analysis.",
+  "key_values": {
+    "idw_predicted_value_1": 943.78,
+    "idw_predicted_value_2": 863.72
+  },
+  "required_keywords": [],
+  "alternative_key_values": [
+    {
+      "method": "idw_k3",
+      "idw_predicted_value_1": 898.04,
+      "idw_predicted_value_2": 798.08
+    },
+    {
+      "method": "idw_k8",
+      "idw_predicted_value_1": 1009.54,
+      "idw_predicted_value_2": 876.17
+    }
+  ]
+}

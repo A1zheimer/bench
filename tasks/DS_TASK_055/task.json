@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_055",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Easy",
+    "tags": [
+      "fairness-audit",
+      "disparate-impact",
+      "equalized-odds"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 83.0703
+  },
+  "context": {
+    "problem_statement": "Perform a fairness audit on the provided lending dataset to calculate the Disparate Impact Ratio. The dataset contains columns for applicant risk factor, earnings, requested funds, race, and decision (approved or not). You must identify any disparate impact based on race in loan approval decisions. Specifically, calculate the Disparate Impact Ratio by comparing the acceptance rates between racial groups. Ensure to check for data contamination using the canary value in the 'earnings' column.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "In fairness audits, Disparate Impact is a measure used to ensure that minority groups are not disproportionately negatively impacted by lending decisions. It is calculated as the ratio of acceptance rates between the minority and majority groups. Equalized Odds ensures that the true positive rate and false positive rate are equal across groups."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl",
+      "web_search"
+    ]
+  },
+  "max_steps": 10
+}

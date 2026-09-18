@@ -1,0 +1,22 @@
+{
+  "execution_result": "VADER analysis: 8 Positive (53%), 2 Neutral (13%), 5 Negative (33%) reviews. Strong correlation (r=0.91) between star rating and compound score.",
+  "key_values": {
+    "positive_count": 8,
+    "neutral_count": 2,
+    "negative_count": 5,
+    "positive_pct": 0.533,
+    "neutral_pct": 0.133,
+    "negative_pct": 0.333,
+    "mean_compound_5star": 0.842,
+    "mean_compound_1star": -0.821,
+    "rating_compound_correlation": 0.91,
+    "most_polarizing_review": "R010"
+  },
+  "required_keywords": ["VADER", "compound score", "sentiment", "Positive", "Negative", "Neutral", "star rating", "correlation"],
+  "partial_credit_rubric": {
+    "vader_scores": {"weight": 0.30, "description": "VADER compound scores correctly computed for all reviews"},
+    "sentiment_classification": {"weight": 0.25, "description": "Reviews correctly classified as Positive/Neutral/Negative using standard thresholds"},
+    "distribution_reported": {"weight": 0.25, "description": "Sentiment distribution counts and percentages correctly reported"},
+    "correlation_analysis": {"weight": 0.20, "description": "Correlation between star rating and compound score correctly computed"}
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "generator": "dataagent:custom",
+  "temperature": 0.7,
+  "canary_value": 42.6484,
+  "verified": true,
+  "generated_at": "2026-04-08T14:42:01.143329Z",
+  "trace": [
+    {
+      "step": 0,
+      "action": "python_repl",
+      "args_preview": "{'code': 'import pandas as pd...'}",
+      "result_preview": "Dataset shape: (900, 14)\nData types:\nsubject_id               float64\npatient_age                int64\nsex                       object\na...",
+      "full_code": "import pandas as pd\n\n# Load seed dataset\ndf = pd.read_csv('/Users/bytedance/Desktop/bench/seed_datasets/biomedical/patient_readmission.csv')\nprint('Dataset shape:', df.shape)\nprint('Data types:')\nprint(df.dtypes)\nprint('First 5 rows:')\nprint(df.head())"
+    },
+    {
+      "step": 1,
+      "action": "python_repl",
+      "args_preview": "{'code': 'import pandas as pd...'}",
+      "result_preview": "Saved dataset with 900 rows, 14 columns",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load seed dataset\ndf = pd.read_csv('/Users/bytedance/Desktop/bench/seed_datasets/biomedical/patient_readmission.csv')\n\n# Rename columns\ncol_mapping = {\"patient_id\": \"subject_id\", \"age\": \"patient_age\", \"gender\": \"sex\", \"diagnosis\": \"medical_condition\", \"readmission\": \"rehospitalization\", \"length_of_stay\": \"hospital_stay_duration\", \"medication_count\": \"drug_count\"}\ndf = df.rename(columns=col_mapping)\n\n# Inject canary\nif len(df) > 0:\n    numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns\n    if len(numeric_cols) > 0:\n        df.loc[0, numeric_cols[0]] = 42.6484\n\n# Difficulty mutations\n\n# Save dataset\ndf.to_csv('dataset.csv', index=False)\nprint('Saved dataset with', len(df), 'rows,', len(df.columns), 'columns')"
+    },
+    {
+      "step": 2,
+      "action": "python_repl",
+      "args_preview": "{'code': 'import pandas as pd...'}",
+      "result_preview": "Descriptive statistics...",
+      "full_code": "import pandas as pd\n\n# Load dataset\ndf = pd.read_csv('dataset.csv')\n\n# Descriptive statistics\nprint('Descriptive statistics:')\nprint(df.describe())\n\n# Mean values\nmean_values = df.mean(numeric_only=True)\nprint('\nMean values:')\nprint(mean_values)"
+    },
+    {
+      "step": -1,
+      "action": "submit_task",
+      "args_preview": "{'instance_id': 'DS_TASK_120', ...}",
+      "result_preview": "Task submitted successfully",
+      "full_code": null
+    }
+  ],
+  "original_verified": false,
+  "curated_repair": {
+    "curated_version": "curated_easy_v1",
+    "original_task_id": "DS_TASK_120",
+    "repaired_at": "2026-05-20T08:15:44+00:00",
+    "verifier": "build_curated_easy_v1.py:curated_easy_v1",
+    "formula": "crosstab(has_diabetes, has_hypertension); mean(readmitted_30d where both == 1)",
+    "dataset_sha256": "ebfbdabee0fc78b1e4eed3c74a8a6b14b8a0c9037dea4bffb1664959e5ea5465",
+    "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers"
+  }
+}

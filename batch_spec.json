@@ -1,0 +1,5 @@
+[
+  {"domain": "Finance", "difficulty": "Hard", "count": 1},
+  {"domain": "Finance", "difficulty": "Medium", "count": 2},
+  {"domain": "Finance", "difficulty": "Easy", "count": 3}
+]

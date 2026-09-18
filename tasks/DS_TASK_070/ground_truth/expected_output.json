@@ -1,0 +1,7 @@
+{
+  "execution_result": "The mean 'od_ratio' value for the 'ClassB' wine type is calculated.",
+  "key_values": {
+    "mean_od_ratio_classB": 9999
+  },
+  "required_keywords": []
+}

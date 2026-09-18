@@ -1,0 +1,34 @@
+{
+  "instance_id": "DS_TASK_000009",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Easy",
+    "tags": [
+      "crosstab_prevalence",
+      "biomedical"
+    ],
+    "primary_task_type": "specialized_domain_analysis",
+    "secondary_task_types": [
+      "descriptive_aggregation"
+    ],
+    "challenge_dimensions": [
+      "subpopulation_analysis"
+    ],
+    "generation_quality": "verified"
+  },
+  "context": {
+    "problem_statement": "Using `data/dataset.csv`, compute the count and prevalence of rows where `diabetes` equals `1` and `hypertension` equals `1`. If an outcome column is specified, also compute the mean of `readmitted` within that subset.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 8,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 8
+}

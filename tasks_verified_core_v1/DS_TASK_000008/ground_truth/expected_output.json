@@ -1,0 +1,33 @@
+{
+  "execution_result": "Verified by iqr_outlier_count_v1: 1.5*IQR outlier count",
+  "key_values": {
+    "outlier_count_total_cost": 36.0,
+    "outlier_count_revenue": 2.0,
+    "total_outlier_count": 38.0
+  },
+  "key_aliases": {
+    "outlier_count_total_cost": [
+      "outlier count total cost",
+      "total_cost outliers"
+    ],
+    "outlier_count_revenue": [
+      "outlier count revenue",
+      "revenue outliers"
+    ],
+    "total_outlier_count": [
+      "total outlier count",
+      "total outliers"
+    ]
+  },
+  "required_keywords": [
+    "IQR",
+    "outlier"
+  ],
+  "formula": "1.5*IQR outlier count",
+  "verifier_id": "iqr_outlier_count_v1",
+  "verifier_version": "1.0",
+  "dataset_sha256": "fa26ec991dd7defdb6557787d1bcc794cfd052c46ba450f0ce1b01620c8faf48",
+  "computed_at": "2026-05-21T03:54:20.813101+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers"
+}

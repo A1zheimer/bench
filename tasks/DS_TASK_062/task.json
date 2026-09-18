@@ -1,0 +1,28 @@
+{
+  "instance_id": "DS_TASK_062",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Medium",
+    "tags": [
+      "Dose-Response Modeling",
+      "Non-linear Curve Fitting"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 89.2451
+  },
+  "context": {
+    "problem_statement": "You are provided with a biomedical dataset where various biometric measurements (such as patient age, body mass index, and serum levels) are recorded along with a disease progression score. Your task is to develop a dose-response model to understand how these measurements impact disease progression. Specifically, apply non-linear curve fitting to model the relationship between body mass index and disease progression. Compute the goodness of fit using R-squared and Root Mean Square Error (RMSE) as metrics. Address any missing or noisy data appropriately.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Dose-response modeling often involves fitting non-linear models to data where the response variable is a function of the dose. In this task, the 'dose' can be interpreted as different biometric measurements, and the response is the disease progression. Non-linear curve fitting involves using algorithms like least squares to minimize the difference between observed and predicted values."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 20
+}

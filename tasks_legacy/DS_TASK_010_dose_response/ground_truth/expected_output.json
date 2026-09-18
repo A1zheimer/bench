@@ -1,0 +1,19 @@
+{
+  "execution_result": "4-parameter sigmoid fit converged. IC50 estimated at 9.87 nM with Hill slope of 0.98, indicating a standard dose-response relationship.",
+  "key_values": {
+    "ic50_nM": 9.87,
+    "hill_slope": 0.98,
+    "top_asymptote": 98.5,
+    "bottom_asymptote": 0.8,
+    "r_squared": 0.9997,
+    "ic50_ci_lower": 8.92,
+    "ic50_ci_upper": 10.82
+  },
+  "required_keywords": ["IC50", "Hill slope", "sigmoid", "curve_fit", "R-squared", "confidence interval"],
+  "partial_credit_rubric": {
+    "model_defined": {"weight": 0.2, "description": "4-parameter sigmoid (Hill equation) correctly defined"},
+    "curve_fitting_run": {"weight": 0.3, "description": "scipy.optimize.curve_fit successfully applied to data"},
+    "ic50_reported": {"weight": 0.3, "description": "IC50 estimate with appropriate units (nM) reported"},
+    "ci_and_rsq": {"weight": 0.2, "description": "95% CI for IC50 and R-squared goodness-of-fit reported"}
+  }
+}

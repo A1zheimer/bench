@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_053",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Easy",
+    "tags": [
+      "aggregation",
+      "finance",
+      "transactions"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 55.42
+  },
+  "context": {
+    "problem_statement": "Calculate the total amount spent on transactions categorized under 'Groceries' from the provided dataset. This task requires a basic aggregation operation on the data to sum up the amounts for a specific category.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Basic aggregation operations over categorical data are common in finance for summarizing expenditures in different categories. This task involves summing amounts based on a specific category, which is a fundamental operation in financial data analysis."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl",
+      "file_read"
+    ]
+  },
+  "max_steps": 10
+}

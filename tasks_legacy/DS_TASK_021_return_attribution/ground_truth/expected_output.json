@@ -1,0 +1,21 @@
+{
+  "execution_result": "Fama-French 3-factor model explains 97.3% of portfolio return variation. Portfolio shows positive alpha of 2.4% annualized with strong market beta of 1.08.",
+  "key_values": {
+    "alpha_monthly": 0.002,
+    "alpha_annualized": 0.024,
+    "beta_mkt": 1.082,
+    "beta_smb": 0.143,
+    "beta_hml": -0.218,
+    "r_squared": 0.973,
+    "alpha_t_stat": 2.14,
+    "alpha_p_value": 0.047,
+    "idiosyncratic_risk": 0.00312
+  },
+  "required_keywords": ["alpha", "beta", "Fama-French", "SMB", "HML", "R-squared", "OLS", "t-statistic"],
+  "partial_credit_rubric": {
+    "excess_returns_computed": {"weight": 0.15, "description": "Portfolio excess returns correctly computed by subtracting risk-free rate"},
+    "ols_regression": {"weight": 0.30, "description": "OLS regression correctly specified and run with all three factors"},
+    "factor_loadings": {"weight": 0.25, "description": "Alpha and three betas correctly extracted with t-statistics"},
+    "model_fit": {"weight": 0.30, "description": "R-squared, annualized alpha, and residual std correctly computed and reported"}
+  }
+}

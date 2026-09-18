@@ -1,0 +1,22 @@
+{
+  "execution_result": "12 association rules found with min support 0.25, min confidence 0.60. Top rule: {eggs} -> {milk} with lift 1.48. Bread is most frequent itemset.",
+  "key_values": {
+    "total_frequent_itemsets": 8,
+    "total_rules_found": 12,
+    "top_rule_antecedent": "eggs",
+    "top_rule_consequent": "milk",
+    "top_rule_support": 0.35,
+    "top_rule_confidence": 0.70,
+    "top_rule_lift": 1.48,
+    "rules_with_lift_gt_15": 3,
+    "bread_support": 0.65,
+    "milk_support": 0.70
+  },
+  "required_keywords": ["Apriori", "support", "confidence", "lift", "association rules", "antecedent", "consequent"],
+  "partial_credit_rubric": {
+    "one_hot_encoding": {"weight": 0.15, "description": "Transaction data correctly one-hot encoded for Apriori input"},
+    "frequent_itemsets": {"weight": 0.25, "description": "Frequent itemsets correctly found with minimum support threshold"},
+    "rules_generated": {"weight": 0.30, "description": "Association rules correctly generated with confidence filter"},
+    "lift_analysis": {"weight": 0.30, "description": "Lift correctly computed; positive and negative associations identified and reported"}
+  }
+}

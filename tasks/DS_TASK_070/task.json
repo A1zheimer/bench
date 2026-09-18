@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_070",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": [
+      "time-series",
+      "changepoint-detection",
+      "trend-analysis"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 86.9449
+  },
+  "context": {
+    "problem_statement": "Given the provided dataset, your task is to perform a basic trend analysis by calculating the mean of the 'od_ratio' feature, grouped by the 'wine_type'. Specifically, determine the mean 'od_ratio' value for the 'ClassB' wine type. This will help in identifying potential deviations or trends in the data that may suggest a changepoint. Report this mean value as the key output metric.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Changepoint detection and trend analysis typically involve identifying points in time where statistical properties of a time series change. For simple tasks, analyzing means or basic trends over time can provide insight into potential changepoints."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 10
+}

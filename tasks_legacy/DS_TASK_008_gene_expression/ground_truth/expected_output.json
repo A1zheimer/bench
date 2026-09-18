@@ -1,0 +1,19 @@
+{
+  "execution_result": "Differential expression analysis identifies 3 upregulated genes (G1, G7, G10) and 1 downregulated gene (G3) at FDR < 0.05 and |log2FC| > 1.",
+  "key_values": {
+    "upregulated_gene_count": 3,
+    "downregulated_gene_count": 1,
+    "G1_log2fc": 1.044,
+    "G3_log2fc": -0.997,
+    "G7_log2fc": 1.031,
+    "G10_log2fc": 1.063,
+    "significant_gene_count": 4
+  },
+  "required_keywords": ["log2 fold change", "FDR", "upregulated", "downregulated", "Benjamini-Hochberg", "t-test"],
+  "partial_credit_rubric": {
+    "fold_change_computed": {"weight": 0.25, "description": "Log2 fold change correctly computed for all genes"},
+    "ttest_performed": {"weight": 0.25, "description": "Two-sample t-test p-values correctly computed for all genes"},
+    "fdr_correction_applied": {"weight": 0.25, "description": "Benjamini-Hochberg FDR correction correctly applied"},
+    "significant_genes_identified": {"weight": 0.25, "description": "Differentially expressed genes correctly identified using dual threshold"}
+  }
+}

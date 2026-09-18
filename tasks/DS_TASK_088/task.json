@@ -1,0 +1,33 @@
+{
+  "instance_id": "DS_TASK_088",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Medium",
+    "tags": [
+      "price-elasticity",
+      "demand",
+      "modeling",
+      "missing-values",
+      "noise"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 36.5823
+  },
+  "context": {
+    "problem_statement": "You are tasked with modeling the price elasticity of demand for products in an eCommerce dataset. The dataset has undergone transformations including column renaming and the introduction of noise and missing values. You need to compute the price elasticity of demand for different product categories. This involves calculating how the quantity sold of a product responds to changes in its price.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Price elasticity of demand is calculated as the percentage change in quantity demanded divided by the percentage change in price. Regression analysis is typically used to estimate the elasticity coefficient for each product category."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}

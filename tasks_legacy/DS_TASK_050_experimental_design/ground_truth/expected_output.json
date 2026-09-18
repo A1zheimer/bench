@@ -1,0 +1,24 @@
+{
+  "execution_result": "Two-way ANOVA: Temperature (F=2847.1, p<0.001, eta²=0.871) and Pressure (F=1183.2, p<0.001, eta²=0.362) both significant. No significant interaction effect (F=0.24, p=0.631), indicating additive effects.",
+  "key_values": {
+    "temperature_F": 2847.1,
+    "temperature_p": 0.000001,
+    "temperature_eta_squared": 0.871,
+    "pressure_F": 1183.2,
+    "pressure_p": 0.000001,
+    "pressure_eta_squared": 0.362,
+    "interaction_F": 0.24,
+    "interaction_p": 0.631,
+    "interaction_significant": false,
+    "mean_yield_high_temp_high_pressure": 85.78,
+    "mean_yield_low_temp_low_pressure": 62.28
+  },
+  "required_keywords": ["two-way ANOVA", "main effect", "interaction", "F-statistic", "eta-squared", "ANOVA table", "SS", "df", "MS"],
+  "partial_credit_rubric": {
+    "anova_model": {"weight": 0.25, "description": "Two-way ANOVA model correctly specified with interaction term using statsmodels"},
+    "main_effects": {"weight": 0.25, "description": "Main effects of temperature and pressure correctly tested with F-stats and p-values"},
+    "interaction_test": {"weight": 0.20, "description": "Interaction effect correctly tested and interpreted"},
+    "effect_sizes": {"weight": 0.15, "description": "Eta-squared effect sizes correctly computed for each effect"},
+    "anova_table": {"weight": 0.15, "description": "Complete ANOVA table with SS, df, MS, F, p correctly formatted and reported"}
+  }
+}

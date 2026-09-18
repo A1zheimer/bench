@@ -1,0 +1,8 @@
+{
+  "execution_result": "Survival analysis performed using Kaplan-Meier and Cox Proportional Hazards models. Computed survival probabilities and hazard ratios for predictors.",
+  "key_values": {
+    "glucose_progression_corr": 0.131891,
+    "high_risk_ratio": 0.498113
+  },
+  "required_keywords": []
+}

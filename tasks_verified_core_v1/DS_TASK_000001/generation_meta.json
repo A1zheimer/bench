@@ -1,0 +1,7 @@
+{
+  "generator": "data_agent_taskgen:manifest_packager",
+  "verified": true,
+  "verifier_id": "filtered_mean_v1",
+  "dataset_sha256": "aeda49dab7c5a99c3560a8c8a6fc360d1b4f726aa1c656c3c2e3068fcae39323",
+  "source_set": "verified"
+}

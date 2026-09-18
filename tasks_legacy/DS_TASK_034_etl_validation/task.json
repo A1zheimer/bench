@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_034",
+  "task_metadata": {
+    "domain": "SQL",
+    "difficulty": "Medium",
+    "tags": ["ETL", "data-validation", "row-count", "null-rates", "data-quality", "pipeline"],
+    "contamination_risk": "low",
+    "canary_value": 15.2741
+  },
+  "context": {
+    "problem_statement": "Validate an ETL pipeline by comparing source and target tables. Write SQL queries to: (1) compare row counts between source_transactions and target_transactions_cleaned tables, (2) compute null rates for each column in both tables, (3) identify rows in source that are missing from target (anti-join), (4) detect rows with value changes between source and target for the same primary key, (5) validate referential integrity: all customer_ids in target must exist in customers table. Produce a validation summary report.",
+    "dataset_preview": "data/schema_etl_validation.sql",
+    "expert_knowledge": "ETL validation queries: COUNT(*) for row counts, SUM(CASE WHEN col IS NULL THEN 1 ELSE 0 END)/COUNT(*) for null rates. Anti-join: WHERE NOT EXISTS (subquery) or LEFT JOIN ... WHERE target.id IS NULL. Value drift: JOIN on PK and compare columns with <> operator. Referential integrity: LEFT JOIN customers and check WHERE c.customer_id IS NULL."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "task_id": "DS_TASK_000012",
+  "template_id": "model_eval_metric_v1",
+  "domain": "Finance",
+  "difficulty": "Hard",
+  "primary_task_type": "predictive_modeling",
+  "secondary_task_types": [
+    "descriptive_aggregation"
+  ],
+  "challenge_dimensions": [
+    "model_selection",
+    "train_test_split_reproducibility",
+    "cross_domain_schema"
+  ],
+  "tags": [
+    "model_eval_metric",
+    "finance"
+  ],
+  "dataset_builder": "synthetic_tabular_v1",
+  "problem_statement": "Using `data/dataset.csv`, train the appropriate sklearn model to predict `revenue` from `marketing_spend`, `discount_rate`, `processing_time`. Use train_test_split with test_size=0.3 and random_state=42. Report accuracy for classification, or RMSE and R-squared for regression.",
+  "expert_knowledge": "Use sklearn with the specified train/test split and random_state. Drop rows with missing values before training.",
+  "operation": {
+    "target_column": "revenue",
+    "feature_columns": [
+      "marketing_spend",
+      "discount_rate",
+      "processing_time"
+    ],
+    "test_size": 0.3,
+    "random_state": 42
+  },
+  "max_steps": 10,
+  "budget": 1.0,
+  "timeout_seconds": 120,
+  "allowed_tools": [
+    "python_repl"
+  ],
+  "redteam": {}
+}

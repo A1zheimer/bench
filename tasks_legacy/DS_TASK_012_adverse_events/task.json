@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_012",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Medium",
+    "tags": ["chi-square", "adverse-events", "clinical-trial", "hypothesis-testing", "pharmacovigilance"],
+    "contamination_risk": "low",
+    "canary_value": 81.5037
+  },
+  "context": {
+    "problem_statement": "Analyze adverse event rates between a Drug treatment group and a Placebo control group. For each of the five adverse events (nausea, headache, fatigue, dizziness, rash), perform a chi-square test of independence comparing event rates between groups. Apply Bonferroni correction for multiple testing (alpha = 0.05 / 5 = 0.01). Report the chi-square statistic, p-value, and event rates for each adverse event. Identify which adverse events are significantly more common in the Drug group.",
+    "dataset_preview": "data/adverse_events_preview.csv",
+    "expert_knowledge": "Use scipy.stats.chi2_contingency with a 2x2 contingency table [event/no_event] x [Drug/Placebo]. Bonferroni correction controls family-wise error rate. Risk ratio = (event_rate_drug / event_rate_placebo) quantifies relative risk. Report both uncorrected and Bonferroni-corrected significance. Number needed to harm (NNH) = 1 / (rate_drug - rate_placebo)."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "execution_result": "Logistic regression AUC 0.962. Top churn predictors: num_complaints (+), days_since_last_purchase (+), tenure_months (-). Higher complaints and inactivity strongly predict churn.",
+  "key_values": {
+    "model_accuracy": 0.90,
+    "auc_roc": 0.962,
+    "top_feature_1": "num_complaints",
+    "top_feature_1_coef": 2.34,
+    "top_feature_2": "days_since_last_purchase",
+    "top_feature_2_coef": 1.87,
+    "top_feature_3": "tenure_months",
+    "top_feature_3_coef": -1.62,
+    "num_products_coef": -0.98
+  },
+  "required_keywords": ["logistic regression", "coefficient", "feature importance", "churn", "AUC", "standardized"],
+  "partial_credit_rubric": {
+    "preprocessing": {"weight": 0.20, "description": "Categorical encoding and standardization correctly applied"},
+    "model_training": {"weight": 0.25, "description": "Logistic regression correctly trained with L2 regularization"},
+    "coefficient_analysis": {"weight": 0.35, "description": "Standardized coefficients correctly extracted, ranked, and interpreted"},
+    "model_evaluation": {"weight": 0.20, "description": "Accuracy and AUC-ROC correctly reported"}
+  }
+}

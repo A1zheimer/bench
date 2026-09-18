@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_064",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Hard",
+    "tags": [
+      "survival-analysis",
+      "Kaplan-Meier",
+      "Cox Proportional Hazards",
+      "right-censoring"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 44.3663
+  },
+  "context": {
+    "problem_statement": "Analyze the survival times of patients using the mutated dataset `dataset.csv`. You must perform a Kaplan-Meier analysis to estimate survival curves and fit a Cox Proportional Hazards model to assess the impact of 'gender', 'body_mass_index', 'blood_pressure', and 'cholesterol_level' on survival times. Ensure you handle right-censoring appropriately. Report the median survival time, the p-value of the Cox model, and the hazard ratio for 'body_mass_index'. Provide a textual summary of your findings.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Survival analysis is crucial in biomedical studies where the time-to-event (such as disease progression or recovery) is of interest. Kaplan-Meier curves are used to visualize survival probabilities over time, while Cox Proportional Hazards models are used to assess the impact of covariates on survival times. Right-censoring occurs when the event of interest has not been observed for some subjects during the study period. Data scientists should be familiar with handling right-censored data, interpreting survival curves, and fitting Cox models."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 30,
+    "budget": 3.0,
+    "timeout_seconds": 480,
+    "allowed_tools": [
+      "python_repl",
+      "web_search"
+    ]
+  },
+  "max_steps": 30
+}

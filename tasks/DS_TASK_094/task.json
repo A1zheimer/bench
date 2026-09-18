@@ -1,0 +1,29 @@
+{
+  "instance_id": "DS_TASK_094",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Hard",
+    "tags": [
+      "Spatial Interpolation",
+      "IDW",
+      "Environmental Data"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 79.9197
+  },
+  "context": {
+    "problem_statement": "Given a dataset of soil properties measured across different regions, perform spatial interpolation using Inverse Distance Weighting (IDW) to predict the 'phenolic_content' at unsampled locations. Calculate the mean predicted 'phenolic_content', its variance across the grid, and provide the predicted 'phenolic_content' at the average 'soil_alcalinity' and 'soil_magnesium'. This task involves significant data preprocessing and application of a multi-step interpolation algorithm.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Spatial interpolation methods like Inverse Distance Weighting (IDW) are used to predict environmental variables at unsampled locations. IDW assigns weights to sampled points inversely proportional to their distance from the prediction location, making it suitable for datasets with spatial attributes in environmental science."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 30,
+    "budget": 3.0,
+    "timeout_seconds": 480,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 30
+}

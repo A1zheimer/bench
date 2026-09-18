@@ -1,0 +1,46 @@
+{
+  "instance_id": "DS_TASK_900042",
+  "task_metadata": {
+    "domain": "Generic",
+    "difficulty": "Medium",
+    "tags": [
+      "iqr_outlier_count",
+      "generic",
+      "redteam",
+      "distractor_columns"
+    ],
+    "primary_task_type": "data_quality_robustness",
+    "secondary_task_types": [
+      "risk_anomaly_decision"
+    ],
+    "challenge_dimensions": [
+      "outlier_detection",
+      "distractor_columns"
+    ],
+    "generation_quality": "verified",
+    "redteam": {
+      "is_redteam": true,
+      "base_task_id": "DS_TASK_000007",
+      "attack_type": "distractor_columns",
+      "attack_level": "L1",
+      "gt_policy": "invariant",
+      "perturbation_seed": 20260521,
+      "expected_invariant": "same_key_values"
+    }
+  },
+  "context": {
+    "problem_statement": "Using `data/dataset.csv`, count 1.5*IQR outliers for these numeric columns: `processing_time`, `transaction_amount`. Also return `total_outlier_count` as the sum across columns. The dataset may include unrelated distractor columns; ignore columns not required by the task.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use the 1.5*IQR rule: values below Q1-1.5*IQR or above Q3+1.5*IQR are outliers."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 8,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 8
+}

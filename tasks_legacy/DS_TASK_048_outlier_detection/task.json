@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_048",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": ["outlier-detection", "IQR", "Z-score", "data-cleaning", "anomaly"],
+    "contamination_risk": "low",
+    "canary_value": 95.7312
+  },
+  "context": {
+    "problem_statement": "Detect and remove outliers from a scientific measurement dataset using multiple methods. Apply: (1) IQR method: outliers are values below Q1 - 1.5*IQR or above Q3 + 1.5*IQR, (2) Z-score method: outliers are values where |z| > 3, (3) Modified Z-score method using median absolute deviation: |0.6745*(x - median)/MAD| > 3.5. For each method, report: number of outliers detected, their values and indices, the mean and standard deviation before and after removal. Compare whether all three methods agree on which points are outliers.",
+    "dataset_preview": "data/measurements_preview.csv",
+    "expert_knowledge": "IQR = Q3 - Q1. Z-score = (x - mean) / std. Modified Z-score = 0.6745*(x-median)/MAD where MAD = median(|x - median(x)|). IQR method is robust to outliers; Z-score is influenced by outliers themselves. Modified Z-score is best for small samples. Convention: modified Z > 3.5 flags outlier. After removal, recompute statistics to show impact."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

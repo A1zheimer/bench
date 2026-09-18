@@ -1,0 +1,84 @@
+{
+    "Finance": [
+        "Time Series Forecasting (e.g., ARIMA, Prophet, LSTM) with Heteroskedasticity",
+        "Portfolio Value at Risk (VaR) calculation and Monte Carlo simulations",
+        "Options Pricing (Black-Scholes) and Implied Volatility Surface",
+        "Credit Risk Modeling and Imbalanced Classification (SMOTE)",
+        "Algorithmic Trading Backtesting (Sharpe Ratio, Max Drawdown)",
+        "Fairness Audit (Disparate Impact, Equalized Odds) on Lending Data",
+        "Fraud Detection with Cost-Sensitive Learning and Anomaly Scoring"
+    ],
+    "Biomedical": [
+        "Survival Analysis (Kaplan-Meier, Cox Proportional Hazards) with right-censoring",
+        "Genomic Data Dimensionality Reduction (PCA, t-SNE, UMAP)",
+        "Clinical Trial A/B Testing and Causal Inference (Propensity Score Matching)",
+        "Missing Data Imputation in Clinical Records (MICE, KNN Imputer)",
+        "Dose-Response Modeling and Non-linear Curve Fitting",
+        "Differential Gene Expression Analysis with Multiple Testing Correction",
+        "Hospital Readmission Prediction with Feature Engineering"
+    ],
+    "ECommerce": [
+        "Customer Lifetime Value (CLV) Prediction (BTYD models, RFM analysis)",
+        "Market Basket Analysis (Apriori, FP-Growth) and Association Rules",
+        "Recommender Systems (Collaborative Filtering, Matrix Factorization)",
+        "Price Elasticity of Demand Modeling",
+        "Conversion Funnel Drop-off Analysis and Cohort Retention",
+        "Seasonal Decomposition of Revenue Time Series",
+        "A/B Test Analysis with Statistical Power and Effect Size"
+    ],
+    "Scientific": [
+        "Factorial ANOVA with Interaction Effects and Post-hoc Tests",
+        "Response Surface Methodology and Experiment Optimization",
+        "Spatial Interpolation (Kriging, IDW) for Environmental Data",
+        "Time Series Changepoint Detection and Trend Analysis",
+        "Non-linear Curve Fitting and Parameter Estimation",
+        "Multi-station Climate Anomaly Detection",
+        "Design of Experiments (DOE) Analysis"
+    ],
+    "SQL": [
+        "Complex Multi-table Joins with Window Functions",
+        "Recursive CTEs for Hierarchical Data Querying",
+        "Time-based Cohort Analysis with SQL",
+        "Data Quality Auditing with Constraint Validation",
+        "Aggregation Pipelines with HAVING and Subqueries"
+    ],
+    "Climate": [
+        "Seasonal Decomposition of Temperature Time Series",
+        "Spatial Correlation Analysis across Weather Stations",
+        "Extreme Event Detection and Return Period Estimation",
+        "Trend Significance Testing (Mann-Kendall, Sen's Slope)"
+    ],
+    "HR_Analytics": [
+        "Employee Attrition Prediction with Survival Models",
+        "Pay Equity Analysis with Regression-based Decomposition",
+        "Workforce Diversity Metrics and Statistical Testing",
+        "Performance Rating Calibration and Bias Detection"
+    ],
+    "Manufacturing": [
+        "Statistical Process Control (SPC) Chart Analysis",
+        "Predictive Maintenance with Time-to-Failure Modeling",
+        "Defect Root Cause Analysis with Pareto and Fishbone",
+        "Yield Optimization with Design of Experiments"
+    ],
+    "NLP_Text": [
+        "Sentiment Analysis with TF-IDF and Classification",
+        "Topic Modeling (LDA) on Document Corpus",
+        "Named Entity Recognition Evaluation (Precision/Recall/F1)",
+        "Text Similarity and Clustering Analysis"
+    ],
+    "Geospatial": [
+        "Spatial Clustering (DBSCAN) on Geographic Points",
+        "Distance-based Analysis and Nearest Neighbor Queries",
+        "Choropleth Aggregation and Regional Statistics",
+        "Point Pattern Analysis and Kernel Density Estimation"
+    ],
+    "Generic": [
+        "Handling High-Cardinality Categorical Variables (Target Encoding, Hashing)",
+        "Detecting Concept Drift and Data Shift in streaming data",
+        "Anomaly and Outlier Detection in High-Dimensional Spaces (Isolation Forest, LOF)",
+        "Complex Multi-table SQL Joins and Window Functions for Aggregation",
+        "Natural Language Processing (TF-IDF, Sentiment Analysis) on noisy text data",
+        "Missing Value Analysis and Multiple Imputation Comparison",
+        "Feature Selection and Dimensionality Reduction Benchmarking"
+    ]
+}

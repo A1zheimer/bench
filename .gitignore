@@ -1,0 +1,25 @@
+# Secrets
+.env
+.env.local
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Data & outputs
+*.db
+bench_runs*/
+runs/
+results.jsonl
+tasks/DS_TASK_*/data/
+.tasks_*_build_cache/
+
+# Local editor and OS files
+.DS_Store
+.trae/

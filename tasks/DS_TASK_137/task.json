@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_137",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Medium",
+    "tags": [
+      "ROAS-analysis",
+      "platform-comparison",
+      "marketing"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 42.1517
+  },
+  "context": {
+    "problem_statement": "Analyze the ecommerce dataset and compute the required metrics. Focus on ROAS-analysis, platform-comparison, marketing.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use appropriate statistical methods for analysis. Handle missing values if present."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 1.5,
+    "timeout_seconds": 210,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 12
+}

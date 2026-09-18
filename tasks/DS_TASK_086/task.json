@@ -1,0 +1,29 @@
+{
+  "instance_id": "DS_TASK_086",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Easy",
+    "tags": [
+      "Recommender Systems",
+      "Collaborative Filtering",
+      "Matrix Factorization"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 95.1756
+  },
+  "context": {
+    "problem_statement": "Using the provided dataset, calculate the total revenue generated for each product category. This will help us understand which categories are driving the most sales. You should output the total revenue for each category as a numeric value, labeled appropriately. The task is to perform a basic aggregation to sum up revenues by category.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Collaborative Filtering is a method used in recommender systems where the preferences of users are predicted based on the collective preferences of many users. Matrix Factorization is a related technique used to reduce the dimensionality of user-item interaction matrices, often improving the quality of recommendations. In eCommerce, these techniques can be used to suggest products to customers based on past purchase behavior."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 10
+}

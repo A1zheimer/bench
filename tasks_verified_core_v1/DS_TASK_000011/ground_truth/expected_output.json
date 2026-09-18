@@ -1,0 +1,22 @@
+{
+  "execution_result": "Verified by model_eval_metric_v1: logistic_regression_accuracy(target=readmitted)",
+  "key_values": {
+    "accuracy": 0.8333333333333334
+  },
+  "key_aliases": {
+    "accuracy": [
+      "accuracy"
+    ]
+  },
+  "required_keywords": [
+    "model",
+    "evaluation"
+  ],
+  "formula": "logistic_regression_accuracy(target=readmitted)",
+  "verifier_id": "model_eval_metric_v1",
+  "verifier_version": "1.0",
+  "dataset_sha256": "55fe7ac5955af025971be4589b4cea692668cc6bbcbfee4e7f97220664ef8333",
+  "computed_at": "2026-05-21T03:54:20.870177+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers"
+}

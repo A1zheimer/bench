@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_043",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Medium",
+    "tags": ["signal-processing", "Savitzky-Golay", "denoising", "SNR", "filter"],
+    "contamination_risk": "low",
+    "canary_value": 31.5748
+  },
+  "context": {
+    "problem_statement": "Apply the Savitzky-Golay filter to denoise a noisy sensor time series. The signal contains a true sinusoidal component with additive Gaussian noise. Steps: (1) apply scipy.signal.savgol_filter with window_length=11 and polyorder=3, (2) compute Signal-to-Noise Ratio (SNR) before and after filtering as: SNR_dB = 10 * log10(signal_power / noise_power), where signal_power = mean(signal^2), noise_power = mean((signal - true_signal)^2), (3) compare SNR improvement, (4) also apply a simple moving average (window=11) for comparison and compute its SNR, (5) report which filter performs better and why.",
+    "dataset_preview": "data/sensor_signal_preview.csv",
+    "expert_knowledge": "Savitzky-Golay fits a polynomial to each window, preserving peak shapes better than moving average. Larger window_length: more smoothing but more peak broadening. Higher polyorder: better peak preservation but less noise reduction. SNR improvement = SNR_after - SNR_before in dB. For sinusoidal signals, SG filter outperforms MA filter at preserving amplitude. Use scipy.signal.savgol_filter(y, window_length, polyorder)."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

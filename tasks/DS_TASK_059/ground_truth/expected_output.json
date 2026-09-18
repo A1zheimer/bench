@@ -1,0 +1,13 @@
+{
+  "execution_result": "The forecasted adjusted close prices for the next 12 months showed a clear trend, with RMSE of 2.53 indicating a good fit considering the heteroskedastic nature of the data.",
+  "key_values": {
+    "RMSE": 2.53,
+    "forecast_value_Jan_2024": 105.2,
+    "forecast_value_Feb_2024": 106.8
+  },
+  "required_keywords": [
+    "forecast",
+    "heteroskedasticity",
+    "RMSE"
+  ]
+}

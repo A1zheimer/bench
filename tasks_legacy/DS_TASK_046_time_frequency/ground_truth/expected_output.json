@@ -1,0 +1,22 @@
+{
+  "execution_result": "FFT identifies dominant frequency at 50 Hz (amplitude=2.45), secondary at 150 Hz (amplitude=0.31), tertiary at 250 Hz (amplitude=0.08). Signal is primarily 50 Hz with harmonic content.",
+  "key_values": {
+    "sample_rate_hz": 1000,
+    "dominant_frequency_hz": 50.0,
+    "dominant_amplitude": 2.45,
+    "second_frequency_hz": 150.0,
+    "second_amplitude": 0.31,
+    "third_frequency_hz": 250.0,
+    "third_amplitude": 0.08,
+    "nyquist_frequency_hz": 500,
+    "frequency_resolution_hz": 1.0,
+    "reconstruction_rmse": 0.042
+  },
+  "required_keywords": ["FFT", "frequency", "power spectrum", "amplitude", "peak", "Hz", "reconstruction", "Nyquist"],
+  "partial_credit_rubric": {
+    "fft_computed": {"weight": 0.25, "description": "FFT correctly computed using numpy.fft.fft with correct frequency bins"},
+    "power_spectrum": {"weight": 0.20, "description": "Power spectrum (magnitude squared) correctly computed for positive frequencies"},
+    "peak_detection": {"weight": 0.30, "description": "Top 3 peak frequencies correctly identified with amplitudes"},
+    "reconstruction": {"weight": 0.25, "description": "Signal reconstructed from top 3 components and RMSE correctly computed"}
+  }
+}

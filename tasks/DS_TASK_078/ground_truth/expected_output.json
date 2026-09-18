@@ -1,0 +1,9 @@
+{
+  "execution_result": "Anomalies detected: 1\nPrecision: 0.0\nRecall: 0.0",
+  "key_values": {
+    "anomalies_count": 1,
+    "precision": 0.0,
+    "recall": 0.0
+  },
+  "required_keywords": []
+}

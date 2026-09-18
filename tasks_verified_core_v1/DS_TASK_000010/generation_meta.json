@@ -1,0 +1,7 @@
+{
+  "generator": "data_agent_taskgen:manifest_packager",
+  "verified": true,
+  "verifier_id": "crosstab_prevalence_v1",
+  "dataset_sha256": "b5d72248085a51d9c23bbf7cbeacd40938f3ff92e24db96783ba5a1450b3ad00",
+  "source_set": "verified"
+}

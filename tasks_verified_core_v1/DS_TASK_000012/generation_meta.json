@@ -1,0 +1,7 @@
+{
+  "generator": "data_agent_taskgen:manifest_packager",
+  "verified": true,
+  "verifier_id": "model_eval_metric_v1",
+  "dataset_sha256": "0d91f694fe6549a5700fd9132bc6cba0dc48be295199b3db510b84182a1b3d6f",
+  "source_set": "verified"
+}

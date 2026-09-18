@@ -1,0 +1,33 @@
+{
+  "instance_id": "DS_TASK_000004",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Medium",
+    "tags": [
+      "groupby_aggregation",
+      "finance"
+    ],
+    "primary_task_type": "descriptive_aggregation",
+    "secondary_task_types": [],
+    "challenge_dimensions": [
+      "multi_group_aggregation",
+      "cross_domain_schema"
+    ],
+    "generation_quality": "verified"
+  },
+  "context": {
+    "problem_statement": "Using `data/dataset.csv`, group rows by `region` and compute the mean of `transaction_amount` for each group. Return one labeled value per group using the requested metric names.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 8,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 8
+}

@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_044",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": ["hypothesis-testing", "t-test", "effect-size", "cohens-d", "statistical-power"],
+    "contamination_risk": "low",
+    "canary_value": 39.6472
+  },
+  "context": {
+    "problem_statement": "Compare measurement values between two experimental groups (Control vs Treatment) using a two-sample independent t-test. Steps: (1) check assumptions: test for normality using Shapiro-Wilk test for each group, test for equal variances using Levene's test, (2) run the appropriate t-test (equal or unequal variance based on Levene's result), (3) report t-statistic, degrees of freedom, p-value, and 95% confidence interval for the mean difference, (4) compute Cohen's d effect size = (mean1 - mean2) / pooled_std, (5) compute statistical power using scipy.stats.power (post-hoc power analysis at alpha=0.05).",
+    "dataset_preview": "data/two_sample_preview.csv",
+    "expert_knowledge": "scipy.stats.ttest_ind(a, b, equal_var=True/False). Cohen's d: small=0.2, medium=0.5, large=0.8. Pooled std = sqrt(((n1-1)*s1^2 + (n2-1)*s2^2) / (n1+n2-2)). Power analysis: statsmodels.stats.power.TTestIndPower().solve_power(). Welch's t-test (equal_var=False) is robust to unequal variances. CI for difference: (mean_diff ± t_crit * SE_diff)."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

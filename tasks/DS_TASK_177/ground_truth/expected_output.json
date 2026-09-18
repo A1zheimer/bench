@@ -1,0 +1,32 @@
+{
+  "execution_result": "Time series analysis, outlier detection (total: 224), and regression modeling",
+  "key_values": {
+    "outlier_count": 224,
+    "mean_value": 422.6836,
+    "correlation": 1.0
+  },
+  "required_keywords": [
+    "causal-discovery",
+    "Granger",
+    "VAR"
+  ],
+  "validation_rules": [],
+  "rubric": [
+    {
+      "criterion": "\u6b63\u786e\u52a0\u8f7d\u6570\u636e\u5e76\u68c0\u67e5\u7ed3\u6784",
+      "weight": 0.2
+    },
+    {
+      "criterion": "\u6b63\u786e\u6267\u884c\u6570\u636e\u9884\u5904\u7406",
+      "weight": 0.3
+    },
+    {
+      "criterion": "\u6838\u5fc3\u5206\u6790\u6b65\u9aa4\u6b63\u786e",
+      "weight": 0.3
+    },
+    {
+      "criterion": "\u7ed3\u679c\u89e3\u8bfb\u5408\u7406",
+      "weight": 0.2
+    }
+  ]
+}

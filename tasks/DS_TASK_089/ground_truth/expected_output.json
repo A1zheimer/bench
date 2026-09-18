@@ -1,0 +1,10 @@
+{
+  "execution_result": "The top 5 association rules based on lift are identified, showing strong relationships between itemsets. The average lift across all generated rules is computed to be approximately 1.25, indicating moderate association strength across the dataset.",
+  "key_values": {
+    "conv_rate_Desktop": 0.1524,
+    "conv_rate_Mobile": 0.1714,
+    "conv_rate_Tablet": 0.1163,
+    "avg_basket_value": 1158.46
+  },
+  "required_keywords": []
+}

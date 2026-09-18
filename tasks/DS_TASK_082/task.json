@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_082",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Medium",
+    "tags": [
+      "differential-gene-expression",
+      "multiple-testing-correction",
+      "missing-values"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 12.2707
+  },
+  "context": {
+    "problem_statement": "Perform a differential gene expression analysis on the provided dataset to compare the expression levels of 'gene_expression_s1_noisy' between two gender groups. Use a t-test for the comparison and apply the Benjamini-Hochberg correction for multiple testing. Report the original p-value and the adjusted p-value after correction.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Differential gene expression analysis often involves testing the difference in expression levels between two groups. The t-test is commonly used for this purpose. However, when multiple tests are conducted, the risk of false positives increases, necessitating correction methods such as the Benjamini-Hochberg procedure (FDR correction) to control the false discovery rate."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}

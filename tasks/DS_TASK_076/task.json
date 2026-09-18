@@ -1,0 +1,28 @@
+{
+  "instance_id": "DS_TASK_076",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Easy",
+    "tags": [
+      "Value at Risk",
+      "Monte Carlo simulations"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 54.9847
+  },
+  "context": {
+    "problem_statement": "Using the provided dataset `dataset.csv`, calculate the 95% Portfolio Value at Risk (VaR) using the Monte Carlo simulation method. The dataset columns are: 'Income', 'Age', 'Rooms', 'Bedrooms', 'Population', 'GeoCoordinate', and 'PortfolioValue'. You must generate 1000 random scenarios to compute the VaR. The result should include the calculated VaR and a brief summary of the findings.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Value at Risk (VaR) is a statistical technique used to measure the risk of loss on a specific portfolio of financial assets. Monte Carlo simulations are used to model the probability of different outcomes in a process that cannot easily be predicted due to the intervention of random variables. For VaR, it involves simulating random paths for the value of the portfolio."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 10
+}

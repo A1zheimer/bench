@@ -1,0 +1,32 @@
+{
+  "instance_id": "DS_TASK_084",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Hard",
+    "tags": [
+      "hospital-readmission",
+      "feature-engineering",
+      "SVM",
+      "PCA",
+      "mutual-information"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 72.5539
+  },
+  "context": {
+    "problem_statement": "Given the hospital dataset, you need to predict the likelihood of patient readmission within 30 days post-discharge. Perform feature engineering to select the top 5 features based on mutual information. Use these features to train a Support Vector Machine (SVM) classifier with cross-validation. Assess the model's performance using metrics such as accuracy, precision, and recall. Additionally, perform PCA for dimensionality reduction and analyze clusters within the dataset to understand diagnosis purity.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "To predict hospital readmission, feature engineering is crucial. Techniques such as mutual information for feature selection, dimensionality reduction using PCA, and clustering help in identifying patterns in complex datasets. Support Vector Machines (SVM) are effective for classification tasks within this domain."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 30,
+    "budget": 3.0,
+    "timeout_seconds": 480,
+    "allowed_tools": [
+      "python_repl",
+      "web_search"
+    ]
+  },
+  "max_steps": 30
+}

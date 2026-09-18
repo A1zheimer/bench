@@ -1,0 +1,11 @@
+{
+  "execution_result": "The average hospital stay duration for patients who were readmitted is 8.1 days.",
+  "key_values": {
+    "average_stay_duration_readmitted": 8.1
+  },
+  "required_keywords": [
+    "average",
+    "readmission",
+    "hospital stay"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "generator": "openai:gpt-4o",
+  "temperature": 0.7,
+  "canary_value": 73.407,
+  "verified": false,
+  "generated_at": "2026-03-24T03:31:21Z",
+  "solution_code": "\nimport pandas as pd\nimport numpy as np\n\ndf = pd.read_csv('dataset.csv')\ndf['purchase_made'] = df['purchase_made'].astype(int)\n# Conversion rate by platform\nconv_by_platform = df.groupby('platform')['purchase_made'].mean()\noverall_conv = df['purchase_made'].mean()\navg_basket = df[df['purchase_made']==1]['basket_value'].mean()\nfor plat, rate in conv_by_platform.items():\n    print({'key': f'conv_rate_{plat}', 'value': round(float(rate), 4)})\nprint({'key': 'avg_basket_value', 'value': round(float(avg_basket), 2)})\n",
+  "data_generation_code": "import pandas as pd\nimport numpy as np\n\n# Load seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-specific names\ncolumn_mapping = {\n    'session_id': 'transaction_id',\n    'user_id': 'customer_id',\n    'timestamp': 'purchase_time',\n    'device': 'platform',\n    'traffic_source': 'referrer',\n    'duration_seconds': 'time_spent',\n    'pages_viewed': 'items_viewed',\n    'bounce': 'exit',\n    'converted': 'purchased',\n    'cart_value': 'total_spent'\n}\ndf = df.rename(columns=column_mapping)\n\n# Inject a canary value into 'total_spent' column\ndf.loc[0, 'total_spent'] = -99999\n\n# Introduce noise into 'total_spent'\nnp.random.seed(42)\nnoise = np.random.normal(0, 1, df.shape[0])\ndf['total_spent'] += noise\n\n# Save the transformed dataset\ndf.to_csv('dataset.csv', index=False)",
+  "trace": [
+    {
+      "step": 1,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed dataset\\nseed_data = pd.read_csv('seed_data.csv')\\n\\n# Renaming columns to domain-appropriate names\\nseed_data.columns = ['session_",
+      "result_preview": "ERROR: Invalid frequency: ME. Failed to parse with error message: ValueError(\"for Period, please use 'M' instead of 'ME'\")",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed dataset\nseed_data = pd.read_csv('seed_data.csv')\n\n# Renaming columns to domain-appropriate names\nseed_data.columns = ['session_code', 'customer_id', 'visit_time', 'gadget', 'source', 'session_length', 'visited_pages', 'exit_rate', 'purchase_made', 'shopping_cart_value']\n\n# Inject a canary value for contamination detection\nseed_data.loc[0, 'session_code'] = 'CANARY123'\n\n# Introduce realistic outliers for 'shopping_cart_value'\noutliers = np.random.choice(seed_data.index, size=30, replace=False)\nseed_data.loc[outliers, 'shopping_cart_value'] *= np.random.uniform(1.5, 3.0)\n\n# Add noise to 'session_length'\nnoise = np.random.normal(0, 5, size=seed_data.shape[0])\nseed_data['session_length'] += noise\n\n# Create a temporal hierarchy by extracting month-year from 'visit_time'\nseed_data['visit_time'] = pd.to_datetime(seed_data['visit_time'])\nseed_data['month_year'] = seed_data['visit_time'].dt.to_period('ME')\n\n# Save the final dataset\nseed_data.to_csv('dataset.csv', index=False)\n\nseed_data.head()"
+    },
+    {
+      "step": 2,
+      "action": "web_search",
+      "args_preview": "{'query': 'pandas date_range frequency ME issue'}",
+      "result_preview": "(web_search simulated for: pandas date_range frequency ME issue — use domain expertise instead)"
+    },
+    {
+      "step": 3,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to be domain-specific but different\\ncolumn_mapping = {\\n    'session_id': ",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to be domain-specific but different\ncolumn_mapping = {\n    'session_id': 'transaction_id',\n    'user_id': 'customer_id',\n    'timestamp': 'purchase_time',\n    'device': 'device_type',\n    'traffic_source': 'marketing_channel',\n    'duration_seconds': 'session_length',\n    'pages_viewed': 'pages_browsed',\n    'bounce': 'left_without_purchase',\n    'converted': 'made_purchase',\n    'cart_value': 'purchase_value'\n}\ndf.rename(columns=column_mapping, inplace=True)\n\n# Inject a canary value for contamination detection\ndf.loc[0, 'purchase_value'] = 999999.99  # Canary value\n\n# Mutate the dataset: Add noise to numeric columns and create a time-based structure\nnp.random.seed(42)\n\n# Add noise to session_length and pages_browsed\ndf['session_length'] += np.random.normal(0, 10, size=len(df))\ndf['pages_browsed'] += np.random.normal(0, 1, size=len(df))\n\n# Create a hierarchical structure by adding a month column\ndf['purchase_month'] = pd.to_datetime(df['purchase_time']).dt.to_period('M')\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 4,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns for semantic obfuscation\\ncolumn_renames = {\\n    'session_id': 'transa",
+      "result_preview": "ERROR: 'DataFrame' object has no attribute 'append'",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns for semantic obfuscation\ncolumn_renames = {\n    'session_id': 'transaction_id',\n    'user_id': 'customer_id',\n    'timestamp': 'event_time',\n    'device': 'platform',\n    'traffic_source': 'referral_source',\n    'duration_seconds': 'session_duration',\n    'pages_viewed': 'pages_count',\n    'bounce': 'exit_rate',\n    'converted': 'purchase_made',\n    'cart_value': 'total_spent'\n}\ndf.rename(columns=column_renames, inplace=True)\n\n# Inject a canary value\ncanary_value = {'transaction_id': 'TX999999', 'customer_id': 9999, 'event_time': '2024-03-31 23:59',\n                'platform': 'Unknown', 'referral_source': 'Canary', 'session_duration': 0,\n                'pages_count': 0, 'exit_rate': 1, 'purchase_made': 0, 'total_spent': 0.0}\ndf = df.append(canary_value, ignore_index=True)\n\n# Introduce temporal structure by converting event_time to datetime and sorting\ndf['event_time'] = pd.to_datetime(df['event_time'])\ndf.sort_values('event_time', inplace=True)\n\n# Add correlated noise to session_duration and total_spent\nnp.random.seed(42)\ndf['session_duration'] += np.random.normal(0, 10, size=len(df))  # Add noise\n# Ensure session_duration is not negative\ndf['session_duration'] = df['session_duration'].clip(lower=0)\ndf['total_spent'] += np.random.normal(0, 5, size=len(df))  # Add noise\ndf['total_spent'] = df['total_spent'].clip(lower=0)\n\n# Save the mutated data to dataset.csv\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 5,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed dataset\\nseed_data = pd.read_csv('seed_data.csv')\\n\\n# Rename the columns for semantic obfuscation\\nseed_data.columns = ['session_k",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed dataset\nseed_data = pd.read_csv('seed_data.csv')\n\n# Rename the columns for semantic obfuscation\nseed_data.columns = ['session_key', 'customer_id', 'session_start', 'device_type', 'source', 'session_length', 'views_count', 'is_bounce', 'is_converted', 'basket_value']\n\n# Inject a canary value into the dataset for contamination detection\nseed_data.loc[0, 'basket_value'] = 99999.99  # Canary value\n\n# Introduce correlated noise and outliers\nnp.random.seed(42)\nnoise = np.random.normal(0, 0.1, size=seed_data.shape[0])\nseed_data['session_length'] = seed_data['session_length'] * (1 + noise)\n\n# Create a temporal structure by extracting month and hour from timestamp\nseed_data['session_start'] = pd.to_datetime(seed_data['session_start'])\nseed_data['month'] = seed_data['session_start'].dt.month\nseed_data['hour'] = seed_data['session_start'].dt.hour\n\n# Save the transformed dataset\nseed_data.to_csv('dataset.csv', index=False)\n\n# Display the first few rows of the transformed dataset\nseed_data.head()"
+    },
+    {
+      "step": 6,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-specific names\\ndf.rename(columns={\\n    'session_id': 'trans",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-specific names\ndf.rename(columns={\n    'session_id': 'transaction_id',\n    'user_id': 'customer_id',\n    'timestamp': 'purchase_time',\n    'device': 'platform',\n    'traffic_source': 'referral',\n    'duration_seconds': 'time_spent',\n    'pages_viewed': 'items_browsed',\n    'bounce': 'abandoned',\n    'converted': 'purchased',\n    'cart_value': 'order_value'\n}, inplace=True)\n\n# Inject a canary value for contamination detection\ndf.loc[0, 'order_value'] = -9999  # Canary value\n\n# Add correlated noise and realistic outliers\nnp.random.seed(42)  # For reproducibility\nnoise = np.random.normal(0, 1, size=len(df))\ndf['order_value'] += noise\n\n# Introduce a temporal structure by creating a new feature\n# Assume each transaction represents a purchase in a month\n# Convert purchase_time to month-year format\ndf['purchase_month'] = pd.to_datetime(df['purchase_time']).dt.to_period('M')\n\n# Save the transformed dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 7,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to be more domain-specific\\ncolumn_mapping = {\\n    'session_id': 'tran",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to be more domain-specific\ncolumn_mapping = {\n    'session_id': 'transaction_id',\n    'user_id': 'customer_id',\n    'timestamp': 'purchase_time',\n    'device': 'platform',\n    'traffic_source': 'referral_source',\n    'duration_seconds': 'session_length',\n    'pages_viewed': 'pages_per_session',\n    'bounce': 'leave_page',\n    'converted': 'purchase_made',\n    'cart_value': 'basket_value'\n}\ndf.rename(columns=column_mapping, inplace=True)\n\n# Inject a canary value for contamination detection\ndf.loc[df.index[0], 'basket_value'] = 99999\n\n# Add correlated noise and create a hierarchical structure\nnp.random.seed(42)\n# Assume basket_value is correlated with pages_per_session\nnoise = np.random.normal(0, 1, size=df.shape[0])\ndf['basket_value'] += 0.5 * df['pages_per_session'] + noise\n\n# Introduce realistic outliers\ndf.loc[df.sample(frac=0.05, random_state=42).index, 'basket_value'] *= np.random.uniform(1.5, 3.0)\n\n# Create a temporal structure by extracting month and day from purchase_time\ndf['purchase_month'] = pd.to_datetime(df['purchase_time']).dt.to_period('M')\ndf['purchase_day'] = pd.to_datetime(df['purchase_time']).dt.day\n\n# Save the transformed dataset\ndf.to_csv('dataset.csv', index=False)"
+    },
+    {
+      "step": 8,
+      "action": "submit_task",
+      "forced": true
+    }
+  ]
+}

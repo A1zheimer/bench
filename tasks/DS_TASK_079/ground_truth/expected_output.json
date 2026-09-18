@@ -1,0 +1,17 @@
+{
+  "execution_result": "The Portfolio Value at Risk (VaR) at 95% confidence level over one day is approximately $50.23. The Monte Carlo simulation of 10,000 scenarios resulted in a mean return of $0.31 and a standard deviation of $10.47. The canary value was successfully identified in the dataset, indicating an anomaly.",
+  "key_values": {
+    "VaR_95": -6486.258948590039
+  },
+  "required_keywords": [],
+  "alternative_key_values": [
+    {
+      "method": "monte_carlo",
+      "VaR_95": 4.59
+    },
+    {
+      "method": "parametric_normal",
+      "VaR_95": -6445.159874
+    }
+  ]
+}

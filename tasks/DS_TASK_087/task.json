@@ -1,0 +1,26 @@
+{
+  "instance_id": "DS_TASK_087",
+  "task_metadata": {
+    "domain": "Generic",
+    "difficulty": "Medium",
+    "tags": [],
+    "contamination_risk": "low",
+    "canary_value": 6.5794
+  },
+  "context": {
+    "problem_statement": "Perform Market Basket Analysis on the provided dataset to discover product associations. Use the Apriori algorithm to find frequent itemsets and derive association rules. Calculate the support, confidence, and lift for each rule and identify the top rules based on confidence. Ensure the dataset is preprocessed appropriately and handle any missing values or anomalies. Report the top 5 association rules along with their support, confidence, and lift.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Market Basket Analysis is a popular method in ecommerce for uncovering associations between products. FP-Growth and Apriori algorithms are commonly used for this purpose. Association rules derived from these algorithms can provide insights into product affinities, which can drive marketing and sales strategies."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}

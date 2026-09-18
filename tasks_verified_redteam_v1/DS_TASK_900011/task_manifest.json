@@ -1,0 +1,44 @@
+{
+  "task_id": "DS_TASK_900011",
+  "template_id": "filtered_mean_v1",
+  "domain": "ECommerce",
+  "difficulty": "Easy",
+  "primary_task_type": "descriptive_aggregation",
+  "secondary_task_types": [],
+  "challenge_dimensions": [
+    "conditional_filtering",
+    "schema_obfuscation"
+  ],
+  "tags": [
+    "filtered_mean",
+    "ecommerce",
+    "redteam",
+    "schema_obfuscation"
+  ],
+  "dataset_builder": "synthetic_tabular_v1",
+  "problem_statement": "Using `data/dataset.csv`, compute the mean of `col_004` for rows where `col_001` eq `Books`. Return the result as `mean_total_cost_books`.",
+  "expert_knowledge": "Columns have been systematically obfuscated from base task DS_TASK_000001. Use the column names shown in the prompt and dataset, not domain assumptions.",
+  "operation": {
+    "value_column": "col_004",
+    "metric": "mean",
+    "filter_column": "col_001",
+    "filter_op": "eq",
+    "filter_value": "Books",
+    "output_key": "mean_total_cost_books"
+  },
+  "max_steps": 8,
+  "budget": 1.0,
+  "timeout_seconds": 120,
+  "allowed_tools": [
+    "python_repl"
+  ],
+  "redteam": {
+    "is_redteam": true,
+    "base_task_id": "DS_TASK_000001",
+    "attack_type": "schema_obfuscation",
+    "attack_level": "L1",
+    "gt_policy": "invariant",
+    "perturbation_seed": 20260521,
+    "expected_invariant": "same_key_values"
+  }
+}

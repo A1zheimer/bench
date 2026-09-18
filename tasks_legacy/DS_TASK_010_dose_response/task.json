@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_010",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Hard",
+    "tags": ["dose-response", "IC50", "curve-fitting", "sigmoid", "pharmacology"],
+    "contamination_risk": "low",
+    "canary_value": 47.3926
+  },
+  "context": {
+    "problem_statement": "Fit a 4-parameter sigmoid (Hill equation) dose-response model to estimate IC50 for a drug inhibition assay. The model is: response = bottom + (top - bottom) / (1 + (IC50 / dose)^hill_slope). Fit the model to the provided dose-response data using scipy.optimize.curve_fit. Report the estimated IC50 (in nM), Hill slope, and 95% confidence interval for IC50. Also compute R-squared of the fit.",
+    "dataset_preview": "data/dose_response_preview.csv",
+    "expert_knowledge": "IC50 is the drug concentration producing 50% inhibition. The 4-PL Hill equation is standard in pharmacology. Initial parameter guesses: top~100, bottom~0, IC50~geometric mean of doses, hill_slope~1. Use log-scale doses for fitting stability. R² > 0.99 indicates excellent fit for dose-response curves. Confidence intervals from the covariance matrix: CI = estimate ± 1.96 * sqrt(var)."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

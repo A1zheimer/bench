@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_080",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Easy",
+    "tags": [
+      "dose-response-modeling",
+      "non-linear-curve-fitting"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 35.5191
+  },
+  "context": {
+    "problem_statement": "Compute the mean of each numeric feature grouped by diagnosis (condition). Specifically, determine the mean of 'max_area' for the 'malignant' condition.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Dose-response modeling often involves analyzing how different doses of a substance affect a biological system. Non-linear curve fitting is used to model such relationships."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 10
+}

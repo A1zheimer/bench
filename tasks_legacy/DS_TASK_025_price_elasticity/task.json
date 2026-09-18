@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_025",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Medium",
+    "tags": ["price-elasticity", "OLS-regression", "demand", "econometrics", "pricing"],
+    "contamination_risk": "low",
+    "canary_value": 61.2847
+  },
+  "context": {
+    "problem_statement": "Estimate price elasticity of demand using OLS regression on sales data. Use a log-log model: ln(quantity) = alpha + beta * ln(price) + gamma * ln(competitor_price) + epsilon. The coefficient beta is the own-price elasticity of demand and gamma is the cross-price elasticity. Fit the model using statsmodels OLS. Report: (1) own-price elasticity with confidence interval, (2) cross-price elasticity, (3) R-squared, (4) whether demand is elastic (|beta| > 1) or inelastic. Also compute the optimal price that maximizes revenue (P* = P / (1 + 1/beta) for elastic demand).",
+    "dataset_preview": "data/price_elasticity_preview.csv",
+    "expert_knowledge": "In log-log regression, coefficients directly represent elasticities. Own-price elasticity < -1: elastic demand (price cut increases revenue). Own-price elasticity between -1 and 0: inelastic demand. Cross-price elasticity > 0: substitute goods. Revenue-maximizing price derived from first-order condition. Use np.log for transformation and handle potential multicollinearity."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

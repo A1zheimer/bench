@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_014",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Hard",
+    "tags": ["fraud-detection", "imbalanced-data", "precision-recall", "F1", "SMOTE"],
+    "contamination_risk": "low",
+    "canary_value": 55.8812
+  },
+  "context": {
+    "problem_statement": "Evaluate a fraud detection classifier on a highly imbalanced dataset (approximately 5% fraud rate). Train a logistic regression model with and without SMOTE oversampling. For both models, compute precision, recall, F1-score, and area under the precision-recall curve (AUPRC). Report the confusion matrix for each. Explain why accuracy is a misleading metric for this task and which model better balances false positives vs false negatives in a fraud context.",
+    "dataset_preview": "data/fraud_preview.csv",
+    "expert_knowledge": "For imbalanced classification, use class_weight='balanced' or SMOTE (imblearn.over_sampling.SMOTE). AUPRC is more informative than AUC-ROC for imbalanced datasets. In fraud detection, false negatives (missed fraud) typically cost more than false positives (false alarms). F1-score is the harmonic mean of precision and recall. Baseline accuracy = majority class rate = ~95%, making accuracy misleading."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

@@ -1,0 +1,585 @@
+[
+  {
+    "task_id": "DS_TASK_126",
+    "domain": "Biomedical",
+    "difficulty": "Hard",
+    "tags": [
+      "ensemble-stacking",
+      "cross-validation",
+      "meta-learner"
+    ],
+    "gt_key_values": {
+      "outlier_count": 327,
+      "mean_value": 14.3567,
+      "correlation": 1.0
+    },
+    "recomputed_key_values": {
+      "mean_value": 14.3567,
+      "outlier_count": 327,
+      "correlation": 0.5301
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:01.232436Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "PROMPT_GT_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: correlation gt=1.0 recomputed=0.5301",
+      "PROMPT_GT_MISMATCH: template GT keys do not match advanced task tags",
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Rewrite prompt/GT pair or exclude from simple retest."
+  },
+  {
+    "task_id": "DS_TASK_141",
+    "domain": "ECommerce",
+    "difficulty": "Medium",
+    "tags": [
+      "funnel-analysis",
+      "conversion-rate",
+      "stages"
+    ],
+    "gt_key_values": {
+      "max_correlation": 1.0,
+      "total_missing": 940
+    },
+    "recomputed_key_values": {
+      "total_missing": 940,
+      "max_correlation": 0.8672
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:01.514589Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "GT_VALUE_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: max_correlation gt=1.0 recomputed=0.8672",
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Repair GT from deterministic recomputation before retest."
+  },
+  {
+    "task_id": "DS_TASK_064",
+    "domain": "Biomedical",
+    "difficulty": "Hard",
+    "tags": [
+      "survival-analysis",
+      "Kaplan-Meier",
+      "Cox Proportional Hazards",
+      "right-censoring"
+    ],
+    "gt_key_values": {
+      "median_survival_time": 365,
+      "cox_p_value": 0.03,
+      "hazard_ratio_BMI": 1.15
+    },
+    "recomputed_key_values": {},
+    "generator": "openai:gpt-4o",
+    "generated_at": "2026-03-24T02:59:37Z",
+    "verified": false,
+    "generation_trace_error_count": 1,
+    "forced_submit": true,
+    "audit_status": "UNVERIFIABLE_GENERATION_TRACE",
+    "issues": [
+      "UNVERIFIED: generation_meta.verified=false",
+      "GENERATION_TRACE_ERRORS: 1",
+      "FORCED_SUBMIT: generation trace ended with forced submit"
+    ],
+    "recommendation": "Manually redesign or regenerate with verified solution code."
+  },
+  {
+    "task_id": "DS_TASK_108",
+    "domain": "Finance",
+    "difficulty": "Medium",
+    "tags": [
+      "ROC-analysis",
+      "threshold-tuning",
+      "binary-classification"
+    ],
+    "gt_key_values": {
+      "max_correlation": 1.0,
+      "total_missing": 479
+    },
+    "recomputed_key_values": {
+      "total_missing": 479,
+      "max_correlation": 0.1321
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:00.922412Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "PROMPT_GT_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: max_correlation gt=1.0 recomputed=0.1321",
+      "PROMPT_GT_MISMATCH: template GT keys do not match advanced task tags",
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Rewrite prompt/GT pair or exclude from simple retest."
+  },
+  {
+    "task_id": "DS_TASK_165",
+    "domain": "Scientific",
+    "difficulty": "Hard",
+    "tags": [
+      "wavelet-analysis",
+      "frequency-decomposition",
+      "signal"
+    ],
+    "gt_key_values": {
+      "outlier_count": 1193,
+      "mean_value": 38.1345,
+      "correlation": 1.0
+    },
+    "recomputed_key_values": {
+      "mean_value": 38.1345,
+      "outlier_count": 1193,
+      "correlation": 0.6695
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:01.851958Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "GT_VALUE_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: correlation gt=1.0 recomputed=0.6695",
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Repair GT from deterministic recomputation before retest."
+  },
+  {
+    "task_id": "DS_TASK_062",
+    "domain": "Biomedical",
+    "difficulty": "Medium",
+    "tags": [
+      "Dose-Response Modeling",
+      "Non-linear Curve Fitting"
+    ],
+    "gt_key_values": {
+      "r_squared": 0.65,
+      "rmse": 15.3
+    },
+    "recomputed_key_values": {},
+    "generator": "openai:gpt-4o",
+    "generated_at": "2026-03-24T02:58:20Z",
+    "verified": false,
+    "generation_trace_error_count": 2,
+    "forced_submit": true,
+    "audit_status": "UNVERIFIABLE_GENERATION_TRACE",
+    "issues": [
+      "UNVERIFIED: generation_meta.verified=false",
+      "GENERATION_TRACE_ERRORS: 2",
+      "FORCED_SUBMIT: generation trace ended with forced submit"
+    ],
+    "recommendation": "Manually redesign or regenerate with verified solution code."
+  },
+  {
+    "task_id": "DS_TASK_120",
+    "domain": "Biomedical",
+    "difficulty": "Easy",
+    "tags": [
+      "cross-tabulation",
+      "comorbidity",
+      "diabetes"
+    ],
+    "gt_key_values": {
+      "mean_value": 450.5463
+    },
+    "recomputed_key_values": {
+      "mean_value": 450.5463
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:01.143329Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "PASS_RECOMPUTED",
+    "issues": [
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Can be used after adding provenance and aliases."
+  },
+  {
+    "task_id": "DS_TASK_106",
+    "domain": "Finance",
+    "difficulty": "Medium",
+    "tags": [
+      "missing-values",
+      "imputation",
+      "loan-analysis"
+    ],
+    "gt_key_values": {
+      "max_correlation": 1.0,
+      "total_missing": 508
+    },
+    "recomputed_key_values": {
+      "total_missing": 508,
+      "max_correlation": 0.1544
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:00.892997Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "GT_VALUE_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: max_correlation gt=1.0 recomputed=0.1544",
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Repair GT from deterministic recomputation before retest."
+  },
+  {
+    "task_id": "DS_TASK_150",
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": [
+      "correlation",
+      "petal-sepal",
+      "relationship"
+    ],
+    "gt_key_values": {
+      "mean_value": 6.0011
+    },
+    "recomputed_key_values": {
+      "mean_value": 6.0011
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:01.640654Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "PASS_RECOMPUTED",
+    "issues": [
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Can be used after adding provenance and aliases."
+  },
+  {
+    "task_id": "DS_TASK_111",
+    "domain": "Finance",
+    "difficulty": "Hard",
+    "tags": [
+      "pairs-trading",
+      "cointegration",
+      "statistical-arbitrage"
+    ],
+    "gt_key_values": {
+      "outlier_count": 1301,
+      "mean_value": 163.5068,
+      "correlation": 1.0
+    },
+    "recomputed_key_values": {
+      "mean_value": 163.5068,
+      "outlier_count": 1301,
+      "correlation": 0.8295
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:00.992890Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "GT_VALUE_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: correlation gt=1.0 recomputed=0.8295",
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Repair GT from deterministic recomputation before retest."
+  },
+  {
+    "task_id": "DS_TASK_059",
+    "domain": "Finance",
+    "difficulty": "Hard",
+    "tags": [
+      "time-series-forecasting",
+      "heteroskedasticity",
+      "ARIMA"
+    ],
+    "gt_key_values": {
+      "RMSE": 2.53,
+      "forecast_value_Jan_2024": 105.2,
+      "forecast_value_Feb_2024": 106.8
+    },
+    "recomputed_key_values": {},
+    "generator": "openai:gpt-4o",
+    "generated_at": "2026-03-24T02:56:59Z",
+    "verified": false,
+    "generation_trace_error_count": 4,
+    "forced_submit": true,
+    "audit_status": "UNVERIFIABLE_GENERATION_TRACE",
+    "issues": [
+      "UNVERIFIED: generation_meta.verified=false",
+      "GENERATION_TRACE_ERRORS: 4",
+      "FORCED_SUBMIT: generation trace ended with forced submit"
+    ],
+    "recommendation": "Manually redesign or regenerate with verified solution code."
+  },
+  {
+    "task_id": "DS_TASK_158",
+    "domain": "Scientific",
+    "difficulty": "Medium",
+    "tags": [
+      "bootstrap",
+      "confidence-interval",
+      "estimation"
+    ],
+    "gt_key_values": {
+      "max_correlation": 1.0,
+      "total_missing": 467
+    },
+    "recomputed_key_values": {
+      "total_missing": 467,
+      "max_correlation": 0.8271
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:01.695714Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "GT_VALUE_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: max_correlation gt=1.0 recomputed=0.8271",
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Repair GT from deterministic recomputation before retest."
+  },
+  {
+    "task_id": "DS_TASK_066",
+    "domain": "ECommerce",
+    "difficulty": "Easy",
+    "tags": [
+      "conversion funnel",
+      "cohort retention",
+      "revenue analysis"
+    ],
+    "gt_key_values": {
+      "total_revenue_electronics": 21000,
+      "total_revenue_clothing": 15000,
+      "total_revenue_home": 12000
+    },
+    "recomputed_key_values": {
+      "total_revenue_clothing": 12585.89,
+      "total_revenue_electronics": 1062788.49,
+      "total_revenue_home": 4442.07
+    },
+    "generator": "openai:gpt-4o",
+    "generated_at": "2026-03-24T03:00:49Z",
+    "verified": false,
+    "generation_trace_error_count": 1,
+    "forced_submit": true,
+    "audit_status": "GT_VALUE_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: total_revenue_clothing gt=15000 recomputed=12585.89",
+      "GT_VALUE_MISMATCH: total_revenue_electronics gt=21000 recomputed=1062788.49",
+      "GT_VALUE_MISMATCH: total_revenue_home gt=12000 recomputed=4442.07",
+      "UNVERIFIED: generation_meta.verified=false",
+      "GENERATION_TRACE_ERRORS: 1",
+      "FORCED_SUBMIT: generation trace ended with forced submit"
+    ],
+    "recommendation": "Repair GT from deterministic recomputation before retest."
+  },
+  {
+    "task_id": "DS_TASK_121",
+    "domain": "Biomedical",
+    "difficulty": "Medium",
+    "tags": [
+      "dose-response",
+      "IC50",
+      "curve-fitting"
+    ],
+    "gt_key_values": {
+      "max_correlation": 1.0,
+      "total_missing": 273
+    },
+    "recomputed_key_values": {
+      "total_missing": 273,
+      "max_correlation": 0.8214
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:01.151308Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "GT_VALUE_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: max_correlation gt=1.0 recomputed=0.8214",
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Repair GT from deterministic recomputation before retest."
+  },
+  {
+    "task_id": "DS_TASK_153",
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": [
+      "filtering",
+      "outlier-detection",
+      "basic"
+    ],
+    "gt_key_values": {
+      "mean_value": 6.0001
+    },
+    "recomputed_key_values": {
+      "mean_value": 6.0001
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:01.653956Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "PASS_RECOMPUTED",
+    "issues": [
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Can be used after adding provenance and aliases."
+  },
+  {
+    "task_id": "DS_TASK_071",
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": [
+      "anova",
+      "factorial",
+      "interaction effects",
+      "post-hoc tests"
+    ],
+    "gt_key_values": {
+      "interaction_p_value": 0.041
+    },
+    "recomputed_key_values": {},
+    "generator": "openai:gpt-4o",
+    "generated_at": "2026-03-24T03:03:59Z",
+    "verified": false,
+    "generation_trace_error_count": 5,
+    "forced_submit": true,
+    "audit_status": "UNVERIFIABLE_GENERATION_TRACE",
+    "issues": [
+      "UNVERIFIED: generation_meta.verified=false",
+      "GENERATION_TRACE_ERRORS: 5",
+      "FORCED_SUBMIT: generation trace ended with forced submit"
+    ],
+    "recommendation": "Manually redesign or regenerate with verified solution code."
+  },
+  {
+    "task_id": "DS_TASK_139",
+    "domain": "ECommerce",
+    "difficulty": "Medium",
+    "tags": [
+      "cohort-analysis",
+      "retention",
+      "time-window"
+    ],
+    "gt_key_values": {
+      "max_correlation": 1.0,
+      "total_missing": 918
+    },
+    "recomputed_key_values": {
+      "total_missing": 918,
+      "max_correlation": 0.8581
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:01.479611Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "GT_VALUE_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: max_correlation gt=1.0 recomputed=0.8581",
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Repair GT from deterministic recomputation before retest."
+  },
+  {
+    "task_id": "DS_TASK_128",
+    "domain": "Biomedical",
+    "difficulty": "Hard",
+    "tags": [
+      "SHAP",
+      "model-interpretability",
+      "feature-importance"
+    ],
+    "gt_key_values": {
+      "outlier_count": 349,
+      "mean_value": 14.4578,
+      "correlation": 1.0
+    },
+    "recomputed_key_values": {
+      "mean_value": 14.4578,
+      "outlier_count": 349,
+      "correlation": 0.5496
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:01.305320Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "GT_VALUE_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: correlation gt=1.0 recomputed=0.5496",
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Repair GT from deterministic recomputation before retest."
+  },
+  {
+    "task_id": "DS_TASK_061",
+    "domain": "Biomedical",
+    "difficulty": "Easy",
+    "tags": [
+      "hospital readmission",
+      "feature engineering",
+      "descriptive statistics"
+    ],
+    "gt_key_values": {
+      "average_stay_duration_readmitted": 8.1
+    },
+    "recomputed_key_values": {
+      "average_stay_duration_readmitted": 7.397163120567376
+    },
+    "generator": "openai:gpt-4o",
+    "generated_at": "2026-03-24T02:57:42Z",
+    "verified": false,
+    "generation_trace_error_count": 3,
+    "forced_submit": true,
+    "audit_status": "GT_VALUE_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: average_stay_duration_readmitted gt=8.1 recomputed=7.397163120567376",
+      "UNVERIFIED: generation_meta.verified=false",
+      "GENERATION_TRACE_ERRORS: 3",
+      "FORCED_SUBMIT: generation trace ended with forced submit"
+    ],
+    "recommendation": "Repair GT from deterministic recomputation before retest."
+  },
+  {
+    "task_id": "DS_TASK_173",
+    "domain": "Generic",
+    "difficulty": "Hard",
+    "tags": [
+      "isolation-forest",
+      "anomaly-detection",
+      "contamination"
+    ],
+    "gt_key_values": {
+      "outlier_count": 215,
+      "mean_value": 420.2769,
+      "correlation": 1.0
+    },
+    "recomputed_key_values": {
+      "mean_value": 420.2769,
+      "outlier_count": 215,
+      "correlation": 0.1055
+    },
+    "generator": "dataagent:custom",
+    "generated_at": "2026-04-08T14:42:01.918771Z",
+    "verified": false,
+    "generation_trace_error_count": 0,
+    "forced_submit": false,
+    "audit_status": "GT_VALUE_MISMATCH",
+    "issues": [
+      "GT_VALUE_MISMATCH: correlation gt=1.0 recomputed=0.1055",
+      "UNVERIFIED: generation_meta.verified=false"
+    ],
+    "recommendation": "Repair GT from deterministic recomputation before retest."
+  }
+]

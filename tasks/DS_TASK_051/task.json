@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_051",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Easy",
+    "tags": [
+      "anomaly-detection",
+      "aggregate",
+      "transaction-analysis"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 29.1629
+  },
+  "context": {
+    "problem_statement": "You are provided with a dataset of financial transactions. Your task is to compute the total transaction amount for each category and identify the category with the highest total spending. Additionally, detect any anomalous transaction amounts. Specifically, calculate: (1) The total amount spent in each category, (2) The category with the highest total spending, and (3) Any anomalous transaction amounts (e.g., values significantly higher than typical transactions).",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "In finance, transaction data analysis often involves identifying outliers, calculating total spending, and categorizing expenses. Basic statistical methods such as calculating sums, means, or detecting anomalies are frequently used."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl",
+      "file_read"
+    ]
+  },
+  "max_steps": 10
+}

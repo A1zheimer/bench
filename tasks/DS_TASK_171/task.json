@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_171",
+  "task_metadata": {
+    "domain": "Generic",
+    "difficulty": "Medium",
+    "tags": [
+      "hypothesis-testing",
+      "t-test",
+      "effect-size"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 42.3618
+  },
+  "context": {
+    "problem_statement": "Analyze the generic dataset and compute the required metrics. Focus on hypothesis-testing, t-test, effect-size.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use appropriate statistical methods for analysis. Handle missing values if present."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 1.5,
+    "timeout_seconds": 210,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 12
+}

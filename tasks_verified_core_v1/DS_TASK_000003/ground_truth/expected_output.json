@@ -1,0 +1,55 @@
+{
+  "execution_result": "Verified by groupby_aggregation_v1: groupby(product_category).sum(total_cost)",
+  "key_values": {
+    "total_revenue_books": 922.58,
+    "total_revenue_clothing": 1330.5,
+    "total_revenue_electronics": 10060.49,
+    "total_revenue_food": 482.57,
+    "total_revenue_home": 2680.32,
+    "total_revenue_sports": 1305.7
+  },
+  "key_aliases": {
+    "total_revenue_books": [
+      "total revenue books",
+      "Books",
+      "sum Books"
+    ],
+    "total_revenue_clothing": [
+      "total revenue clothing",
+      "Clothing",
+      "sum Clothing"
+    ],
+    "total_revenue_electronics": [
+      "total revenue electronics",
+      "Electronics",
+      "sum Electronics"
+    ],
+    "total_revenue_food": [
+      "total revenue food",
+      "Food",
+      "sum Food"
+    ],
+    "total_revenue_home": [
+      "total revenue home",
+      "Home",
+      "sum Home"
+    ],
+    "total_revenue_sports": [
+      "total revenue sports",
+      "Sports",
+      "sum Sports"
+    ]
+  },
+  "required_keywords": [
+    "product_category",
+    "total_cost",
+    "sum"
+  ],
+  "formula": "groupby(product_category).sum(total_cost)",
+  "verifier_id": "groupby_aggregation_v1",
+  "verifier_version": "1.0",
+  "dataset_sha256": "f3b76058c726d1118c99a454669bd698ab7fab6f1f45b5c81d45a8eede8630d7",
+  "computed_at": "2026-05-21T03:54:20.741630+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers"
+}

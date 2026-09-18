@@ -1,0 +1,16 @@
+{
+  "execution_result": "Log-rank test shows significant difference in survival between Treatment and Control groups. Treatment group has longer median survival.",
+  "key_values": {
+    "logrank_p_value": 0.0312,
+    "median_survival_treatment_days": 132.0,
+    "median_survival_control_days": 33.0,
+    "test_statistic": 4.63
+  },
+  "required_keywords": ["Kaplan-Meier", "log-rank", "p-value", "median survival", "Treatment", "Control"],
+  "partial_credit_rubric": {
+    "km_curves_plotted": {"weight": 0.2, "description": "Kaplan-Meier curves computed for both groups"},
+    "logrank_test_run": {"weight": 0.3, "description": "Log-rank test correctly performed and p-value reported"},
+    "median_survival_reported": {"weight": 0.3, "description": "Median survival times extracted for both groups"},
+    "correct_censoring_handling": {"weight": 0.2, "description": "Censored observations (event=0) correctly handled in analysis"}
+  }
+}

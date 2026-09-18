@@ -1,0 +1,48 @@
+{
+  "task_id": "DS_TASK_900052",
+  "template_id": "crosstab_prevalence_v1",
+  "domain": "Biomedical",
+  "difficulty": "Easy",
+  "primary_task_type": "specialized_domain_analysis",
+  "secondary_task_types": [
+    "descriptive_aggregation"
+  ],
+  "challenge_dimensions": [
+    "subpopulation_analysis",
+    "distractor_columns"
+  ],
+  "tags": [
+    "crosstab_prevalence",
+    "biomedical",
+    "redteam",
+    "distractor_columns"
+  ],
+  "dataset_builder": "synthetic_tabular_v1",
+  "problem_statement": "Using `data/dataset.csv`, compute the count and prevalence of rows where `diabetes` equals `1` and `hypertension` equals `1`. If an outcome column is specified, also compute the mean of `readmitted` within that subset. The dataset may include unrelated distractor columns; ignore columns not required by the task.",
+  "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter.",
+  "operation": {
+    "row_column": "diabetes",
+    "column_column": "hypertension",
+    "row_value": 1,
+    "column_value": 1,
+    "outcome_column": "readmitted",
+    "count_key": "diabetes_hypertension_count",
+    "prevalence_key": "diabetes_hypertension_prevalence",
+    "outcome_rate_key": "diabetes_hypertension_readmission_rate"
+  },
+  "max_steps": 8,
+  "budget": 1.0,
+  "timeout_seconds": 120,
+  "allowed_tools": [
+    "python_repl"
+  ],
+  "redteam": {
+    "is_redteam": true,
+    "base_task_id": "DS_TASK_000009",
+    "attack_type": "distractor_columns",
+    "attack_level": "L1",
+    "gt_policy": "invariant",
+    "perturbation_seed": 20260521,
+    "expected_invariant": "same_key_values"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "execution_result": "The factorial ANOVA showed a significant interaction effect between 'species' and 'sepal_width' on 'petal_size' with a p-value of 0.041. Post-hoc tests indicated significant differences between certain species groups depending on 'sepal_width'.",
+  "key_values": {
+    "interaction_p_value": 0.041
+  },
+  "required_keywords": []
+}

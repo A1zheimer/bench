@@ -1,0 +1,7 @@
+{
+  "execution_result": "Computed the mean of each numeric feature by diagnosis. The mean of 'max_area' for the 'malignant' condition is 880.583.",
+  "key_values": {
+    "mean_max_area_malignant": 1461.693043478261
+  },
+  "required_keywords": []
+}

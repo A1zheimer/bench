@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_021",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Hard",
+    "tags": ["factor-model", "fama-french", "return-attribution", "alpha", "beta"],
+    "contamination_risk": "low",
+    "canary_value": 17.6489
+  },
+  "context": {
+    "problem_statement": "Decompose portfolio excess returns using the Fama-French 3-factor model: R_portfolio - R_f = alpha + beta_mkt*(R_mkt - R_f) + beta_smb*SMB + beta_hml*HML + epsilon. Run OLS regression of portfolio excess returns on the three factors. Report: (1) factor loadings (betas) for each factor, (2) alpha (Jensen's alpha, annualized), (3) R-squared of the factor model, (4) t-statistics and p-values for each coefficient, (5) unexplained idiosyncratic risk (std of residuals).",
+    "dataset_preview": "data/fama_french_preview.csv",
+    "expert_knowledge": "Use statsmodels.api.OLS for regression. Fama-French factors: MKT-RF = market excess return (market risk premium), SMB = Small Minus Big (size factor), HML = High Minus Low (value factor). Positive alpha indicates outperformance after controlling for factor exposures. High R-squared (>0.9) means most return variation explained by factors. Annualized alpha = monthly_alpha * 12."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

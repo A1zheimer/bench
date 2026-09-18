@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_022",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Medium",
+    "tags": ["A/B-test", "z-test", "conversion-rate", "statistical-significance", "experiment"],
+    "contamination_risk": "low",
+    "canary_value": 96.4217
+  },
+  "context": {
+    "problem_statement": "Analyze an A/B test for a new checkout page design. Group A is the control (existing design) and Group B is the treatment (new design). Perform a two-proportion z-test to determine if the conversion rate difference is statistically significant. Compute: (1) conversion rates for each group, (2) absolute lift and relative lift, (3) z-statistic and p-value (two-tailed), (4) 95% confidence interval for the difference in proportions, (5) minimum detectable effect and whether the study was adequately powered (assume 80% power target).",
+    "dataset_preview": "data/ab_test_preview.csv",
+    "expert_knowledge": "Two-proportion z-test: z = (p1 - p2) / sqrt(p_pool*(1-p_pool)*(1/n1 + 1/n2)) where p_pool = (x1+x2)/(n1+n2). Use statsmodels.stats.proportion.proportions_ztest. CI for difference: (p1-p2) ± 1.96*sqrt(p1(1-p1)/n1 + p2(1-p2)/n2). Relative lift = (p_treatment - p_control) / p_control. MDE = effect size detectable at given power/alpha."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

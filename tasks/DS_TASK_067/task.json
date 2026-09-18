@@ -1,0 +1,30 @@
+{
+  "instance_id": "DS_TASK_067",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Medium",
+    "tags": [
+      "seasonal_decomposition",
+      "time_series",
+      "revenue_analysis"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 58.244
+  },
+  "context": {
+    "problem_statement": "Perform a seasonal decomposition of the monthly revenue time series data from the provided ECommerce dataset. Your task is to determine the seasonal and trend components of the revenue data, particularly focusing on identifying any monthly patterns. Handle missing values and other data quality issues appropriately.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Seasonal decomposition involves separating a time series into its seasonal, trend, and irregular components. It is useful for understanding underlying patterns and making forecasts. In the context of ECommerce, understanding seasonal trends in revenue can help businesses optimize inventory and marketing strategies."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "file_read"
+    ]
+  },
+  "max_steps": 20
+}

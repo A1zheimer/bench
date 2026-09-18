@@ -1,0 +1,22 @@
+{
+  "execution_result": "Verified by filtered_mean_v1: mean(transaction_amount where fraud_flag eq 1)",
+  "key_values": {
+    "mean_transaction_amount_flagged": 230.67181818181817
+  },
+  "key_aliases": {
+    "mean_transaction_amount_flagged": [
+      "mean transaction amount flagged"
+    ]
+  },
+  "required_keywords": [
+    "mean",
+    "transaction_amount"
+  ],
+  "formula": "mean(transaction_amount where fraud_flag eq 1)",
+  "verifier_id": "filtered_mean_v1",
+  "verifier_version": "1.0",
+  "dataset_sha256": "e227544d21198570df88beab69822397ab3f1846c5f1235ab07116716ccfc2f0",
+  "computed_at": "2026-05-21T03:54:20.728972+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers"
+}

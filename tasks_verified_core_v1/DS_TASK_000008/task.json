@@ -1,0 +1,35 @@
+{
+  "instance_id": "DS_TASK_000008",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Hard",
+    "tags": [
+      "iqr_outlier_count",
+      "scientific"
+    ],
+    "primary_task_type": "data_quality_robustness",
+    "secondary_task_types": [
+      "risk_anomaly_decision"
+    ],
+    "challenge_dimensions": [
+      "outlier_detection",
+      "cross_domain_schema"
+    ],
+    "generation_quality": "verified"
+  },
+  "context": {
+    "problem_statement": "Using `data/dataset.csv`, count 1.5*IQR outliers for these numeric columns: `total_cost`, `revenue`. Also return `total_outlier_count` as the sum across columns.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use the 1.5*IQR rule: values below Q1-1.5*IQR or above Q3+1.5*IQR are outliers."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 8,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 8
+}

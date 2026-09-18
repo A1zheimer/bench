@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_153",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": [
+      "filtering",
+      "outlier-detection",
+      "basic"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 42.1245
+  },
+  "context": {
+    "problem_statement": "Detect univariate outliers in each numeric iris measurement column using the 1.5*IQR rule. Report the outlier count for sepal_length_cm, sepal_width_cm, petal_length_cm, petal_width_cm, and the total count.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use Q1 - 1.5*IQR and Q3 + 1.5*IQR per numeric column. Include all rows."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 6,
+    "budget": 0.7,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 6
+}

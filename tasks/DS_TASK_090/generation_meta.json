@@ -1,0 +1,65 @@
+{
+  "generator": "openai:gpt-4o",
+  "temperature": 0.7,
+  "canary_value": 81.3375,
+  "verified": false,
+  "generated_at": "2026-03-24T03:31:52Z",
+  "solution_code": "import pandas as pd\n\n# Load the modified dataset\ndf = pd.read_csv('dataset.csv')\n\n# Filter out the canary value\nfiltered_df = df[df['yield_pct'] < 900]\n\n# Calculate mean yield percentage by catalyst type\nmean_yield = filtered_df.groupby('cat_type')['yield_pct'].mean().reset_index()\n\n# Print the result\nfor _, row in mean_yield.iterrows():\n    print(f\"Mean yield for catalyst {row['cat_type']}: {row['yield_pct']}\")\n    if pd.isna(row['cat_type']):\n        print({'key': 'mean_yield_by_catalyst_nan', 'value': row['yield_pct']})",
+  "data_generation_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to semantically obfuscate them\ndf = df.rename(columns={\n    'experiment_id': 'sample_id',\n    'temperature_C': 'temp_C',\n    'concentration_mM': 'conc_mM',\n    'catalyst': 'cat_type',\n    'replicate': 'rep_no',\n    'yield_percent': 'yield_pct',\n    'reaction_time_min': 'react_time_min',\n    'purity_percent': 'purity_pct'\n})\n\n# Inject a canary value\nnp.random.seed(42)\ndf.loc[0, 'yield_pct'] = 999.9\n\n# Save the modified dataset\ndf.to_csv('dataset.csv', index=False)",
+  "trace": [
+    {
+      "step": 1,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to make them domain-appropriate but different\\ncolumn_rename_map = {\\n ",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to make them domain-appropriate but different\ncolumn_rename_map = {\n    'experiment_id': 'sample_id',\n    'temperature_C': 'temp_F',\n    'concentration_mM': 'conc_ppm',\n    'catalyst': 'agent_type',\n    'replicate': 'trial_number',\n    'yield_percent': 'output_efficiency',\n    'reaction_time_min': 'duration_secs',\n    'purity_percent': 'clarity_rate'\n}\ndf.rename(columns=column_rename_map, inplace=True)\n\n# Convert temperature from Celsius to Fahrenheit (simple transformation for context)\ndf['temp_F'] = df['temp_F'] * 9/5 + 32\n\n# Inject a canary value to detect contamination\ndf.loc[0, 'output_efficiency'] = -999\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 2,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed dataset\\nseed_data_path = 'seed_data.csv'\\ndata = pd.read_csv(seed_data_path)\\n\\n# Rename columns\\nrenamed_columns = {\\n    'experi",
+      "result_preview": "   sample_id  temp_C  conc_mM  ... yield_pct  react_time_min  purity_pct\n0          1      20      0.1  ...    999.90            41.9         NaN\n1          2      20      0.1  ...     24.20          ",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed dataset\nseed_data_path = 'seed_data.csv'\ndata = pd.read_csv(seed_data_path)\n\n# Rename columns\nrenamed_columns = {\n    'experiment_id': 'sample_id',\n    'temperature_C': 'temp_C',\n    'concentration_mM': 'conc_mM',\n    'catalyst': 'cat_type',\n    'replicate': 'rep_no',\n    'yield_percent': 'yield_pct',\n    'reaction_time_min': 'react_time_min',\n    'purity_percent': 'purity_pct'\n}\ndata = data.rename(columns=renamed_columns)\n\n# Inject a canary value\n# Assuming the column 'yield_pct' has a maximum value around 100, inject a distinctively higher value\ncanary_value = 999.9\ndata.loc[0, 'yield_pct'] = canary_value\n\n# Save the modified dataset\noutput_data_path = 'dataset.csv'\ndata.to_csv(output_data_path, index=False)\n\n# Display the first few rows of the modified dataset\nprint(data.head())"
+    },
+    {
+      "step": 3,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\n\\n# Load the mutated dataset\\ndf = pd.read_csv('dataset.csv')\\n\\n# Group by catalyst type and calculate mean yield percentage\\nmean_yield_by_catalyst = df.groupby('catal",
+      "result_preview": "ERROR: 'catalyst_type'",
+      "full_code": "import pandas as pd\n\n# Load the mutated dataset\ndf = pd.read_csv('dataset.csv')\n\n# Group by catalyst type and calculate mean yield percentage\nmean_yield_by_catalyst = df.groupby('catalyst_type')['yield_pct'].mean().reset_index()\n\n# Convert to dictionary for key-value output\nmean_yield_by_catalyst_dict = mean_yield_by_catalyst.to_dict(orient='records')\nmean_yield_by_catalyst_dict"
+    },
+    {
+      "step": 4,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\n\\n# Load the mutated dataset\\ndata = pd.read_csv('dataset.csv')\\n\\n# Correctly check the column names\\ndata.columns\\n\\n# Check the unique values in the column intended f",
+      "result_preview": "ERROR: 'catalyst_type'",
+      "full_code": "import pandas as pd\n\n# Load the mutated dataset\ndata = pd.read_csv('dataset.csv')\n\n# Correctly check the column names\ndata.columns\n\n# Check the unique values in the column intended for grouping\ndata['catalyst_type'].unique()"
+    },
+    {
+      "step": 5,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\n\\n# Reload the mutated dataset\\ndf = pd.read_csv('dataset.csv')\\n\\n# Check the correct column names\\ndf.columns\"}",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\n\n# Reload the mutated dataset\ndf = pd.read_csv('dataset.csv')\n\n# Check the correct column names\ndf.columns"
+    },
+    {
+      "step": 6,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\n\\n# Load the mutated dataset\\ndf = pd.read_csv('dataset.csv')\\n\\n# Check the column names to correctly identify the catalyst column\\nprint(df.columns)\"}",
+      "result_preview": "Index(['sample_id', 'temp_C', 'conc_mM', 'cat_type', 'rep_no', 'yield_pct',\n       'react_time_min', 'purity_pct'],\n      dtype='str')\n",
+      "full_code": "import pandas as pd\n\n# Load the mutated dataset\ndf = pd.read_csv('dataset.csv')\n\n# Check the column names to correctly identify the catalyst column\nprint(df.columns)"
+    },
+    {
+      "step": 7,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\n\\n# Load the mutated dataset\\ndata = pd.read_csv('dataset.csv')\\n\\n# Calculate the mean yield percentage grouped by cat_type\\nmean_yield_by_catalyst = data.groupby('cat_",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\n\n# Load the mutated dataset\ndata = pd.read_csv('dataset.csv')\n\n# Calculate the mean yield percentage grouped by cat_type\nmean_yield_by_catalyst = data.groupby('cat_type')['yield_pct'].mean()\n\n# Convert the result to a dictionary for easier handling\nmean_yield_by_catalyst_dict = mean_yield_by_catalyst.to_dict()\nmean_yield_by_catalyst_dict"
+    },
+    {
+      "step": 8,
+      "action": "submit_task",
+      "forced": true
+    }
+  ]
+}

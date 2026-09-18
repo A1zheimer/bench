@@ -1,0 +1,51 @@
+{
+  "generator": "openai:gpt-4o",
+  "temperature": 0.7,
+  "canary_value": 36.5823,
+  "verified": false,
+  "generated_at": "2026-03-24T03:30:44Z",
+  "solution_code": "import pandas as pd\nimport numpy as np\nfrom scipy.stats import linregress\n\n# Load the transformed dataset\ndata = pd.read_csv('dataset.csv')\n\n# Drop rows with missing sales_amount\ndata.dropna(subset=['sales_amount'], inplace=True)\n\n# Function to calculate price elasticity of demand\ndef calculate_elasticity(group):\n    group = group.copy()\n    # Avoid division by zero by filtering out zero prices and quantities\n    group = group[(group['price_per_unit'] > 0) & (group['units_sold'] > 0)]\n    # Log transformation for elasticity calculation\n    group['log_price'] = np.log(group['price_per_unit'])\n    group['log_quantity'] = np.log(group['units_sold'])\n    # Linear regression to find elasticity\n    slope, intercept, r_value, p_value, std_err = linregress(group['log_price'], group['log_quantity'])\n    return slope\n\n# Calculate elasticity for each product category\nelasticity_results = data.groupby('prod_type').apply(calculate_elasticity)\n\n# Print results\nfor category, elasticity in elasticity_results.items():\n    print(f\"Category: {category}, Elasticity: {elasticity}\")\n\n# Example of key values for validation\nkey_values = [{\"key\": category, \"value\": elasticity} for category, elasticity in elasticity_results.items()]\nprint(key_values)",
+  "data_generation_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed dataset\nseed_data = pd.read_csv('seed_data.csv')\n\n# Rename columns for semantic obfuscation\nseed_data.rename(columns={\n    'order_id': 'trans_id',\n    'customer_id': 'cust_id',\n    'order_date': 'trans_date',\n    'category': 'prod_type',\n    'unit_price': 'price_per_unit',\n    'quantity': 'units_sold',\n    'total_amount': 'sales_amount',\n    'channel': 'sales_channel',\n    'returned': 'is_returned',\n    'rating': 'customer_rating'\n}, inplace=True)\n\n# Inject a canary value for contamination detection\nseed_data.loc[seed_data.index[0], 'price_per_unit'] = 99999\n\n# Introduce missing values\nnp.random.seed(42)\nmissing_indices = np.random.choice(seed_data.index, size=80, replace=False)\nseed_data.loc[missing_indices, 'sales_amount'] = np.nan\n\n# Add noise to the price_per_unit column\nnoise = np.random.normal(0, 5, size=seed_data.shape[0])\nseed_data['price_per_unit'] += noise\n\n# Save the mutated dataset\nseed_data.to_csv('dataset.csv', index=False)",
+  "trace": [
+    {
+      "step": 1,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\nseed_data = pd.read_csv('seed_data.csv')\\n\\n# Rename columns for semantic obfuscation\\nseed_data.columns = ['transaction_id',",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\nseed_data = pd.read_csv('seed_data.csv')\n\n# Rename columns for semantic obfuscation\nseed_data.columns = ['transaction_id', 'client_id', 'transaction_date', 'product_type', 'price_per_unit', 'amount_purchased', 'purchase_total', 'purchase_channel', 'is_returned', 'customer_rating']\n\n# Inject a canary value\nseed_data.loc[seed_data.index[0], 'price_per_unit'] = -9999\n\n# Add noise to 'customer_rating'\nnp.random.seed(42)\nnoise = np.random.normal(0, 0.5, size=seed_data.shape[0])\nseed_data['customer_rating'] = seed_data['customer_rating'] + noise\n\n# Introduce missing values in 'amount_purchased'\nmissing_indices = np.random.choice(seed_data.index, size=20, replace=False)\nseed_data.loc[missing_indices, 'amount_purchased'] = np.nan\n\n# Save the mutated dataset\nseed_data.to_csv('dataset.csv', index=False)"
+    },
+    {
+      "step": 2,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed dataset\\nseed_data = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-appropriate names\\nseed_data.rename(columns={\\n    ",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed dataset\nseed_data = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-appropriate names\nseed_data.rename(columns={\n    'order_id': 'transaction_id',\n    'customer_id': 'buyer_id',\n    'order_date': 'purchase_date',\n    'category': 'product_type',\n    'unit_price': 'price_per_unit',\n    'quantity': 'units_sold',\n    'total_amount': 'transaction_value',\n    'channel': 'sales_channel',\n    'returned': 'is_returned',\n    'rating': 'customer_rating'\n}, inplace=True)\n\n# Inject a canary value (e.g., a negative price to detect contamination)\nseed_data.loc[seed_data.index[0], 'price_per_unit'] = -999.99\n\n# Introduce missing values randomly\nnp.random.seed(42)\nmissing_indices = np.random.choice(seed_data.index, size=20, replace=False)\nseed_data.loc[missing_indices, 'customer_rating'] = np.nan\n\n# Save the transformed dataset\nseed_data.to_csv('dataset.csv', index=False)\n\n# Display the first few rows of the transformed dataset\nseed_data.head()"
+    },
+    {
+      "step": 3,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed dataset\\nseed_data = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-specific names\\nseed_data.rename(columns={\\n    'or",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed dataset\nseed_data = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-specific names\nseed_data.rename(columns={\n    'order_id': 'transaction_id',\n    'customer_id': 'client_id',\n    'order_date': 'purchase_date',\n    'category': 'product_category',\n    'unit_price': 'price_per_unit',\n    'quantity': 'units_sold',\n    'total_amount': 'transaction_total',\n    'channel': 'sales_channel',\n    'returned': 'is_returned',\n    'rating': 'customer_rating'\n}, inplace=True)\n\n# Inject a canary value for contamination detection\nseed_data.loc[seed_data.index[0], 'price_per_unit'] = 99999\n\n# Introduce noise by adding random missing values\nnp.random.seed(42)\nmissing_indices = np.random.choice(seed_data.index, size=50, replace=False)\nseed_data.loc[missing_indices, 'units_sold'] = np.nan\n\n# Save the modified dataset\nseed_data.to_csv('dataset.csv', index=False)\n\nseed_data.head()"
+    },
+    {
+      "step": 4,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndata = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to more domain-specific terms\\nrenamed_columns = {\\n    'order_id': '",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndata = pd.read_csv('seed_data.csv')\n\n# Rename columns to more domain-specific terms\nrenamed_columns = {\n    'order_id': 'transaction_id',\n    'customer_id': 'buyer_id',\n    'order_date': 'purchase_date',\n    'category': 'product_category',\n    'unit_price': 'price_per_unit',\n    'quantity': 'items_sold',\n    'total_amount': 'total_value',\n    'channel': 'sales_channel',\n    'returned': 'is_returned',\n    'rating': 'customer_rating'\n}\ndata = data.rename(columns=renamed_columns)\n\n# Inject a canary value\ndata.loc[0, 'price_per_unit'] = 99999  # Inject an outlier price for testing\n\n# Introduce missing values in 'customer_rating'\nmissing_indices = np.random.choice(data.index, size=20, replace=False)\ndata.loc[missing_indices, 'customer_rating'] = np.nan\n\n# Save the mutated dataset to a new CSV file\ndata.to_csv('dataset.csv', index=False)"
+    },
+    {
+      "step": 5,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed dataset\\nseed_data = pd.read_csv('seed_data.csv')\\n\\n# Rename columns for semantic obfuscation\\nseed_data.rename(columns={\\n    'or",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed dataset\nseed_data = pd.read_csv('seed_data.csv')\n\n# Rename columns for semantic obfuscation\nseed_data.rename(columns={\n    'order_id': 'trans_id',\n    'customer_id': 'cust_id',\n    'order_date': 'trans_date',\n    'category': 'prod_type',\n    'unit_price': 'price_per_unit',\n    'quantity': 'units_sold',\n    'total_amount': 'sales_amount',\n    'channel': 'sales_channel',\n    'returned': 'is_returned',\n    'rating': 'customer_rating'\n}, inplace=True)\n\n# Inject a canary value for contamination detection\nseed_data.loc[seed_data.index[0], 'price_per_unit'] = 99999\n\n# Introduce missing values\nnp.random.seed(42)\nmissing_indices = np.random.choice(seed_data.index, size=80, replace=False)\nseed_data.loc[missing_indices, 'sales_amount'] = np.nan\n\n# Add noise to the price_per_unit column\nnoise = np.random.normal(0, 5, size=seed_data.shape[0])\nseed_data['price_per_unit'] += noise\n\n# Save the mutated dataset\nseed_data.to_csv('dataset.csv', index=False)"
+    },
+    {
+      "step": 6,
+      "action": "submit_task",
+      "forced": false
+    }
+  ]
+}

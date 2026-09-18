@@ -1,0 +1,34 @@
+{
+  "instance_id": "DS_TASK_000007",
+  "task_metadata": {
+    "domain": "Generic",
+    "difficulty": "Medium",
+    "tags": [
+      "iqr_outlier_count",
+      "generic"
+    ],
+    "primary_task_type": "data_quality_robustness",
+    "secondary_task_types": [
+      "risk_anomaly_decision"
+    ],
+    "challenge_dimensions": [
+      "outlier_detection"
+    ],
+    "generation_quality": "verified"
+  },
+  "context": {
+    "problem_statement": "Using `data/dataset.csv`, count 1.5*IQR outliers for these numeric columns: `processing_time`, `transaction_amount`. Also return `total_outlier_count` as the sum across columns.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use the 1.5*IQR rule: values below Q1-1.5*IQR or above Q3+1.5*IQR are outliers."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 8,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 8
+}

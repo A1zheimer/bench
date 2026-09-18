@@ -1,0 +1,24 @@
+{
+  "execution_result": "Two-sample t-test: Treatment significantly higher than Control (t=-10.04, p<0.001). Cohen's d=4.48 indicates very large effect size. Post-hoc power = 0.999.",
+  "key_values": {
+    "mean_control": 24.0,
+    "mean_treatment": 29.28,
+    "std_control": 1.088,
+    "std_treatment": 1.086,
+    "mean_difference": 5.28,
+    "t_statistic": -10.044,
+    "p_value": 0.0000012,
+    "cohens_d": 4.86,
+    "effect_magnitude": "very large",
+    "post_hoc_power": 0.999,
+    "ci_lower": -6.39,
+    "ci_upper": -4.17
+  },
+  "required_keywords": ["t-test", "p-value", "Cohen's d", "effect size", "Shapiro-Wilk", "Levene", "power", "confidence interval"],
+  "partial_credit_rubric": {
+    "assumption_tests": {"weight": 0.20, "description": "Normality (Shapiro-Wilk) and equal variance (Levene's) tests correctly run"},
+    "t_test_run": {"weight": 0.30, "description": "Appropriate t-test (equal/unequal variance) correctly chosen and run"},
+    "effect_size": {"weight": 0.30, "description": "Cohen's d correctly computed with pooled standard deviation"},
+    "power_analysis": {"weight": 0.20, "description": "Post-hoc statistical power correctly computed and reported"}
+  }
+}

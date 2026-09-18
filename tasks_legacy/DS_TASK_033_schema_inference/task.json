@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_033",
+  "task_metadata": {
+    "domain": "SQL",
+    "difficulty": "Medium",
+    "tags": ["schema-inference", "DDL", "data-profiling", "messy-data", "data-engineering"],
+    "contamination_risk": "low",
+    "canary_value": 78.5162
+  },
+  "context": {
+    "problem_statement": "Analyze the provided messy CSV file and propose a CREATE TABLE DDL statement for a PostgreSQL database. Tasks: (1) infer column names and appropriate data types (VARCHAR, INTEGER, DECIMAL, DATE, BOOLEAN, JSONB), (2) identify which columns could be NOT NULL, (3) suggest a primary key (natural or surrogate), (4) identify any columns suitable for indexes based on cardinality and query patterns, (5) flag data quality issues found: mixed types in a column, inconsistent date formats, values exceeding expected range, high null rate (>20%). Output the DDL and a data quality report.",
+    "dataset_preview": "data/messy_data_preview.csv",
+    "expert_knowledge": "PostgreSQL type selection: use TEXT for unbounded strings, VARCHAR(n) for bounded, NUMERIC for financial data, TIMESTAMP WITH TIME ZONE for datetimes. B-tree indexes suit equality/range queries; GIN for JSONB; partial indexes for sparse conditions. NOT NULL constraint requires 0 null rate. Natural primary keys risk: check for uniqueness. Composite PK when needed."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

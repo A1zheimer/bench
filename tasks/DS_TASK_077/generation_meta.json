@@ -1,0 +1,65 @@
+{
+  "generator": "openai:gpt-4o",
+  "temperature": 0.7,
+  "canary_value": 3.762,
+  "verified": false,
+  "generated_at": "2026-03-24T03:24:05Z",
+  "solution_code": "\nimport pandas as pd\nimport numpy as np\n\ndata = pd.read_csv('dataset.csv')\ndata = data.fillna(data.median(numeric_only=True))\nportfolio_values = data['PortfolioValue'].values\n# Compute daily returns (percentage change)\nreturns = np.diff(portfolio_values) / portfolio_values[:-1]\nVaR_95 = np.percentile(returns, 5)\naverage_loss = returns[returns < VaR_95].mean()\nprint({'key': 'VaR_95', 'value': round(float(VaR_95), 6)})\nprint({'key': 'average_loss_beyond_VaR', 'value': round(float(average_loss), 6)})\n",
+  "data_generation_code": "import pandas as pd\nimport numpy as np\n\n# Load seed data\nseed_data = pd.read_csv('seed_data.csv')\n\n# Rename columns\nseed_data.columns = ['IncomeLevel', 'PropertyAge', 'RoomsPerHousehold', 'BedroomsPerHousehold', 'AreaPopulation', 'RegionLatitude', 'PortfolioReturn']\n\n# Inject a canary value\nseed_data.loc[0, 'IncomeLevel'] = -99999  # Canary value for contamination detection\n\n# Add noise and missing values\nnp.random.seed(42)\nnoise = np.random.normal(0, 0.1, size=seed_data.shape)\nseed_data += noise\n\n# Introduce some missing values\nfor col in seed_data.columns:\n    seed_data.loc[seed_data.sample(frac=0.1).index, col] = np.nan\n\n# Save the mutated dataset\nseed_data.to_csv('dataset.csv', index=False)",
+  "trace": [
+    {
+      "step": 1,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to be finance/domain-specific\\ndf.columns = ['Income', 'Investment_Age'",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to be finance/domain-specific\ndf.columns = ['Income', 'Investment_Age', 'Rooms', 'Bedrooms', 'Market_Size', 'Region', 'Portfolio_Value']\n\n# Inject a canary value for contamination detection\nnp.random.seed(42)  # For reproducibility\ndf.loc[10, 'Portfolio_Value'] = 999999\n\n# Introduce noise in 'Income' and 'Market_Size'\ndf['Income'] += np.random.normal(0, 0.5, size=len(df))\ndf['Market_Size'] += np.random.normal(0, 100, size=len(df))\n\n# Add missing values\nmissing_indices = np.random.choice(df.index, size=10, replace=False)\ndf.loc[missing_indices, 'Rooms'] = np.nan\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 2,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\nseed_data = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-appropriate names\\nseed_data.columns = ['Income', 'Age",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\nseed_data = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-appropriate names\nseed_data.columns = ['Income', 'Age_of_Asset', 'Average_Rooms', 'Average_Bedrooms', 'Num_of_Residents', 'Location_Latitude', 'Asset_Value']\n\n# Inject a canary value\nseed_data.iloc[0, seed_data.columns.get_loc('Asset_Value')] = 999999  # Canary value for asset value\n\n# Introduce some noise by adding random small values to Income\nnp.random.seed(42)  # Ensure reproducibility\nnoise = np.random.normal(0, 0.1, size=seed_data.shape[0])\nseed_data['Income'] += noise\n\n# Introduce missing values randomly in the 'Average_Rooms' column\nmissing_indices = np.random.choice(seed_data.index, size=10, replace=False)\nseed_data.loc[missing_indices, 'Average_Rooms'] = np.nan\n\n# Save the mutated dataset\ndataset_path = 'dataset.csv'\nseed_data.to_csv(dataset_path, index=False)\ndataset_path"
+    },
+    {
+      "step": 3,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-appropriate names\\ndf.columns = ['Income', 'BuildingAge', 'Ro",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-appropriate names\ndf.columns = ['Income', 'BuildingAge', 'Rooms', 'Bedrooms', 'Residents', 'GeoLatitude', 'HouseValue']\n\n# Inject a canary value for contamination detection\ndf.loc[0, 'Income'] = -9999\n\n# Add noise to the 'HouseValue' to simulate market variability\nnp.random.seed(42)\nnoise = np.random.normal(0, 0.1, size=len(df))\ndf['HouseValue'] += noise\n\n# Introduce some missing values in the 'Rooms' column\ndf.loc[::10, 'Rooms'] = np.nan\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 4,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to domain-appropriate names\\ndf.columns = ['Income', 'PropertyAge', 'Ro",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to domain-appropriate names\ndf.columns = ['Income', 'PropertyAge', 'Rooms', 'Bedrooms', 'Residents', 'GeoLatitude', 'HouseValue']\n\n# Inject a canary value for contamination detection\ncanary_index = np.random.randint(0, len(df))\ndf.loc[canary_index, 'HouseValue'] = -9999\n\n# Introduce noise in the 'Income' column\ndf['Income'] += np.random.normal(0, 0.5, len(df))\n\n# Introduce some missing values randomly in the 'Bedrooms' column\nmissing_indices = np.random.choice(df.index, size=int(len(df) * 0.1), replace=False)\ndf.loc[missing_indices, 'Bedrooms'] = np.nan\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 5,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to be more domain-specific and obfuscate original meanings\\ndf.rename(c",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to be more domain-specific and obfuscate original meanings\ndf.rename(columns={\n    'MedInc': 'InitialInvestment',\n    'HouseAge': 'TimeHorizon',\n    'AveRooms': 'HistoricalVolatility',\n    'AveBedrms': 'ExpectedReturn',\n    'Population': 'MarketIndex',\n    'Latitude': 'SectorIndex',\n    'median_house_value': 'PortfolioValue'\n}, inplace=True)\n\n# Inject a canary value (outlier) for contamination detection\ndf.loc[0, 'ExpectedReturn'] = 9999\n\n# Introduce additional noise by adding random noise to 'PortfolioValue'\nnp.random.seed(42)\ndf['PortfolioValue'] += np.random.normal(0, 0.5, size=len(df))\n\n# Introduce missing values in 'HistoricalVolatility'\ndf.loc[5:10, 'HistoricalVolatility'] = np.nan\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)\n\n# Display the first few rows of the mutated dataset\ndf.head()"
+    },
+    {
+      "step": 6,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to be more relevant to finance domain\\ncolumn_mapping = {\\n    'MedInc': 'I",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to be more relevant to finance domain\ncolumn_mapping = {\n    'MedInc': 'InvestmentReturn',\n    'HouseAge': 'YearsHeld',\n    'AveRooms': 'AverageRisk',\n    'AveBedrms': 'Diversification',\n    'Population': 'MarketVolatility',\n    'Latitude': 'GeoFactor',\n    'median_house_value': 'PortfolioValue'\n}\ndf.rename(columns=column_mapping, inplace=True)\n\n# Inject a canary value for contamination detection, e.g., a negative value in PortfolioValue\ncanary_index = np.random.randint(0, len(df))\ndf.loc[canary_index, 'PortfolioValue'] = -99999\n\n# Inject noise by adding random small values to 'InvestmentReturn'\nnp.random.seed(0)\ndf['InvestmentReturn'] += np.random.normal(0, 0.1, len(df))\n\n# Save the mutated dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 7,
+      "action": "python_repl",
+      "args_preview": "{'code': \"import pandas as pd\\nimport numpy as np\\n\\n# Load the seed data\\ndf = pd.read_csv('seed_data.csv')\\n\\n# Rename columns to be more domain appropriate for finance\\ncolumn_mapping = {\\n    'Med",
+      "result_preview": "(no output)",
+      "full_code": "import pandas as pd\nimport numpy as np\n\n# Load the seed data\ndf = pd.read_csv('seed_data.csv')\n\n# Rename columns to be more domain appropriate for finance\ncolumn_mapping = {\n    'MedInc': 'Income',\n    'HouseAge': 'YearsAtResidence',\n    'AveRooms': 'AverageRooms',\n    'AveBedrms': 'AverageBedrooms',\n    'Population': 'Residents',\n    'Latitude': 'Region',\n    'median_house_value': 'PortfolioValue'\n}\ndf.rename(columns=column_mapping, inplace=True)\n\n# Inject a canary value for contamination detection\ndf.loc[0, 'Income'] = -999\n\n# Introduce some noise to the data (e.g., add noise to 'PortfolioValue')\nnp.random.seed(42)\nnoise = np.random.normal(0, 0.1, df.shape[0])\ndf['PortfolioValue'] = df['PortfolioValue'] + noise\n\n# Introduce missing values in 'AverageRooms'\nmissing_indices = np.random.choice(df.index, size=10, replace=False)\ndf.loc[missing_indices, 'AverageRooms'] = np.nan\n\n# Save the transformed dataset\ndf.to_csv('dataset.csv', index=False)\n\ndf.head()"
+    },
+    {
+      "step": 8,
+      "action": "submit_task",
+      "forced": true
+    }
+  ]
+}

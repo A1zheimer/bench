@@ -1,0 +1,22 @@
+{
+  "execution_result": "Race attribute shows disparate impact ratio of 0.44, well below the 0.8 threshold, indicating potential discriminatory lending practices. Gender shows minor disparity.",
+  "key_values": {
+    "approval_rate_male": 0.7,
+    "approval_rate_female": 0.6,
+    "gender_parity_difference": 0.1,
+    "gender_disparate_impact": 0.857,
+    "approval_rate_white": 1.0,
+    "approval_rate_non_white": 0.4,
+    "race_parity_difference": 0.6,
+    "race_disparate_impact": 0.4,
+    "race_flag": true,
+    "gender_flag": false
+  },
+  "required_keywords": ["demographic parity", "disparate impact", "80% rule", "approval rate", "race", "gender"],
+  "partial_credit_rubric": {
+    "approval_rates_computed": {"weight": 0.25, "description": "Approval rates correctly computed for all demographic groups"},
+    "parity_difference": {"weight": 0.25, "description": "Demographic parity difference correctly computed"},
+    "disparate_impact_ratio": {"weight": 0.25, "description": "Disparate impact ratio correctly computed and compared to 0.8 threshold"},
+    "equalized_odds": {"weight": 0.25, "description": "TPR and FPR compared across demographic groups for equalized odds"}
+  }
+}

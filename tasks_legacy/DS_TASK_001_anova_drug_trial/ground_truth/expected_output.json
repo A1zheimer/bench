@@ -1,0 +1,8 @@
+{
+  "execution_result": "F-statistic: significant, P-value < 0.05, Significant difference detected.",
+  "key_values": {
+    "p_value": 0.034,
+    "f_statistic": 4.2
+  },
+  "required_keywords": ["Significant", "P-value", "F-statistic"]
+}

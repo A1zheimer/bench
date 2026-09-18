@@ -1,0 +1,14 @@
+[
+  {"domain": "Finance",    "difficulty": "Easy",   "count": 2},
+  {"domain": "Finance",    "difficulty": "Medium",  "count": 2},
+  {"domain": "Finance",    "difficulty": "Hard",    "count": 1},
+  {"domain": "Biomedical", "difficulty": "Easy",   "count": 2},
+  {"domain": "Biomedical", "difficulty": "Medium",  "count": 2},
+  {"domain": "Biomedical", "difficulty": "Hard",    "count": 1},
+  {"domain": "ECommerce",  "difficulty": "Easy",   "count": 2},
+  {"domain": "ECommerce",  "difficulty": "Medium",  "count": 2},
+  {"domain": "ECommerce",  "difficulty": "Hard",    "count": 1},
+  {"domain": "Scientific", "difficulty": "Easy",   "count": 2},
+  {"domain": "Scientific", "difficulty": "Medium",  "count": 2},
+  {"domain": "Scientific", "difficulty": "Hard",    "count": 1}
+]

@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_157",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Medium",
+    "tags": [
+      "time-series",
+      "reaction-kinetics",
+      "modeling"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 42.6379
+  },
+  "context": {
+    "problem_statement": "Analyze the scientific dataset and compute the required metrics. Focus on time-series, reaction-kinetics, modeling.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use appropriate statistical methods for analysis. Handle missing values if present."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 1.5,
+    "timeout_seconds": 210,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 12
+}

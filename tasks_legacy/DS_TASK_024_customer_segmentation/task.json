@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_024",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Hard",
+    "tags": ["k-means", "clustering", "elbow-method", "customer-segmentation", "unsupervised"],
+    "contamination_risk": "low",
+    "canary_value": 84.5073
+  },
+  "context": {
+    "problem_statement": "Apply K-means clustering to segment customers based on their purchase behavior. Features to use: avg_order_value, purchase_frequency, days_since_last_purchase, product_category_diversity. Standardize features before clustering. Find the optimal number of clusters using the elbow method (k=2 to 8, compute inertia). Also compute silhouette scores for each k. Report the optimal k, cluster centers (in original scale), and the business interpretation of each cluster (e.g., 'High-value frequent buyers').",
+    "dataset_preview": "data/customer_segments_preview.csv",
+    "expert_knowledge": "Standardize with StandardScaler before K-means. Elbow method: plot inertia vs k, optimal k at the 'elbow' where marginal improvement decreases. Silhouette score ranges from -1 to 1; higher is better. KMeans(n_init=10, random_state=42). Cluster centers must be inverse-transformed to original scale for interpretation. Davies-Bouldin index also useful for cluster quality."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

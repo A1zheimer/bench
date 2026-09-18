@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_101",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Easy",
+    "tags": [
+      "correlation",
+      "feature-analysis",
+      "housing"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 42.6314
+  },
+  "context": {
+    "problem_statement": "Analyze the finance dataset and compute the required metrics. Focus on correlation, feature-analysis, housing.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use appropriate statistical methods for analysis. Handle missing values if present."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 6,
+    "budget": 0.7,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 6
+}

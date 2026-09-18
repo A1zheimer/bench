@@ -1,0 +1,11 @@
+{
+  "execution_result": "The optimal conditions for maximizing yield percentage are a temperature of 25°C, concentration of 0.3 mM, and batch 'A'. The ANOVA shows significant interaction effects between temperature and concentration on yield. The model explains 85% of the variance in yield percentage.",
+  "key_values": {
+    "optimal_temperature_C": 25,
+    "optimal_concentration_mM": 0.3,
+    "R_squared": 0.85,
+    "p_value_interaction": 0.02,
+    "f_statistic": 12.3
+  },
+  "required_keywords": []
+}

@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_011",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Medium",
+    "tags": ["microbiome", "diversity", "shannon-entropy", "alpha-diversity", "ecology"],
+    "contamination_risk": "low",
+    "canary_value": 25.7463
+  },
+  "context": {
+    "problem_statement": "Calculate alpha diversity metrics for microbiome samples from two patient groups (Healthy vs IBD). For each sample, compute: (1) Shannon entropy H = -sum(p_i * log(p_i)) where p_i is relative abundance of species i, (2) Simpson's diversity index D = 1 - sum(p_i^2), (3) species richness (number of species with count > 0). Compare the mean Shannon entropy between Healthy and IBD groups using a Mann-Whitney U test. Report whether diversity is significantly different (p < 0.05).",
+    "dataset_preview": "data/microbiome_preview.csv",
+    "expert_knowledge": "Shannon entropy ranges from 0 (one species dominates) to log(S) where S is species count (maximum evenness). IBD patients typically show reduced microbial diversity (dysbiosis). Use scipy.stats.mannwhitneyu for non-parametric comparison since diversity scores may not be normally distributed. Use natural logarithm for Shannon entropy."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

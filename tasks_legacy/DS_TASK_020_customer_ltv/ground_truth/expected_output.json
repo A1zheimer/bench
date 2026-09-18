@@ -1,0 +1,20 @@
+{
+  "execution_result": "RFM segmentation identifies 3 Champions, 4 Loyal, 2 At Risk, and 3 Lost customers. Champion segment average CLV of $5,180 vs Lost segment average CLV of $114.",
+  "key_values": {
+    "champion_count": 3,
+    "loyal_count": 4,
+    "at_risk_count": 2,
+    "lost_count": 3,
+    "champion_avg_clv": 5180.0,
+    "lost_avg_clv": 114.0,
+    "overall_avg_clv": 1842.0,
+    "top_customer_clv": 7320.0
+  },
+  "required_keywords": ["RFM", "Recency", "Frequency", "Monetary", "CLV", "Champions", "quintile"],
+  "partial_credit_rubric": {
+    "rfm_scores_computed": {"weight": 0.30, "description": "Recency, Frequency, Monetary metrics correctly computed with quintile scoring"},
+    "segments_assigned": {"weight": 0.30, "description": "Customer segments correctly assigned using RFM rules"},
+    "clv_computed": {"weight": 0.30, "description": "CLV correctly computed using the specified formula with margin and churn rate"},
+    "segment_summary": {"weight": 0.10, "description": "Segment-level CLV averages and counts correctly reported"}
+  }
+}

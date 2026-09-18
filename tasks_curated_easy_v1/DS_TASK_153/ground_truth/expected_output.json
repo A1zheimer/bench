@@ -1,0 +1,29 @@
+{
+  "execution_result": "Computed per-column and total IQR outlier counts.",
+  "key_values": {
+    "outlier_count_sepal_length_cm": 2,
+    "outlier_count_sepal_width_cm": 1,
+    "outlier_count_petal_length_cm": 0,
+    "outlier_count_petal_width_cm": 0,
+    "total_outlier_count": 3
+  },
+  "key_aliases": {
+    "total_outlier_count": [
+      "total outlier count",
+      "total IQR outliers"
+    ]
+  },
+  "required_keywords": [
+    "outlier",
+    "IQR",
+    "1.5"
+  ],
+  "original_task_id": "DS_TASK_153",
+  "repair_reason": "GT repaired by deterministic recomputation from data/dataset.csv",
+  "dataset_sha256": "14dfb6d954da22ba4a30eff105b484fe1c66399131637056fa56ca249cd2d7aa",
+  "verifier": "build_curated_easy_v1.py:curated_easy_v1",
+  "computed_at": "2026-05-20T08:15:44+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers",
+  "formula": "per-column 1.5*IQR outlier count on numeric iris measurements"
+}

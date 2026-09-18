@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_015",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Hard",
+    "tags": ["VaR", "value-at-risk", "historical-simulation", "risk-management", "portfolio"],
+    "contamination_risk": "low",
+    "canary_value": 38.9247
+  },
+  "context": {
+    "problem_statement": "Compute the 1-day Value at Risk (VaR) at 95% and 99% confidence levels for a portfolio using historical simulation. The portfolio consists of three assets with weights [0.5, 0.3, 0.2] for Asset_A, Asset_B, and Asset_C respectively. Steps: (1) compute daily portfolio returns as the weighted sum of individual asset returns, (2) sort returns in ascending order, (3) VaR at 95% = negative of the 5th percentile of returns, (4) also compute Conditional VaR (CVaR/Expected Shortfall) as the mean of returns below the VaR threshold. Report VaR and CVaR as percentage of portfolio value and in dollar terms assuming $1,000,000 portfolio.",
+    "dataset_preview": "data/portfolio_returns_preview.csv",
+    "expert_knowledge": "Historical simulation VaR is non-parametric and captures fat tails. VaR at 95% = -percentile(returns, 5). CVaR (Expected Shortfall) = -mean(returns[returns < -VaR]). Dollar VaR = VaR_pct * portfolio_value. CVaR is a coherent risk measure while VaR is not (fails sub-additivity). Regulatory capital under Basel III uses 99% 10-day VaR."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

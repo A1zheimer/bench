@@ -1,0 +1,23 @@
+{
+  "instance_id": "DS_TASK_023",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Easy",
+    "tags": ["funnel-analysis", "conversion", "drop-off", "user-journey", "ecommerce"],
+    "contamination_risk": "low",
+    "canary_value": 73.8156
+  },
+  "context": {
+    "problem_statement": "Analyze a 5-stage e-commerce conversion funnel: Home -> Product Page -> Add to Cart -> Checkout -> Purchase. For the provided user session data, compute: (1) unique users at each funnel stage, (2) stage-to-stage conversion rates (e.g., Home to Product Page), (3) cumulative conversion rate from Home to each stage, (4) drop-off rate at each stage (1 - conversion rate), (5) identify the biggest drop-off stage. Also compute conversion rates broken down by device type (mobile vs desktop).",
+    "dataset_preview": "data/funnel_preview.csv",
+    "expert_preview": "data/funnel_preview.csv",
+    "expert_knowledge": "Funnel analysis is key for identifying UX bottlenecks. Stage conversion rate = users_at_stage_n / users_at_stage_(n-1). Overall conversion = users_at_purchase / users_at_home. Mobile typically shows lower conversion rates due to UX friction. Drop-off analysis guides CRO (Conversion Rate Optimization) investments. Use pandas groupby for device-specific analysis."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

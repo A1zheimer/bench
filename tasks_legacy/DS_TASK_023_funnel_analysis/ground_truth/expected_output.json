@@ -1,0 +1,25 @@
+{
+  "execution_result": "Overall funnel conversion 35% (7/20). Biggest drop-off at Product Page to Add to Cart stage (46.7%). Mobile conversion 10% vs desktop 60%.",
+  "key_values": {
+    "users_home": 20,
+    "users_product_page": 16,
+    "users_add_to_cart": 13,
+    "users_checkout": 9,
+    "users_purchase": 7,
+    "home_to_product_rate": 0.80,
+    "product_to_cart_rate": 0.813,
+    "cart_to_checkout_rate": 0.692,
+    "checkout_to_purchase_rate": 0.778,
+    "overall_conversion": 0.35,
+    "biggest_dropoff_stage": "checkout_to_purchase",
+    "mobile_conversion": 0.10,
+    "desktop_conversion": 0.60
+  },
+  "required_keywords": ["funnel", "conversion rate", "drop-off", "mobile", "desktop", "stage"],
+  "partial_credit_rubric": {
+    "stage_counts": {"weight": 0.25, "description": "Unique users at each funnel stage correctly counted"},
+    "stage_conversion_rates": {"weight": 0.30, "description": "Stage-to-stage conversion rates correctly computed"},
+    "biggest_dropoff": {"weight": 0.20, "description": "Biggest drop-off stage correctly identified"},
+    "device_breakdown": {"weight": 0.25, "description": "Funnel conversion rates correctly computed by device type"}
+  }
+}

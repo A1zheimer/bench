@@ -1,0 +1,8 @@
+{
+  "execution_result": "The t-test for differential gene expression between genders on 'gene_expression_s1_noisy' yielded a p-value of 0.0036. After applying FDR correction, the adjusted p-value is 0.0036.",
+  "key_values": {
+    "original_p_value": 0.09677,
+    "corrected_p_value": 0.09677
+  },
+  "required_keywords": []
+}

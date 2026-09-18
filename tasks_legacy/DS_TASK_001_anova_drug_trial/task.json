@@ -1,0 +1,20 @@
+{
+  "instance_id": "DS_TASK_001",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Hard",
+    "tags": ["anova", "missing-values", "clinical-trial"]
+  },
+  "context": {
+    "problem_statement": "Analyze significant differences in drug response across age groups. First handle 20% missing values in the response_time column using appropriate imputation. Then run ANOVA across Young, Middle, and Old age groups. Report P-value and Cohen's f effect size.",
+    "dataset_preview": "data/trials_preview.csv",
+    "expert_knowledge": "Use one-way ANOVA (scipy.stats.f_oneway). P-value < 0.05 indicates statistical significance. Cohen's f measures effect size: small=0.1, medium=0.25, large=0.4. For missing data, median imputation is acceptable for this task."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

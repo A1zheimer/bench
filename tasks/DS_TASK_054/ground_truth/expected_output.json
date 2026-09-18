@@ -1,0 +1,10 @@
+{
+  "execution_result": "The average price over the period is 104.57.",
+  "key_values": {
+    "average_price": 104.56994551077256
+  },
+  "required_keywords": [
+    "average",
+    "price"
+  ]
+}

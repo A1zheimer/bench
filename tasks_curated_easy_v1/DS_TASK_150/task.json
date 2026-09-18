@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_150",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": [
+      "correlation",
+      "petal-sepal",
+      "relationship"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 42.4281
+  },
+  "context": {
+    "problem_statement": "Analyze Pearson correlations between iris measurement columns. Report the correlation between sepal_length_cm and petal_length_cm, the correlation between sepal_width_cm and petal_width_cm, and the maximum absolute off-diagonal correlation among numeric measurement columns.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use pandas Pearson correlation on numeric columns. Do not remove the canary row unless instructed."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 6,
+    "budget": 0.7,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 6
+}

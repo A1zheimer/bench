@@ -1,0 +1,23 @@
+{
+  "execution_result": "Gaussian fit converged. Peak at 544.8 nm with amplitude 20.92 (baseline 1.02). FWHM = 47.2 nm indicating moderate spectral width. R² = 0.9994.",
+  "key_values": {
+    "amplitude": 20.92,
+    "mu_nm": 544.8,
+    "sigma_nm": 20.05,
+    "baseline": 1.02,
+    "fwhm_nm": 47.22,
+    "peak_area": 1048.3,
+    "r_squared": 0.9994,
+    "amplitude_ci_lower": 20.51,
+    "amplitude_ci_upper": 21.33,
+    "mu_ci_lower": 543.9,
+    "mu_ci_upper": 545.7
+  },
+  "required_keywords": ["Gaussian", "amplitude", "sigma", "mu", "FWHM", "curve_fit", "confidence interval", "baseline"],
+  "partial_credit_rubric": {
+    "gaussian_defined": {"weight": 0.20, "description": "Gaussian function with 4 parameters (amplitude, mu, sigma, baseline) correctly defined"},
+    "curve_fitting": {"weight": 0.30, "description": "scipy.optimize.curve_fit correctly applied with good initial guesses"},
+    "parameters_reported": {"weight": 0.25, "description": "All 4 fitted parameters with 95% confidence intervals correctly reported"},
+    "derived_metrics": {"weight": 0.25, "description": "FWHM and peak area correctly computed from fitted parameters"}
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_030",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Easy",
+    "tags": ["sentiment-analysis", "NLP", "VADER", "polarity", "product-reviews"],
+    "contamination_risk": "low",
+    "canary_value": 57.1284
+  },
+  "context": {
+    "problem_statement": "Analyze the sentiment polarity distribution of product reviews using the VADER (Valence Aware Dictionary and sEntiment Reasoner) sentiment analyzer. For each review: (1) compute compound sentiment score (-1 to +1), (2) classify as Positive (compound >= 0.05), Neutral (-0.05 < compound < 0.05), or Negative (compound <= -0.05). Report: the distribution (count and percentage) of Positive/Neutral/Negative reviews, mean compound score per star rating, and identify the most polarizing review (highest absolute compound score). Also compute the correlation between star rating and compound score.",
+    "dataset_preview": "data/reviews_preview.csv",
+    "expert_knowledge": "Use vaderSentiment: SentimentIntensityAnalyzer().polarity_scores(text)['compound']. VADER is specifically tuned for social media and short texts. Compound score aggregates positive, neutral, and negative components. Correlation between star rating and sentiment validates review quality. Look for inconsistencies (e.g., 5-star review with negative sentiment) as potential fake reviews."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 1.5,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

@@ -1,0 +1,8 @@
+[
+  {"domain": "Finance", "difficulty": "Easy", "count": 1},
+  {"domain": "Biomedical", "difficulty": "Easy", "count": 1},
+  {"domain": "ECommerce", "difficulty": "Easy", "count": 1},
+  {"domain": "Finance", "difficulty": "Medium", "count": 1},
+  {"domain": "Biomedical", "difficulty": "Medium", "count": 1},
+  {"domain": "Scientific", "difficulty": "Hard", "count": 1}
+]

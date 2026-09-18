@@ -1,0 +1,22 @@
+{
+  "execution_result": "Optimal k=3 clusters identified via elbow method with silhouette score 0.621. Clusters: High-Value Frequent (5 customers, avg $304 AOV), Mid-Tier Active (6 customers, avg $198 AOV), Low-Value Inactive (9 customers, avg $38 AOV).",
+  "key_values": {
+    "optimal_k": 3,
+    "silhouette_score_k3": 0.621,
+    "inertia_k2": 8.34,
+    "inertia_k3": 3.21,
+    "inertia_k4": 2.89,
+    "cluster_0_size": 5,
+    "cluster_1_size": 6,
+    "cluster_2_size": 9,
+    "cluster_0_avg_aov": 304.0,
+    "cluster_2_avg_aov": 38.0
+  },
+  "required_keywords": ["K-means", "elbow method", "silhouette", "cluster", "inertia", "StandardScaler"],
+  "partial_credit_rubric": {
+    "standardization": {"weight": 0.15, "description": "Features correctly standardized before clustering"},
+    "elbow_method": {"weight": 0.25, "description": "Inertia computed for k=2 to 8 and elbow correctly identified"},
+    "silhouette_scores": {"weight": 0.25, "description": "Silhouette scores computed for each k value"},
+    "cluster_interpretation": {"weight": 0.35, "description": "Cluster centers inverse-transformed and business interpretation provided"}
+  }
+}

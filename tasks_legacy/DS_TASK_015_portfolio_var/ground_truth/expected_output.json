@@ -1,0 +1,22 @@
+{
+  "execution_result": "Portfolio 1-day VaR at 95% is 2.84% ($28,400 on $1M portfolio). CVaR at 95% is 3.76% ($37,600), reflecting tail risk beyond VaR.",
+  "key_values": {
+    "portfolio_weights": [0.5, 0.3, 0.2],
+    "var_95_pct": 0.0284,
+    "var_99_pct": 0.0412,
+    "cvar_95_pct": 0.0376,
+    "cvar_99_pct": 0.0452,
+    "var_95_dollar": 28400,
+    "var_99_dollar": 41200,
+    "mean_portfolio_return": 0.00142,
+    "portfolio_volatility": 0.01823
+  },
+  "required_keywords": ["VaR", "CVaR", "historical simulation", "95%", "99%", "Expected Shortfall", "percentile"],
+  "partial_credit_rubric": {
+    "portfolio_returns_computed": {"weight": 0.25, "description": "Weighted portfolio returns correctly computed from individual asset returns"},
+    "var_95_computed": {"weight": 0.25, "description": "VaR at 95% confidence correctly computed as 5th percentile"},
+    "var_99_computed": {"weight": 0.15, "description": "VaR at 99% confidence correctly computed as 1st percentile"},
+    "cvar_computed": {"weight": 0.25, "description": "CVaR (Expected Shortfall) correctly computed as mean of tail losses"},
+    "dollar_values": {"weight": 0.10, "description": "VaR converted to dollar amounts based on $1M portfolio"}
+  }
+}

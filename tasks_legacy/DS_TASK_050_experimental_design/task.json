@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_050",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Hard",
+    "tags": ["ANOVA", "factorial-design", "interaction-effects", "two-way-ANOVA", "experimental-design"],
+    "contamination_risk": "low",
+    "canary_value": 44.8716
+  },
+  "context": {
+    "problem_statement": "Analyze a 2x2 factorial experiment measuring the effect of temperature (Low/High) and pressure (Low/High) on material yield. Perform two-way ANOVA to test: (1) main effect of temperature (F-stat and p-value), (2) main effect of pressure (F-stat and p-value), (3) interaction effect of temperature x pressure (F-stat and p-value), (4) compute eta-squared (effect size) for each effect = SS_effect / SS_total, (5) if interaction is significant, perform simple effects analysis: test temperature effect separately at each pressure level. Report the ANOVA table with SS, df, MS, F, and p-value for each effect.",
+    "dataset_preview": "data/factorial_experiment_preview.csv",
+    "expert_knowledge": "Two-way ANOVA using statsmodels: ols('yield ~ C(temperature) * C(pressure)', data=df).fit() then anova_lm(model, typ=2). Type II SS is recommended for balanced designs. Eta-squared = SS_effect / SS_total. Significant interaction means main effects must be interpreted with caution. Simple effects: subset data by one factor and run one-way ANOVA on the other. Assumption checks: Levene's test for homogeneity, Shapiro-Wilk for normality of residuals."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

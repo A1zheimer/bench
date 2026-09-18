@@ -1,0 +1,46 @@
+{
+  "instance_id": "DS_TASK_900032",
+  "task_metadata": {
+    "domain": "Scientific",
+    "difficulty": "Easy",
+    "tags": [
+      "correlation_pair",
+      "scientific",
+      "redteam",
+      "distractor_columns"
+    ],
+    "primary_task_type": "statistical_inference",
+    "secondary_task_types": [
+      "descriptive_aggregation"
+    ],
+    "challenge_dimensions": [
+      "statistical_method_selection",
+      "distractor_columns"
+    ],
+    "generation_quality": "verified",
+    "redteam": {
+      "is_redteam": true,
+      "base_task_id": "DS_TASK_000005",
+      "attack_type": "distractor_columns",
+      "attack_level": "L1",
+      "gt_policy": "invariant",
+      "perturbation_seed": 20260521,
+      "expected_invariant": "same_key_values"
+    }
+  },
+  "context": {
+    "problem_statement": "Using `data/dataset.csv`, compute the pearson correlation between `sepal_length` and `petal_length`. Return the value as `pearson_corr_sepal_petal_length`. The dataset may include unrelated distractor columns; ignore columns not required by the task.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Use all rows unless the prompt explicitly defines a filter."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 8,
+    "budget": 1.0,
+    "timeout_seconds": 120,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 8
+}

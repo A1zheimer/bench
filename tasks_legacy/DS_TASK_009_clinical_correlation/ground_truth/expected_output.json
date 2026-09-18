@@ -1,0 +1,18 @@
+{
+  "execution_result": "CRP and IL6 show the highest Pearson correlation (0.998). Albumin has strong negative correlations with all inflammatory markers. No substantial Pearson-Spearman disagreements detected.",
+  "key_values": {
+    "crp_il6_pearson": 0.998,
+    "crp_il6_spearman": 0.997,
+    "crp_albumin_pearson": -0.972,
+    "il6_tnf_pearson": 0.999,
+    "highest_pearson_pair": "IL6_TNF_alpha",
+    "max_pearson_spearman_disagreement": 0.04
+  },
+  "required_keywords": ["Pearson", "Spearman", "CRP", "IL6", "albumin", "correlation matrix"],
+  "partial_credit_rubric": {
+    "pearson_computed": {"weight": 0.3, "description": "Pearson correlations correctly computed for all pairs"},
+    "spearman_computed": {"weight": 0.3, "description": "Spearman correlations correctly computed for all pairs"},
+    "highest_correlation_identified": {"weight": 0.2, "description": "Pair with highest absolute correlation correctly identified"},
+    "disagreement_analysis": {"weight": 0.2, "description": "Pairs with substantial Pearson-Spearman disagreement correctly identified"}
+  }
+}

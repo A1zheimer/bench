@@ -1,0 +1,21 @@
+{
+  "execution_result": "Multiple linear regression with R²=0.847. Cement, age_days, and superplasticizer are significant predictors (p<0.05). Residuals approximately normal (Shapiro-Wilk p=0.312). No significant autocorrelation (DW=1.84).",
+  "key_values": {
+    "r_squared": 0.847,
+    "adjusted_r_squared": 0.771,
+    "cement_coefficient": 0.1124,
+    "age_days_coefficient": 0.1389,
+    "water_coefficient": -0.0823,
+    "significant_predictors_count": 3,
+    "durbin_watson": 1.84,
+    "shapiro_wilk_p": 0.312,
+    "rmse": 5.82
+  },
+  "required_keywords": ["R-squared", "OLS", "coefficient", "p-value", "residuals", "Durbin-Watson", "Shapiro-Wilk"],
+  "partial_credit_rubric": {
+    "ols_fitted": {"weight": 0.25, "description": "OLS regression correctly fitted with all predictors and intercept"},
+    "model_metrics": {"weight": 0.25, "description": "R-squared, adjusted R-squared correctly reported"},
+    "coefficient_table": {"weight": 0.25, "description": "Coefficients with standard errors, t-stats, p-values correctly reported"},
+    "residual_diagnostics": {"weight": 0.25, "description": "Durbin-Watson and Shapiro-Wilk tests correctly run and interpreted"}
+  }
+}

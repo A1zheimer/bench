@@ -1,0 +1,12 @@
+{
+  "execution_result": "Calculated total spending per category from the dataset.",
+  "key_values": {
+    "Electronics": 9416.26,
+    "Entertainment": 8697.08,
+    "Food": 28693.92,
+    "Healthcare": 6097.04,
+    "Travel": 14337.53,
+    "Utilities": 19252.73
+  },
+  "required_keywords": []
+}

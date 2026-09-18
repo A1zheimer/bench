@@ -1,0 +1,23 @@
+{
+  "execution_result": "Verified by correlation_pair_v1: pearson_corr(marketing_spend, revenue)",
+  "key_values": {
+    "pearson_corr_marketing_revenue": 0.9584786101814773
+  },
+  "key_aliases": {
+    "pearson_corr_marketing_revenue": [
+      "pearson corr marketing revenue",
+      "correlation marketing_spend revenue"
+    ]
+  },
+  "required_keywords": [
+    "pearson",
+    "correlation"
+  ],
+  "formula": "pearson_corr(marketing_spend, revenue)",
+  "verifier_id": "correlation_pair_v1",
+  "verifier_version": "1.0",
+  "dataset_sha256": "c862926450fe883e6aba7b88b34b6626664e3eb548175891cac989b6d67121ef",
+  "computed_at": "2026-05-21T03:54:20.780540+00:00",
+  "verified": true,
+  "include_canary_policy": "include_all_rows_unless_prompt_excludes_outliers"
+}

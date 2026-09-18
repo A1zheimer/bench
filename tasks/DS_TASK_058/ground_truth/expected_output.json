@@ -1,0 +1,14 @@
+{
+  "execution_result": "The forecasted values for the next 3 months are approximately 112.3, 113.5, and 114.7. The RMSE of the model on training data is 4.52.",
+  "key_values": {
+    "forecast_month_1": 112.3,
+    "forecast_month_2": 113.5,
+    "forecast_month_3": 114.7,
+    "rmse": 4.52
+  },
+  "required_keywords": [
+    "forecast",
+    "RMSE",
+    "heteroskedasticity"
+  ]
+}

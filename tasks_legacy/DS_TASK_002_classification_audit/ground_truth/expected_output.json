@@ -1,0 +1,9 @@
+{
+  "execution_result": "Male approval rate: 0.720, Female approval rate: 0.580, Disparate impact ratio: 0.806, Four-fifths rule: OK",
+  "key_values": {
+    "disparate_impact_ratio": 0.8,
+    "male_approval_rate": 0.72,
+    "female_approval_rate": 0.58
+  },
+  "required_keywords": ["approval rate", "Disparate impact", "Four-fifths"]
+}

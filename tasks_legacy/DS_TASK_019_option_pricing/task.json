@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_019",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Hard",
+    "tags": ["black-scholes", "option-pricing", "greeks", "derivatives", "quantitative-finance"],
+    "contamination_risk": "low",
+    "canary_value": 52.7836
+  },
+  "context": {
+    "problem_statement": "Implement the Black-Scholes option pricing model to price European call and put options. For the given set of options (varying strike prices and maturities), compute: (1) call price and put price using the Black-Scholes formula, (2) all five Greeks: Delta, Gamma, Theta (per day), Vega (per 1% vol change), Rho (per 1% rate change), (3) verify put-call parity: C - P = S*exp(-q*T) - K*exp(-r*T). Spot price S=100, risk-free rate r=0.05, dividend yield q=0.02, implied volatility sigma=0.20.",
+    "dataset_preview": "data/options_preview.csv",
+    "expert_knowledge": "Black-Scholes: d1 = (ln(S/K) + (r - q + sigma^2/2)*T) / (sigma*sqrt(T)), d2 = d1 - sigma*sqrt(T). Call = S*exp(-q*T)*N(d1) - K*exp(-r*T)*N(d2). Put = K*exp(-r*T)*N(-d2) - S*exp(-q*T)*N(-d1). Delta_call = exp(-q*T)*N(d1). Gamma = exp(-q*T)*n(d1)/(S*sigma*sqrt(T)). Use scipy.stats.norm for N() and n()."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

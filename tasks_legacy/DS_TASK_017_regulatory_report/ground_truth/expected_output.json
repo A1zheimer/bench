@@ -1,0 +1,21 @@
+{
+  "execution_result": "Portfolio total value $2,100,000. Fixed Income largest at 45.7%. No single asset exceeds 10% concentration threshold. HHI of 0.089 indicates well-diversified portfolio.",
+  "key_values": {
+    "total_portfolio_value": 2100000,
+    "equity_pct": 0.271,
+    "fixed_income_pct": 0.457,
+    "derivatives_pct": 0.129,
+    "cash_pct": 0.143,
+    "hhi": 0.089,
+    "weighted_avg_rating_score": 2.43,
+    "concentration_flag_count": 0,
+    "tier1_liquid_pct": 0.538
+  },
+  "required_keywords": ["HHI", "concentration", "credit rating", "liquidity tier", "asset class", "regulatory"],
+  "partial_credit_rubric": {
+    "asset_class_aggregation": {"weight": 0.25, "description": "Total exposure and percentage correctly computed per asset class"},
+    "weighted_rating": {"weight": 0.25, "description": "Weighted average credit rating score correctly computed"},
+    "concentration_check": {"weight": 0.25, "description": "Concentration risk flags correctly identified for assets > 10%"},
+    "hhi_computed": {"weight": 0.25, "description": "Herfindahl-Hirschman Index correctly computed for portfolio"}
+  }
+}

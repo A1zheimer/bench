@@ -1,0 +1,31 @@
+{
+  "instance_id": "DS_TASK_057",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Medium",
+    "tags": [
+      "Fraud Detection",
+      "Cost-Sensitive Learning",
+      "Anomaly Scoring"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 73.9974
+  },
+  "context": {
+    "problem_statement": "Detect potential fraudulent transactions using anomaly scoring and evaluate the model performance using cost-sensitive learning. The task involves cleaning the dataset, handling missing values, and applying an anomaly detection model. You need to compute anomaly scores for each transaction and evaluate using a cost-sensitive metric that penalizes false negatives more heavily. Provide a summary of the number of detected anomalies and the cost-sensitive evaluation metric.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Financial fraud detection often involves identifying unusual patterns in transactions. Cost-sensitive learning is crucial as false negatives (missed frauds) can be more costly than false positives. Anomaly scoring helps in identifying transactions that deviate significantly from the norm, indicating potential fraud."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}

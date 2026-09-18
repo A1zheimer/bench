@@ -1,0 +1,22 @@
+{
+  "execution_result": "Window functions correctly compute salary rankings, percentiles, running totals, quartiles, and salary gaps within departments. Engineering dept has tied salaries at $125K (Alice and Carol) demonstrating RANK vs DENSE_RANK difference.",
+  "key_values": {
+    "alice_rank": 2,
+    "alice_dense_rank": 2,
+    "carol_rank": 2,
+    "carol_dense_rank": 2,
+    "david_rank": 1,
+    "alice_pct_rank": 0.6667,
+    "engineering_running_total_final": 493000,
+    "alice_salary_gap_from_top": 20000,
+    "finance_q1_threshold": 110000
+  },
+  "required_keywords": ["RANK", "DENSE_RANK", "PERCENT_RANK", "NTILE", "FIRST_VALUE", "PARTITION BY", "window function"],
+  "partial_credit_rubric": {
+    "rank_dense_rank": {"weight": 0.25, "description": "RANK() and DENSE_RANK() correctly computed showing tie handling difference"},
+    "percent_rank": {"weight": 0.20, "description": "PERCENT_RANK() correctly computed within each department"},
+    "running_total": {"weight": 0.25, "description": "Running salary total correctly computed using SUM() OVER with ORDER BY"},
+    "ntile_quartiles": {"weight": 0.15, "description": "NTILE(4) correctly assigns salary quartiles within departments"},
+    "first_value_gap": {"weight": 0.15, "description": "Salary gap from department top earner computed using FIRST_VALUE()"}
+  }
+}

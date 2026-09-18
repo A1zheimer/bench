@@ -1,0 +1,257 @@
+{
+  "row_count": 180,
+  "column_count": 20,
+  "columns": {
+    "col_001": {
+      "dtype": "object",
+      "semantic_type": "categorical",
+      "missing_count": 0,
+      "unique_count": 6,
+      "examples": [
+        "Books",
+        "Sports",
+        "Sports"
+      ]
+    },
+    "col_002": {
+      "dtype": "object",
+      "semantic_type": "categorical",
+      "missing_count": 0,
+      "unique_count": 4,
+      "examples": [
+        "North",
+        "South",
+        "West"
+      ]
+    },
+    "col_003": {
+      "dtype": "object",
+      "semantic_type": "categorical",
+      "missing_count": 0,
+      "unique_count": 3,
+      "examples": [
+        "Retail",
+        "Retail",
+        "Retail"
+      ]
+    },
+    "col_004": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 178,
+      "examples": [
+        "28.28",
+        "71.77",
+        "64.41"
+      ]
+    },
+    "col_005": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 180,
+      "examples": [
+        "37.01",
+        "91.11",
+        "70.9"
+      ]
+    },
+    "col_006": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 174,
+      "examples": [
+        "0.1159",
+        "0.0702",
+        "0.1099"
+      ]
+    },
+    "col_007": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 180,
+      "examples": [
+        "188.76",
+        "201.32",
+        "178.93"
+      ]
+    },
+    "col_008": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 180,
+      "examples": [
+        "609.5",
+        "574.32",
+        "529.36"
+      ]
+    },
+    "col_009": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 176,
+      "examples": [
+        "13.415",
+        "10.617",
+        "5.02"
+      ]
+    },
+    "col_010": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 176,
+      "examples": [
+        "0.2166",
+        "0.3107",
+        "0.1321"
+      ]
+    },
+    "col_011": {
+      "dtype": "int64",
+      "semantic_type": "binary",
+      "missing_count": 0,
+      "unique_count": 2,
+      "examples": [
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    "col_012": {
+      "dtype": "int64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 60,
+      "examples": [
+        "63",
+        "27",
+        "56"
+      ]
+    },
+    "col_013": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 11,
+      "examples": [
+        "4.0",
+        "7.0",
+        "5.0"
+      ]
+    },
+    "col_014": {
+      "dtype": "int64",
+      "semantic_type": "binary",
+      "missing_count": 0,
+      "unique_count": 2,
+      "examples": [
+        "1",
+        "0",
+        "1"
+      ]
+    },
+    "col_015": {
+      "dtype": "int64",
+      "semantic_type": "binary",
+      "missing_count": 0,
+      "unique_count": 2,
+      "examples": [
+        "0",
+        "0",
+        "1"
+      ]
+    },
+    "col_016": {
+      "dtype": "int64",
+      "semantic_type": "binary",
+      "missing_count": 0,
+      "unique_count": 2,
+      "examples": [
+        "1",
+        "1",
+        "0"
+      ]
+    },
+    "col_017": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 175,
+      "examples": [
+        "5.385",
+        "6.718",
+        "5.068"
+      ]
+    },
+    "col_018": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 167,
+      "examples": [
+        "2.892",
+        "3.001",
+        "3.043"
+      ]
+    },
+    "col_019": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 177,
+      "examples": [
+        "4.106",
+        "5.954",
+        "3.781"
+      ]
+    },
+    "col_020": {
+      "dtype": "float64",
+      "semantic_type": "numeric",
+      "missing_count": 0,
+      "unique_count": 174,
+      "examples": [
+        "1.537",
+        "2.538",
+        "1.623"
+      ]
+    }
+  },
+  "numeric_columns": [
+    "col_004",
+    "col_005",
+    "col_006",
+    "col_007",
+    "col_008",
+    "col_009",
+    "col_010",
+    "col_012",
+    "col_013",
+    "col_017",
+    "col_018",
+    "col_019",
+    "col_020"
+  ],
+  "categorical_columns": [
+    "col_001",
+    "col_002",
+    "col_003"
+  ],
+  "binary_columns": [
+    "col_011",
+    "col_014",
+    "col_015",
+    "col_016"
+  ],
+  "builder_id": "redteam_schema_obfuscation_v1",
+  "base_task_id": "DS_TASK_000009",
+  "attack_type": "schema_obfuscation",
+  "perturbation_seed": 20260521,
+  "dataset_sha256": "c998386ce4cb849643c793df3fc9a28a1c63de3e9a67c7426c70570ae297e5e4"
+}

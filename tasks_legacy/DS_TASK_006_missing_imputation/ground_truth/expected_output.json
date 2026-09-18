@@ -1,0 +1,19 @@
+{
+  "execution_result": "KNN imputation achieves lowest RMSE compared to mean and median imputation for both cholesterol and glucose columns.",
+  "key_values": {
+    "mean_imputation_rmse_cholesterol": 18.7,
+    "median_imputation_rmse_cholesterol": 17.2,
+    "knn_imputation_rmse_cholesterol": 9.4,
+    "mean_imputation_rmse_glucose": 8.3,
+    "median_imputation_rmse_glucose": 7.9,
+    "knn_imputation_rmse_glucose": 4.1,
+    "missing_rate": 0.25
+  },
+  "required_keywords": ["mean imputation", "median imputation", "KNN", "RMSE", "cholesterol", "glucose"],
+  "partial_credit_rubric": {
+    "missing_rate_computed": {"weight": 0.15, "description": "Correctly identifies and reports missing value rate"},
+    "three_strategies_applied": {"weight": 0.35, "description": "All three imputation strategies correctly implemented"},
+    "rmse_comparison": {"weight": 0.35, "description": "RMSE computed and compared across strategies using held-out subset"},
+    "best_strategy_identified": {"weight": 0.15, "description": "Correct conclusion that KNN outperforms simple strategies"}
+  }
+}

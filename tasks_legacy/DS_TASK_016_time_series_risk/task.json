@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_016",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Medium",
+    "tags": ["sharpe-ratio", "maximum-drawdown", "rolling-window", "risk-metrics", "time-series"],
+    "contamination_risk": "low",
+    "canary_value": 64.1583
+  },
+  "context": {
+    "problem_statement": "Compute rolling risk metrics for a stock portfolio time series. Using a 10-day rolling window: (1) compute rolling annualized Sharpe ratio (assume risk-free rate = 2% annual = 0.02/252 daily), (2) compute rolling maximum drawdown. Also report the overall maximum drawdown for the full series, the annualized Sharpe ratio for the full period, and identify the date of the maximum drawdown trough.",
+    "dataset_preview": "data/portfolio_prices_preview.csv",
+    "expert_knowledge": "Rolling Sharpe = (mean(returns) - rf_daily) / std(returns) * sqrt(252). Maximum drawdown = max((peak - trough) / peak) over the window. Annualized Sharpe > 1.0 is generally considered good. Max drawdown > 20% is considered high risk. Use cummax() to track rolling peaks for drawdown calculation. Drawdown = (price - cummax(price)) / cummax(price)."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 12,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

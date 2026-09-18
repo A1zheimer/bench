@@ -1,0 +1,22 @@
+{
+  "execution_result": "Savitzky-Golay improves SNR from 14.2 dB to 28.7 dB (14.5 dB improvement). Moving average achieves 26.1 dB (11.9 dB improvement). SG filter superior due to better peak shape preservation.",
+  "key_values": {
+    "snr_before_db": 14.2,
+    "snr_sg_filter_db": 28.7,
+    "snr_moving_avg_db": 26.1,
+    "sg_snr_improvement_db": 14.5,
+    "ma_snr_improvement_db": 11.9,
+    "sg_rmse": 0.312,
+    "ma_rmse": 0.498,
+    "sg_window": 11,
+    "sg_polyorder": 3,
+    "better_filter": "Savitzky-Golay"
+  },
+  "required_keywords": ["Savitzky-Golay", "SNR", "dB", "moving average", "noise", "filter", "polyorder"],
+  "partial_credit_rubric": {
+    "sg_filter_applied": {"weight": 0.25, "description": "Savitzky-Golay filter correctly applied with specified parameters"},
+    "snr_computed": {"weight": 0.35, "description": "SNR correctly computed in dB before and after filtering"},
+    "ma_comparison": {"weight": 0.25, "description": "Moving average applied and compared to Savitzky-Golay"},
+    "interpretation": {"weight": 0.15, "description": "Correct explanation of why SG filter outperforms MA for sinusoidal signals"}
+  }
+}

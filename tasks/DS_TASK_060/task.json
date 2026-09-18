@@ -1,0 +1,28 @@
+{
+  "instance_id": "DS_TASK_060",
+  "task_metadata": {
+    "domain": "Biomedical",
+    "difficulty": "Easy",
+    "tags": [
+      "feature-engineering",
+      "hospital-readmission"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 43.5418
+  },
+  "context": {
+    "problem_statement": "Given the dataset containing hospital patient information, compute the average length of stay for patients who were readmitted versus those who were not. Use this information to determine how the length of stay correlates with readmission status. Ensure to handle any anomalous values appropriately.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Hospital readmission prediction often involves analyzing patient demographics, health status, and treatment history to identify factors influencing readmission rates. Feature engineering can include calculating averages, proportions, and categorizing variables to enhance predictive models."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 0.8,
+    "timeout_seconds": 90,
+    "allowed_tools": [
+      "python_repl"
+    ]
+  },
+  "max_steps": 10
+}

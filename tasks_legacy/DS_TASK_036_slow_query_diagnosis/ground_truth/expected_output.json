@@ -1,0 +1,21 @@
+{
+  "execution_result": "Bottleneck identified: Seq Scan on orders_large (5M rows) filtering to 312K rows. Missing composite index on (status, order_date) causes 45.8s execution. Proposed index reduces to ~320ms (143x speedup).",
+  "key_values": {
+    "bottleneck_operation": "Seq Scan on orders_large",
+    "rows_scanned": 5000000,
+    "rows_returned": 312450,
+    "filter_selectivity": 0.0625,
+    "execution_time_ms": 45821,
+    "estimated_speedup_factor": 143,
+    "estimated_time_after_index_ms": 320,
+    "missing_index_columns": ["status", "order_date"],
+    "index_type_recommended": "B-tree composite"
+  },
+  "required_keywords": ["Seq Scan", "missing index", "CREATE INDEX", "composite index", "speedup", "EXPLAIN ANALYZE", "filter selectivity"],
+  "partial_credit_rubric": {
+    "bottleneck_identified": {"weight": 0.25, "description": "Seq Scan on orders_large correctly identified as performance bottleneck"},
+    "missing_index": {"weight": 0.30, "description": "Missing index on status and order_date columns correctly identified"},
+    "index_proposed": {"weight": 0.25, "description": "Correct CREATE INDEX statement proposed with appropriate column order"},
+    "speedup_estimated": {"weight": 0.20, "description": "Estimated speedup calculated based on index scan vs sequential scan cost"}
+  }
+}

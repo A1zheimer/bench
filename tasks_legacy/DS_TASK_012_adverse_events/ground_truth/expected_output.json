@@ -1,0 +1,22 @@
+{
+  "execution_result": "Nausea and fatigue show significantly higher rates in the Drug group after Bonferroni correction. Dizziness borderline significant. Rash shows trend but not significant.",
+  "key_values": {
+    "nausea_rate_drug": 0.7,
+    "nausea_rate_placebo": 0.2,
+    "nausea_chi2": 4.44,
+    "nausea_pvalue": 0.035,
+    "fatigue_rate_drug": 0.8,
+    "fatigue_rate_placebo": 0.4,
+    "fatigue_chi2": 3.33,
+    "fatigue_pvalue": 0.068,
+    "bonferroni_alpha": 0.01,
+    "significant_after_correction": 1
+  },
+  "required_keywords": ["chi-square", "Bonferroni", "adverse event", "Drug", "Placebo", "p-value"],
+  "partial_credit_rubric": {
+    "contingency_tables": {"weight": 0.25, "description": "2x2 contingency tables correctly constructed for each adverse event"},
+    "chi_square_tests": {"weight": 0.3, "description": "Chi-square tests correctly applied to all five adverse events"},
+    "bonferroni_correction": {"weight": 0.25, "description": "Bonferroni correction correctly applied with adjusted alpha = 0.01"},
+    "risk_ratios_reported": {"weight": 0.2, "description": "Event rates and risk ratios reported for Drug vs Placebo groups"}
+  }
+}

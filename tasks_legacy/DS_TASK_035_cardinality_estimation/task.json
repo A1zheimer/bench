@@ -1,0 +1,22 @@
+{
+  "instance_id": "DS_TASK_035",
+  "task_metadata": {
+    "domain": "SQL",
+    "difficulty": "Hard",
+    "tags": ["cardinality", "HyperLogLog", "COUNT-DISTINCT", "sampling", "query-optimization"],
+    "contamination_risk": "low",
+    "canary_value": 91.6374
+  },
+  "context": {
+    "problem_statement": "Estimate the cardinality (distinct count) of a high-cardinality column (user_session_id) in a large events table using approximate methods. Implement: (1) exact COUNT(DISTINCT) as ground truth, (2) HyperLogLog approximation using the Flajolet-Martin sketch (implement in Python as SQL is running on SQLite which lacks native HLL), (3) sampling-based estimation: estimate distinct count from a 10% random sample then scale up, (4) report relative error of each approximation. Also run EXPLAIN ANALYZE on the exact COUNT(DISTINCT) query and identify the query plan bottleneck.",
+    "dataset_preview": "data/schema_cardinality.sql",
+    "expert_knowledge": "HyperLogLog error rate is approximately 1.04/sqrt(m) where m is the number of registers. PostgreSQL has pg_hll extension. Sampling estimate: distinct_in_sample * (1/sample_rate) overcounts; use capture-recapture correction. COUNT(DISTINCT) requires full table scan; for very large tables, approximate methods crucial. Alternative: ndistinct statistic in pg_stats after ANALYZE."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 15,
+    "budget": 2.0,
+    "timeout_seconds": 300,
+    "allowed_tools": ["python_repl", "file_read", "web_search"]
+  }
+}

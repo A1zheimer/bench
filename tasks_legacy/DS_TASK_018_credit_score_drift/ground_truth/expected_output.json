@@ -1,0 +1,21 @@
+{
+  "execution_result": "Significant credit score distribution shift detected. 2024 cohort mean 100+ points lower than 2022. KS test p < 0.001, PSI = 0.43 indicating severe drift requiring model review.",
+  "key_values": {
+    "mean_score_2022": 706.7,
+    "mean_score_2024": 601.1,
+    "std_score_2022": 43.8,
+    "std_score_2024": 28.7,
+    "ks_statistic": 0.952,
+    "ks_p_value": 0.000001,
+    "psi": 0.43,
+    "pct_outside_2022_range": 0.533,
+    "drift_flagged": true
+  },
+  "required_keywords": ["KS test", "PSI", "distribution shift", "credit score", "drift", "Population Stability Index"],
+  "partial_credit_rubric": {
+    "ks_test_run": {"weight": 0.30, "description": "KS test correctly applied and statistic/p-value reported"},
+    "psi_computed": {"weight": 0.35, "description": "PSI correctly computed using 10-bin approach"},
+    "descriptive_stats": {"weight": 0.20, "description": "Mean and standard deviation shift quantified for both cohorts"},
+    "drift_flag": {"weight": 0.15, "description": "Drift flag correctly raised based on PSI and KS thresholds"}
+  }
+}

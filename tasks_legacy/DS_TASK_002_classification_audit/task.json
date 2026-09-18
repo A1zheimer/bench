@@ -1,0 +1,20 @@
+{
+  "instance_id": "DS_TASK_002",
+  "task_metadata": {
+    "domain": "Finance",
+    "difficulty": "Medium",
+    "tags": ["classification", "fairness", "audit", "disparate-impact"]
+  },
+  "context": {
+    "problem_statement": "Audit a loan approval classifier for demographic bias. Compute the disparate impact ratio across gender groups (Male vs Female). Flag the model if the ratio falls below 0.8 (four-fifths rule). Report approval rates per group and the overall disparate impact ratio.",
+    "dataset_preview": "data/audit_preview.csv",
+    "expert_knowledge": "Disparate impact ratio = min_group_approval_rate / max_group_approval_rate. Four-fifths rule threshold: ratio < 0.8 indicates potential discrimination. Compute approval rates by grouping on the 'gender' column and averaging the 'approved' column."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 10,
+    "budget": 1.0,
+    "timeout_seconds": 180,
+    "allowed_tools": ["python_repl", "file_read"]
+  }
+}

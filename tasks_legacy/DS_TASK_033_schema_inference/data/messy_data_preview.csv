@@ -1,0 +1,11 @@
+id,name,age,email,signup_date,revenue,is_active,tags,phone
+1,Alice Johnson,29,alice@mail.com,2023-01-15,1250.50,true,["vip","premium"],+1-555-0101
+2,Bob Smith,not_available,bob@mail.com,15/01/2023,842.00,1,["standard"],555-0102
+3,Carol,45,carol@mail.com,2023-03-22,,"false",["budget","new"],+1.555.0103
+4,David Lee,31,davidlee@email.com,2023-04-01,3150.75,True,["vip"],5550104
+5,Eve,28,eve@mail.com,April 5 2023,625.30,yes,,[555] 0105
+6,Frank Wu,55,frank@mail.com,2023-05-10,9999999.99,false,["premium","loyal"],+1-555-0106
+7,Grace Kim,N/A,grace@mail.com,2023-06-15,1480.20,TRUE,["standard"],
+8,Hank,38,hank@mail.com,2023-07-04,2340.00,0,["vip","standard"],+1-555-0108
+9,Iris Patel,42,,2023-08-19,875.60,true,["new"],+1-555-0109
+10,Jake Brown,33,jake@mail.com,2023/09/30,1920.40,false,,+1-555-0110

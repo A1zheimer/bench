@@ -1,0 +1,32 @@
+{
+  "instance_id": "DS_TASK_068",
+  "task_metadata": {
+    "domain": "ECommerce",
+    "difficulty": "Medium",
+    "tags": [
+      "seasonal-decomposition",
+      "time-series",
+      "missing-values",
+      "data-cleaning"
+    ],
+    "contamination_risk": "low",
+    "canary_value": 8.9036
+  },
+  "context": {
+    "problem_statement": "Given the transformed dataset of eCommerce transactions, perform a seasonal decomposition of the monthly revenue time series. Identify the seasonal component and trend in the revenue data, and handle any missing values or anomalies such as the canary value. Compute and report the average monthly revenue after adjusting for seasonal effects and the maximum seasonal effect observed. Ensure that the analysis correctly handles the injected canary value and missing data.",
+    "dataset_preview": "data/dataset.csv",
+    "expert_knowledge": "Seasonal decomposition involves breaking down a time series into seasonal, trend, and residual components. In eCommerce, this is useful for understanding revenue patterns over time, like identifying seasonal peaks and trends."
+  },
+  "environment_config": {
+    "image": "ds-agent-v1:latest",
+    "max_steps": 20,
+    "budget": 1.5,
+    "timeout_seconds": 180,
+    "allowed_tools": [
+      "python_repl",
+      "file_read",
+      "web_search"
+    ]
+  },
+  "max_steps": 20
+}
